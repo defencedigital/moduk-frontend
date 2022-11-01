@@ -1,0 +1,63 @@
+name: Lint and test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  lint-code:
+    name: Lint code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check formatting
+        run: npm run format:check
+
+  lint-commit-messages:
+    name: Lint commit messages
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Lint commit messages
+        run: |
+          npm exec --no -- commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+
+      - name: Check for fixup! commits
+        shell: bash
+        run: |
+          if [[ $(git log --pretty=oneline --grep=^fixup! ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}) ]]; then
+            echo "fixup! commits found. Squash these before merging."
+            exit 1
+          fi
+
+  audit-dependencies:
+    name: Audit dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Run audit
+        run: npm audit
