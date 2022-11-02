@@ -1,0 +1,56 @@
+{
+  "name": "moduk-frontend",
+  "version": "0.1.0",
+  "description": "The MOD.UK Frontend contains the code you need to start building a user interface for Ministry of Defence platforms and services.",
+  "main": "dist/index.js",
+  "scripts": {
+    "format": "dprint fmt",
+    "format:check": "dprint check",
+    "lint": "eslint --ext .js --ext .ts --max-warnings 0 .",
+    "test": "echo \"TODO\"",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/defencedigital/moduk-frontend.git"
+  },
+  "keywords": [
+    "moduk",
+    "mod",
+    "frontend",
+    "design",
+    "system"
+  ],
+  "author": "MOD.UK Design System Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/defencedigital/moduk-frontend/issues"
+  },
+  "homepage": "https://github.com/defencedigital/moduk-frontend#readme",
+  "engines": {
+    "node": "^16.13.0 || ^18.12.0",
+    "npm": ">=8.15.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "dprint": "^0.32.2",
+    "eslint": "^8.26.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "typescript": "^4.8.4"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --max-warnings 0",
+      "dprint fmt"
+    ],
+    "*.{md,yaml,yml}": [
+      "dprint fmt"
+    ]
+  }
+}
