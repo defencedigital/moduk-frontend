@@ -4,10 +4,13 @@
   "description": "The MOD.UK Frontend contains the code you need to start building a user interface for Ministry of Defence platforms and services.",
   "main": "dist/index.js",
   "scripts": {
+    "build": "npm run build:css",
+    "build:css": "sass --load-path=node_modules --quiet-deps src/css/index.scss dist/index.css",
     "format": "dprint fmt",
     "format:check": "dprint check",
     "lint": "eslint --ext .js --ext .ts --max-warnings 0 .",
-    "test": "echo \"TODO\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "prepare": "husky install"
   },
   "repository": {
@@ -34,6 +37,9 @@
   "devDependencies": {
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
+    "@testing-library/dom": "^8.19.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@types/nunjucks": "^3.2.1",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
     "dprint": "^0.32.2",
@@ -41,9 +47,13 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-import": "^2.26.0",
+    "happy-dom": "^7.6.6",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "typescript": "^4.8.4"
+    "sass": "^1.56.0",
+    "typescript": "^4.8.4",
+    "vite": "^3.2.2",
+    "vitest": "^0.24.5"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -53,5 +63,11 @@
     "*.{md,yaml,yml}": [
       "dprint fmt"
     ]
+  },
+  "dependencies": {
+    "govuk-frontend": "^4.3.1"
+  },
+  "peerDependencies": {
+    "nunjucks": "^3.2.3"
   }
 }
