@@ -32,6 +32,15 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'import/no-extraneous-dependencies': ['error', {
+      devDependencies: [
+        '**/__tests__/**',
+        '**/__mocks__/**',
+        '**/.eslintrc.js',
+        '**/vitest.config.ts',
+      ],
+      optionalDependencies: false,
+    }],
     'import/prefer-default-export': 'off',
     indent: 'off',
     'object-curly-newline': 'off',
