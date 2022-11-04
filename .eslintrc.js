@@ -18,6 +18,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'eol-last': 'off',
     semi: ['error', 'never'],
     'implicit-arrow-linebreak': 'off',
     'import/extensions': [
@@ -31,6 +32,9 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'import/prefer-default-export': 'off',
+    indent: 'off',
+    'object-curly-newline': 'off',
   },
   settings: {
     'import/parsers': {
