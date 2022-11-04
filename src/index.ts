@@ -1,5 +1,5 @@
 import { Environment } from 'nunjucks'
-import path from 'path'
+import * as path from 'path'
 
 export function getNunjucksPaths() {
   const govukFrontendPath = path.dirname(path.dirname(require.resolve('govuk-frontend')))

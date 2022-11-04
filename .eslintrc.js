@@ -34,8 +34,11 @@ module.exports = {
     ],
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: [
+        'playwright.config.ts',
+        'serve.ts',
         '**/__tests__/**',
         '**/__mocks__/**',
+        '**/*.spec.ts',
         '**/.eslintrc.js',
         '**/vitest.config.ts',
       ],
