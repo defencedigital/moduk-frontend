@@ -1,5 +1,5 @@
 import { configure, ConfigureOptions, Environment } from 'nunjucks'
-import { dirname } from 'path'
+import { dirname, join } from 'path'
 
 /**
  * Get the template paths that should be specified when manually creating a new
@@ -8,7 +8,7 @@ import { dirname } from 'path'
 export function getNunjucksPaths() {
   const govukFrontendPath = dirname(dirname(require.resolve('govuk-frontend')))
   return [
-    `${__dirname}/nunjucks`,
+    join(__dirname, 'nunjucks'),
     govukFrontendPath,
   ]
 }
