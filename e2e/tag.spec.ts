@@ -13,7 +13,7 @@ test.describe('Tag, default', () => {
     await expect(page).toHaveNoViolations()
   })
 
-  test('matches the snapshot', async ({ page }) => {
+  test('matches the snapshot @visual-regression', async ({ page }) => {
     await expect(page).toHaveScreenshot()
   })
 })

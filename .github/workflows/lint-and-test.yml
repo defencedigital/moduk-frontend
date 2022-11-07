@@ -49,6 +49,34 @@ jobs:
             exit 1
           fi
 
+  test-e2e:
+    name: Run e2e tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Run e2e tests
+        run: npm run test:e2e
+
+  test-visual-regression:
+    name: Run visual regression tests
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.27.1
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Run visual regression tests
+        run: npm run test:visual
+
   audit-dependencies:
     name: Audit dependencies
     runs-on: ubuntu-latest

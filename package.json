@@ -11,7 +11,9 @@
     "lint": "eslint --ext .js --ext .ts --max-warnings 0 .",
     "serve": "nodemon examples-server/serve.ts",
     "test": "vitest run",
-    "test:e2e": "npm run build && playwright test",
+    "test:e2e": "npm run build && playwright test --grep-invert @visual-regression",
+    "test:visual": "podman run --rm -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.27.1 npm install && npm exec --no -- playwright test --grep @visual-regression",
+    "test:visual:accept": "npm run test:visual -- --update-snapshots",
     "test:watch": "vitest",
     "prepare": "husky install"
   },
