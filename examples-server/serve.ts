@@ -3,7 +3,8 @@ import fastify from 'fastify'
 import * as fs from 'node:fs'
 import * as nunjucks from 'nunjucks'
 
-import { addModukFilter, getNunjucksPaths } from './src'
+import { addModukFilter, getNunjucksPaths } from '../src'
+import { findExamples } from '../src/test-utils'
 
 const server = fastify()
 
@@ -12,18 +13,21 @@ server.get<{ Params: { component: string; example: string } }>(
   {
     handler: async (request, reply) => {
       const { component, example } = request.params
-      const templateString = await fs.promises.readFile(
-        `./src/nunjucks/moduk/components/${component}/__examples__/${example}.njk`,
-        'utf8',
+      const env = nunjucks.configure(
+        [
+          ...getNunjucksPaths(),
+          `${__dirname}/templates`,
+        ],
       )
-      const env = nunjucks.configure(getNunjucksPaths())
       addModukFilter(env)
-      const renderedTemplate = env.renderString(templateString, {})
 
-      reply.type('text/html')
+      reply.type('text/html; charset=utf-8')
 
-      return `<!DOCTYPE html><html lang="en"><head><title>${example} – ${component}</title><link href="/index.css" rel="stylesheet">
-</head><body><div id="root">${renderedTemplate}</div></body></html>`
+      return env.render('example.njk', {
+        component,
+        example,
+        template: `moduk/components/${component}/__examples__/${example}.njk`,
+      })
     },
     schema: {
       params: {
@@ -45,7 +49,15 @@ server.get('/index.css', async (request, reply) => {
   return fs.promises.readFile('dist/index.css')
 })
 
-server.get('/', async () => 'Hello')
+server.get('/', async (request, reply) => {
+  reply.type('text/html; charset=utf-8')
+
+  const examples = findExamples()
+  return nunjucks.render(
+    `${__dirname}/templates/index.njk`,
+    { examples },
+  )
+})
 
 server.listen({ port: 8080 }, (err, address) => {
   if (err) {
