@@ -8,6 +8,46 @@ This library is currently under development and is not yet ready for use.
 The library contains a library of [Nunjucks](https://www.typescriptlang.org)
 components, a CSS stylesheet and a client-side JavaScript library.
 
+## Usage
+
+### Importing Nunjucks configuration helpers
+
+```typescript
+import { createNunjucksEnvironment /* ... */ } from 'moduk-frontend'
+```
+
+### Importing the client-side library
+
+If you’re using Webpack 5 or a similar bundler, the client-side library can be
+imported from `moduk-frontend/client`:
+
+```javascript
+import { initAll } from 'moduk-frontend/client'
+
+initAll()
+```
+
+In older environments, you may need to import the client-side library from
+`moduk-frontend/dist/client/MODUK.umd.js`.
+
+### Importing the CSS
+
+#### Using Sass
+
+Dart Sass is required.
+
+You should ensure `node_modules` is resolvable by Sass. If using the `sass` CLI
+you can pass `--load-path=node_modules` to achieve this.
+
+```sass
+@use 'moduk-frontend/src/css';
+```
+
+#### Without Sass
+
+If you aren’t using Sass, a compiled version of the CSS can be found at
+`node_modules/moduk-frontend/dist/css/index.css`.
+
 ## Development
 
 The library uses [TypeScript](https://www.typescriptlang.org),
@@ -72,6 +112,12 @@ npm run lint
 
 ```shell
 npm run format
+```
+
+#### Build the library ready for publishing
+
+```shell
+npm run build
 ```
 
 #### Run all unit tests

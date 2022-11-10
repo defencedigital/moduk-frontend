@@ -44,6 +44,7 @@ module.exports = {
         '**/__mocks__/**',
         '**/*.spec.ts',
         '**/.eslintrc.js',
+        '**/vite.config.ts',
         '**/vitest.config.ts',
       ],
       optionalDependencies: false,
