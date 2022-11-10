@@ -49,6 +49,19 @@ jobs:
             exit 1
           fi
 
+  test-unit:
+    name: Run unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Run unit tests
+        run: npm run test
+
   audit-dependencies:
     name: Audit dependencies
     runs-on: ubuntu-latest

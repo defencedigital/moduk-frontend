@@ -1,0 +1,11 @@
+$moduk-brand-colour: #532a45 !default;
+$moduk-font-family: 'Hevetica Neue', 'Arial', 'sans-serif' !default;
+
+@use 'govuk-frontend/govuk/all' with (
+  $govuk-brand-colour: $moduk-brand-colour,
+  $govuk-font-family: $moduk-font-family
+);
+
+.moduk.govuk-tag {
+  background-color: $moduk-brand-colour;
+}
