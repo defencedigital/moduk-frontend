@@ -1,0 +1,6 @@
+@forward '../variables';
+@use '../variables';
+
+.moduk.govuk-tag {
+  background-color: variables.$moduk-brand-colour;
+}
