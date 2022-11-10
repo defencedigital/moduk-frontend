@@ -62,6 +62,66 @@ jobs:
       - name: Run unit tests
         run: npm run test
 
+  read-playwright-version:
+    name: Read Playwright version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.read-version.outputs.version }}
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v3
+
+      - id: read-version
+        name: Read Playwright version
+        run: |
+          echo "version=$(scripts/get-playwright-version.sh)" >> "$GITHUB_OUTPUT"
+
+  test-e2e:
+    name: Run e2e tests
+    runs-on: ubuntu-latest
+    needs:
+      - read-playwright-version
+    container:
+      image: mcr.microsoft.com/playwright:${{ needs.read-playwright-version.outputs.version }}
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Run e2e tests
+        run: npm run test:e2e
+
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: e2e-test-results
+          path: e2e-output
+
+  test-visual-regression:
+    name: Run visual regression tests
+    runs-on: ubuntu-latest
+    needs:
+      - read-playwright-version
+    container:
+      image: mcr.microsoft.com/playwright:${{ needs.read-playwright-version.outputs.version }}
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Run visual regression tests
+        run: npm run test:visual:native
+
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: visual-regression-test-results
+          path: e2e-output
+
   audit-dependencies:
     name: Audit dependencies
     runs-on: ubuntu-latest

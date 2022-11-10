@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Examples – MOD.UK Frontend</title>
+  <link href="/index.css" rel="stylesheet">
+</head>
+<body>
+  {% for component, exampleNames in examples %}
+  <h2 class="govuk-heading-m">{{ component }}</h2>
+  <ul class="govuk-list govuk-list--bullet">
+  {% for exampleName in exampleNames %}
+    <li>
+      <a class="govuk-link" href="/components/{{ component }}/{{ exampleName }}">
+        {{ exampleName }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+  {% endfor %}
+</body>
+</html>
