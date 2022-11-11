@@ -104,3 +104,6 @@ dist
 .tern-port
 
 /e2e-output/
+
+# Editor configs 
+.vscode/
