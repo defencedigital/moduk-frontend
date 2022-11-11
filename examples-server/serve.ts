@@ -5,7 +5,7 @@ import fastify from 'fastify'
 import nunjucks, { Environment } from 'nunjucks'
 import path from 'path'
 
-import { addMODUKFilter, getNunjucksPaths } from '../src'
+import { addMODUKFilters, getNunjucksPaths } from '../src'
 import { findExamples } from '../src/test-utils'
 
 const server = fastify()
@@ -22,7 +22,7 @@ server.register(fastifyView, {
   ] as unknown as string,
   options: {
     onConfigure: (env: Environment) => {
-      addMODUKFilter(env)
+      addMODUKFilters(env)
     },
   },
 })

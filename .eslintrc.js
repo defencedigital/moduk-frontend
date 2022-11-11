@@ -18,7 +18,9 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'comma-dangle': 'off',
     'eol-last': 'off',
+    'function-paren-newline': 'off',
     semi: ['error', 'never'],
     'implicit-arrow-linebreak': 'off',
     'import/extensions': [
