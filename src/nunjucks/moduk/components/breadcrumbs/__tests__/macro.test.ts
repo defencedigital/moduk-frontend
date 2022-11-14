@@ -18,14 +18,14 @@ describe('Breadcrumbs', async () => {
         href: '#',
       },
     ]
-    const element = render(`
+    expect(() =>
+      render(`
 {%- from "moduk/components/breadcrumbs/macro.njk" import modukBreadcrumbs -%}
 
 {{ modukBreadcrumbs({
   items: ${JSON.stringify(items)}
 }) }}
 `)
-
-    expect(element).toHaveClass('moduk')
+    ).not.toThrowError()
   })
 })

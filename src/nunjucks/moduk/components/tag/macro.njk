@@ -1,5 +1,5 @@
 {%- from "govuk/components/tag/macro.njk" import govukTag -%}
 
 {% macro modukTag(params) %}
-  {{ govukTag(params | addMODUKClass) }}
+  {{ govukTag(params | addCustomMODUKClass("moduk-tag--default", { not: r/^govuk-tag--/ })) }}
 {% endmacro %}

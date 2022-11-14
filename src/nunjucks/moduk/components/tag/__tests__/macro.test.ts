@@ -8,11 +8,25 @@ describe('Tag', async () => {
 {%- from "moduk/components/tag/macro.njk" import modukTag -%}
 
 {{ modukTag({
-  text: "completed"
+  text: "Completed"
 }) }}
 `)
 
-    expect(element).toHaveClass('moduk')
-    expect(element).toHaveTextContent('completed')
+    expect(element).toHaveClass('moduk-tag--default')
+    expect(element).toHaveTextContent('Completed')
+  })
+
+  it('adds a modifier CSS class when specified, plus the moduk-revert class', () => {
+    const element = render(`
+{%- from "moduk/components/tag/macro.njk" import modukTag -%}
+
+{{ modukTag({
+  text: "Inactive",
+  classes: "govuk-tag--grey"
+}) }}
+`)
+
+    expect(element).toHaveClass('govuk-tag--grey')
+    expect(element).not.toHaveClass('moduk-tag--default')
   })
 })

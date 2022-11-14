@@ -11,7 +11,11 @@ test.describe('@visual-regression', () => {
           })
 
           test('matches the saved screenshot', async ({ page }) => {
-            await expect(page.locator('#root > *:first-child')).toHaveScreenshot([component, `${exampleName}-.png`], {
+            await expect(page.locator('#root > *:first-child')).toHaveScreenshot([
+              component,
+              exampleName,
+              'screenshot.png',
+            ], {
               scale: 'device',
             })
           })
