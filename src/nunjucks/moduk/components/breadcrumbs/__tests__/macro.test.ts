@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { render } from '../../../../../test-utils'
 
 describe('Breadcrumbs', async () => {
-  it('adds the moduk CSS class and renders the content', () => {
+  it('renders the content', () => {
     const items = [
       {
         text: 'Home',

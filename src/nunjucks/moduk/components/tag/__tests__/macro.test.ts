@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { render } from '../../../../../test-utils'
 
 describe('Tag', async () => {
-  it('adds the moduk CSS class and renders the content', () => {
+  it('adds the moduk-tag--default CSS class and renders the content', () => {
     const element = render(`
 {%- from "moduk/components/tag/macro.njk" import modukTag -%}
 
@@ -16,7 +16,7 @@ describe('Tag', async () => {
     expect(element).toHaveTextContent('Completed')
   })
 
-  it('adds a modifier CSS class when specified, plus the moduk-revert class', () => {
+  it('adds a modifier CSS class when specified and omits moduk-tag--default', () => {
     const element = render(`
 {%- from "moduk/components/tag/macro.njk" import modukTag -%}
 
