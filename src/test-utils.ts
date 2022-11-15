@@ -2,11 +2,11 @@ import glob from 'glob'
 import { basename, dirname } from 'path'
 import { createNunjucksEnvironment } from './index'
 
-export function render(templateString: string, args: Record<string, unknown> = {}): Element {
+export function render(templateString: string, args: Record<string, unknown> = {}): HTMLElement {
   const env = createNunjucksEnvironment()
   document.body.innerHTML = env.renderString(templateString, args)
 
-  if (!document.body.firstElementChild) {
+  if (!(document.body.firstElementChild instanceof HTMLElement)) {
     throw new Error('Failed to render the provided template')
   }
 
