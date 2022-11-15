@@ -37,14 +37,12 @@ module.exports = {
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: [
         'examples-server/**',
+        '*.config.{cjs,js,mjs,ts,mts}',
         'vitest/**',
-        'playwright.config.ts',
         'src/test-utils.ts',
         '**/__tests__/**',
         '**/__mocks__/**',
         '**/*.spec.ts',
-        '**/.eslintrc.js',
-        '**/vitest.config.ts',
       ],
       optionalDependencies: false,
     }],
