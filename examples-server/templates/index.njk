@@ -11,7 +11,7 @@
   {% for exampleName in exampleNames %}
     <li>
       <a class="govuk-link" href="/components/{{ component }}/{{ exampleName }}">
-        {{ exampleName }}
+        {{ exampleName | replace("-", " ") }}
       </a>
     </li>
   {% endfor %}
