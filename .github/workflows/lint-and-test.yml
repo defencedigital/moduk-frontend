@@ -93,7 +93,7 @@ jobs:
       - name: Run e2e tests
         run: npm run test:e2e
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: e2e-test-results
@@ -116,7 +116,7 @@ jobs:
       - name: Run visual regression tests
         run: npm run test:visual:native
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: visual-regression-test-results
