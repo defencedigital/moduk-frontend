@@ -9,6 +9,9 @@ updates:
       - dependencies
     commit-message:
       prefix: 'deps:'
+    reviewers:
+      - adamledwards
+      - jpveooys
 
   - package-ecosystem: github-actions
     directory: /
@@ -18,3 +21,6 @@ updates:
       - ci
     commit-message:
       prefix: 'ci:'
+    reviewers:
+      - adamledwards
+      - jpveooys
