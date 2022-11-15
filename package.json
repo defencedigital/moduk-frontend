@@ -54,7 +54,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@types/glob": "^8.0.0",
     "@types/nunjucks": "^3.2.1",
-    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.42.0",
     "dprint": "^0.32.2",
     "eslint": "^8.27.0",
