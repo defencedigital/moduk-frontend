@@ -4,6 +4,7 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "strict": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "types": ["node"]
+  },
 }
