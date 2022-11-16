@@ -7,3 +7,6 @@ charset = utf-8
 [*.{ts,js}]
 quote_type = single
 
+[*.njk]
+indent_style = space
+indent_size = 2
