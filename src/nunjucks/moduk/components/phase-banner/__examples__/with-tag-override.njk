@@ -1,0 +1,9 @@
+{%- from "moduk/components/phase-banner/macro.njk" import modukPhaseBanner -%}
+
+{{ modukPhaseBanner({
+  tag: {
+    text: "beta",
+    classes: "govuk-tag--grey"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
