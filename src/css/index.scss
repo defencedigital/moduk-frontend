@@ -8,4 +8,5 @@
   $govuk-brand-colour: variables.$moduk-brand-colour
 );
 
+@forward 'components/header';
 @forward 'components/tag';

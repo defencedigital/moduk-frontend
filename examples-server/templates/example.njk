@@ -7,6 +7,9 @@
   <link href="/css/index.css" rel="stylesheet">
 </head>
 <body>
+  <script>
+    document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+  </script>
   <div id="root">
     {% include template %}
   </div>
