@@ -7,11 +7,14 @@ describe('Phase Banner', () => {
     const element = renderFile('moduk/components/phase-banner/__examples__/default.njk')
     expect(element.querySelector('.govuk-tag')).toHaveClass('moduk-tag--default')
     expect(element.querySelector('.govuk-tag')).toHaveTextContent('alpha')
+    expect(element).toHaveClass('custom-class')
+    expect(element).toHaveAttribute('data-testid', 'phase-banner')
   })
 
   it('overrides the tag component class name', () => {
     const element = renderFile('moduk/components/phase-banner/__examples__/with-tag-override.njk')
     expect(element.querySelector('.govuk-tag')).toHaveClass('govuk-tag--grey')
+    expect(element.querySelector('.govuk-tag')).not.toHaveClass('moduk-tag--default')
   })
 
   it('overrides the text', () => {
