@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from '../../../fixtures'
 
 test.describe('header, with service name and no service url', () => {
   test.beforeEach(async ({ page }) => {

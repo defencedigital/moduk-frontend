@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from '../../../fixtures'
 
 test.describe('header, with service name and navigation', () => {
   test.beforeEach(async ({ page }) => {
@@ -45,25 +45,25 @@ test.describe('header, with service name and navigation', () => {
     test.describe('when JavaScript is disabled', () => {
       test.use({ javaScriptEnabled: false })
 
-      test('matches the saved screenshot when the active navigation link is hovered', async ({ page }) => {
+      test('matches the saved screenshot when the active navigation link is hovered', async ({ componentElement, page }) => {
         await page.getByText('Navigation item 1').hover()
 
-        await expect(page.locator('#root > *:first-child')).toHaveScreenshot('navigation-item-1-hover.png')
+        await expect(componentElement).toHaveScreenshot('navigation-item-1-hover.png')
       })
 
-      test('matches the saved screenshot when the second navigation link is hovered', async ({ page }) => {
+      test('matches the saved screenshot when the second navigation link is hovered', async ({ componentElement, page }) => {
         await page.getByText('Navigation item 2').hover()
 
-        await expect(page.locator('#root > *:first-child')).toHaveScreenshot('navigation-item-2-hover.png')
+        await expect(componentElement).toHaveScreenshot('navigation-item-2-hover.png')
       })
     })
 
     test.describe('when JavaScript is enabled', () => {
       test.describe('@mobile', () => {
-        test('matches the saved screenshot when the menu is open', async ({ page }) => {
+        test('matches the saved screenshot when the menu is open', async ({ componentElement, page }) => {
           await page.getByText('Menu').click()
 
-          await expect(page.locator('#root > *:first-child')).toHaveScreenshot('menu-open.png')
+          await expect(componentElement).toHaveScreenshot('menu-open.png')
         })
       })
     })

@@ -36,6 +36,7 @@ module.exports = {
     ],
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: [
+        'e2e/**',
         'examples-server/**',
         '*.config.{cjs,js,mjs,ts,mts}',
         'vitest/**',

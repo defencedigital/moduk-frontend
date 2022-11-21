@@ -1,5 +1,5 @@
-import { expect, test } from '@playwright/test'
 import { findExamples } from '../../src/test-utils'
+import { expect, test } from '../fixtures'
 
 test.describe('@visual-regression', () => {
   findExamples().forEach(([component, exampleNames]) => {
@@ -10,8 +10,8 @@ test.describe('@visual-regression', () => {
             await page.goto(`/components/${component}/${exampleName}`)
           })
 
-          test('matches the saved screenshot', async ({ page }) => {
-            await expect(page.locator('#root > *:first-child')).toHaveScreenshot([
+          test('matches the saved screenshot', async ({ componentElement }) => {
+            await expect(componentElement).toHaveScreenshot([
               component,
               exampleName,
               'screenshot.png',
