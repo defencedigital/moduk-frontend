@@ -87,7 +87,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-import": "^2.26.0",
-    "fastify": "^4.9.2",
+    "fastify": "^4.10.2",
     "glob": "^8.0.3",
     "happy-dom": "^7.7.0",
     "husky": "^8.0.2",
