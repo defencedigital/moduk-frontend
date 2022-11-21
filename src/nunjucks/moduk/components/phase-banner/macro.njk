@@ -1,10 +1,6 @@
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 
 {% macro modukPhaseBanner(params) %}
-  {{ govukPhaseBanner({
-    tag: params.tag | addCustomMODUKClass("moduk-tag--default", { not: r/^govuk-tag--/ }),
-    html: params.html,
-    text: params.text
-  }) }}
+  {{ govukPhaseBanner(params | addCustomMODUKClass("moduk-tag--default", { not: r/^govuk-tag--/, path: "tag.classes" })) }}
 {% endmacro %}
 

@@ -54,4 +54,43 @@ describe('addCustomMODUKClass', () => {
       'matching',
     )
   })
+
+  it('adds the custom class to a path when classes is unset', () => {
+    expect(
+      addCustomMODUKClass({}, 'moduk-custom', { path: 'inner.classes' }),
+    ).toHaveProperty(
+      'inner.classes',
+      'moduk-custom',
+    )
+  })
+
+  it('adds the custom class to a path when classes is set', () => {
+    expect(
+      addCustomMODUKClass({ inner: { classes: 'a-class' } }, 'moduk-custom', { path: 'inner.classes' }),
+    ).toHaveProperty(
+      'inner.classes',
+      'moduk-custom a-class',
+    )
+  })
+
+  it('adds the custom class to a path when there is no matching not class', () => {
+    expect(
+      addCustomMODUKClass({ inner: { classes: 'not-matching' } }, 'moduk-custom', {
+        not: /^match/,
+        path: 'inner.classes',
+      }),
+    ).toHaveProperty(
+      'inner.classes',
+      'moduk-custom not-matching',
+    )
+  })
+
+  it('does not add the custom class to a path when there is a matching not class', () => {
+    expect(
+      addCustomMODUKClass({ inner: { classes: 'matching' } }, 'moduk-custom', { not: /^match/, path: 'inner.classes' }),
+    ).toHaveProperty(
+      'inner.classes',
+      'matching',
+    )
+  })
 })

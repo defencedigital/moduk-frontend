@@ -1,3 +1,4 @@
+import { get, set } from 'lodash'
 import { configure, ConfigureOptions, Environment } from 'nunjucks'
 import { dirname, join } from 'path'
 
@@ -15,20 +16,27 @@ export function getNunjucksPaths() {
 
 type NunjucksFilter = Parameters<Environment['addFilter']>[1]
 
-const addCustomMODUKClass: NunjucksFilter = (params, classToAdd: string, options?: { not?: RegExp | string }) => {
-  const classes: string[] = (params.classes ?? '').split(' ')
+const addCustomMODUKClass: NunjucksFilter = (
+  params,
+  classToAdd: string,
+  options?: { not?: RegExp | string; path?: string },
+) => {
+  const propertyPath = options?.path ?? 'classes'
+  const classesFromPath = get(params, propertyPath, '')
+
+  const classes: string[] = classesFromPath.split(' ')
   const notRegex = options?.not
 
   const hasNotClass = notRegex && classes.some((className) => className.trim().match(notRegex))
-
   if (hasNotClass) {
     return params
   }
 
-  return {
-    ...params,
-    classes: params.classes ? `${classToAdd} ${params.classes}` : `${classToAdd}`,
-  }
+  return set(
+    { ...params },
+    propertyPath,
+    classesFromPath ? `${classToAdd} ${classesFromPath}` : `${classToAdd}`,
+  )
 }
 
 /**
