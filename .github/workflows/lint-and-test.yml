@@ -83,6 +83,7 @@ jobs:
       - read-playwright-version
     container:
       image: mcr.microsoft.com/playwright:${{ needs.read-playwright-version.outputs.version }}
+      options: --user 1001
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
@@ -97,7 +98,7 @@ jobs:
         if: always()
         with:
           name: e2e-test-results
-          path: e2e-output
+          path: e2e/output
 
   test-visual-regression:
     name: Run visual regression tests
@@ -106,6 +107,7 @@ jobs:
       - read-playwright-version
     container:
       image: mcr.microsoft.com/playwright:${{ needs.read-playwright-version.outputs.version }}
+      options: --user 1001
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
@@ -120,7 +122,7 @@ jobs:
         if: always()
         with:
           name: visual-regression-test-results
-          path: e2e-output
+          path: e2e/output
 
   audit-dependencies:
     name: Audit dependencies

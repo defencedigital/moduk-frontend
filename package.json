@@ -38,7 +38,7 @@
     "serve:no-reload": "ts-node examples-server/serve.ts",
     "test": "vitest run",
     "test:e2e": "npm run build && playwright test --grep-invert @visual-regression",
-    "test:e2e:show-report": "playwright show-report e2e-output/html",
+    "test:e2e:show-report": "playwright show-report e2e/output/html",
     "test:e2e:trace": "npm run test:e2e -- --trace retain-on-failure",
     "test:visual": "scripts/run-playwright-container.sh bash -c 'npm install && npm run test:visual:native'",
     "test:visual:native": "npm run build && playwright test --grep @visual-regression",
