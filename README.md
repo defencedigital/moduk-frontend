@@ -161,8 +161,23 @@ To run the visual regression tests:
 npm run test:visual
 ```
 
+This will also generate any missing screenshots.
+
 #### Update visual regression snapshots
+
+To update any screenshots that have changed:
 
 ```shell
 npm run test:visual:refresh
 ```
+
+#### Delete all visual regression snapshots
+
+To delete all existing screenshots:
+
+```shell
+npm run test:visual:clean
+```
+
+This can be useful after renaming or deleting visual regression tests or
+component examples.
