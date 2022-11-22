@@ -1,0 +1,31 @@
+{% from "moduk/components/button/macro.njk" import modukButton %}
+
+
+<form id="testForm">
+  {{ modukButton({
+    text: "Confirm and send",
+    preventDoubleClick: true
+  }) }}
+</form>
+
+<div class="govuk-body" data-testid="submitCountDisplay"></div>
+<div class="govuk-body" data-testid="buttonCountDisplay"></div>
+
+<script>
+  var submitCount = 0
+  var buttonCount = 0
+  
+  var submitCountDisplay = document.querySelector('[data-testid="submitCountDisplay"]')
+  var buttonCountDisplay = document.querySelector('[data-testid="buttonCountDisplay"]')
+
+  document.getElementById('testForm').addEventListener('click', function () {
+    buttonCount += 1
+    buttonCountDisplay.innerText = 'Button click count ' + buttonCount;
+  })
+  
+  document.getElementById('testForm').addEventListener('submit', function (event) {
+    event.preventDefault()
+    submitCount += 1
+    submitCountDisplay.innerText = 'Form submit count ' + submitCount;
+  })
+</script>
