@@ -15,9 +15,7 @@ test.describe('@visual-regression', () => {
               component,
               exampleName,
               'screenshot.png',
-            ], {
-              scale: 'device',
-            })
+            ])
           })
         })
       })

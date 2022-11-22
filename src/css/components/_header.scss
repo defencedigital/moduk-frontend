@@ -1,0 +1,37 @@
+@forward '../variables';
+@use '../variables';
+
+@use 'govuk-frontend/govuk/base';
+
+.moduk-header__logo {
+  .govuk-header__link {
+    display: inline-block;
+  }
+
+  .govuk-header__link:active,
+  .govuk-header__link:hover {
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.moduk-header__logotype-modlogo {
+  position: relative;
+  margin-right: 1px;
+  fill: currentcolor;
+  vertical-align: top;
+}
+
+.moduk-header__navigation-item--active.govuk-header__navigation-item--active {
+  a:link,
+  a:hover,
+  a:active {
+    color: variables.$moduk-header-link-active;
+  }
+}
+
+.moduk-header__service-name.govuk-header__service-name {
+  @include base.govuk-media-query($from: desktop) {
+    margin-top: 7px;
+  }
+}

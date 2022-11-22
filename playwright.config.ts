@@ -35,6 +35,9 @@ const config: PlaywrightTestConfig = {
   timeout: 30 * 1000,
   expect: {
     timeout: 5000,
+    toHaveScreenshot: {
+      scale: 'device',
+    },
   },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -56,24 +59,28 @@ const config: PlaywrightTestConfig = {
   projects: [
     {
       name: 'chromium',
+      grepInvert: /@mobile/,
       use: {
         ...devices['Desktop Chrome'],
       },
     },
     {
       name: 'firefox',
+      grepInvert: /@mobile/,
       use: {
         ...devices['Desktop Firefox'],
       },
     },
     {
       name: 'mobile-chrome',
+      grepInvert: /@desktop/,
       use: {
         ...devices['Pixel 5'],
       },
     },
     {
       name: 'mobile-safari',
+      grepInvert: /@desktop/,
       use: {
         ...devices['iPhone 12'],
       },
