@@ -1,0 +1,22 @@
+{% from "moduk/components/pagination/macro.njk" import modukPagination %}
+
+{{ modukPagination({
+  previous: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      current: true,
+      href: "#"
+    }
+  ]
+}) }}
