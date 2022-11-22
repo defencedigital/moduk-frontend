@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from '../../../fixtures'
 
 test.describe('cookie banner, rejected', () => {
   test.beforeEach(async ({ page }) => {

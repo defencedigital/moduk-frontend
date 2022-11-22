@@ -103,7 +103,7 @@ dist
 # TernJS port file
 .tern-port
 
-/e2e-output/
+/e2e/output/
 
 # Editor configs 
 .vscode/

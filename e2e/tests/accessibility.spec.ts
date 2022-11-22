@@ -1,5 +1,5 @@
-import { expect, test } from '@playwright/test'
-import { findExamples } from '../src/test-utils'
+import { findExamples } from '../../src/test-utils'
+import { expect, test } from '../fixtures'
 
 test.describe('@accessibility', () => {
   findExamples().forEach(([component, exampleNames]) => {

@@ -46,7 +46,7 @@ const config: PlaywrightTestConfig = {
   workers: process.env.CI ? 2 : undefined,
   reporter: [
     [process.env.CI ? 'github' : 'line'],
-    ['html', { outputFolder: './e2e-output/html/', open: 'never' }],
+    ['html', { outputFolder: './e2e/output/html/', open: 'never' }],
   ],
   use: {
     baseURL: 'http://localhost:8080',
@@ -86,7 +86,7 @@ const config: PlaywrightTestConfig = {
       },
     },
   ],
-  outputDir: 'e2e-output/artefacts/',
+  outputDir: 'e2e/output/artefacts/',
   webServer: {
     command: 'npm run serve:no-reload',
     url: 'http://localhost:8080',

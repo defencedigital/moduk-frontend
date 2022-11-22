@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from '../../../fixtures'
 
 test.describe('header, with service name', () => {
   test.beforeEach(async ({ page }) => {
@@ -14,10 +14,10 @@ test.describe('header, with service name', () => {
   })
 
   test.describe('@visual-regression', () => {
-    test('matches the saved screenshot when the service name is hovered', async ({ page }) => {
+    test('matches the saved screenshot when the service name is hovered', async ({ page, componentElement }) => {
       await page.getByText('Service name').hover()
 
-      await expect(page.locator('#root > *:first-child')).toHaveScreenshot('service-name-hover.png')
+      await expect(componentElement).toHaveScreenshot('service-name-hover.png')
     })
   })
 })
