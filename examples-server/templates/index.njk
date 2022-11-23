@@ -8,7 +8,7 @@
 </head>
 <body>
   {% for component, exampleNames in examples %}
-  <h2 class="govuk-heading-m">{{ component }}</h2>
+  <h2 class="govuk-heading-m">{{ component | replace("-", " ") }}</h2>
   <ul class="govuk-list govuk-list--bullet">
   {% for exampleName in exampleNames %}
     <li>
