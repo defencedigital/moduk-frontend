@@ -1,0 +1,37 @@
+{% from "moduk/components/checkboxes/macro.njk" import modukCheckboxes %}
+
+{{ modukCheckboxes({
+  name: "technologies",
+  fieldset: {
+    legend: {
+      text: "Which technologies do you use in your role?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "angular",
+      text: "Angular"
+    },
+    {
+      value: "nunjucks",
+      text: "Nunjucks"
+    },
+    {
+      value: "react",
+      text: "React"
+    },
+    {
+      value: "web-components",
+      text: "Web components"
+    },
+    {
+      value: "another-technology",
+      text: "Another technology"
+    }
+  ]
+}) }}
