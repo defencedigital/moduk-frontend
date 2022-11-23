@@ -1,0 +1,12 @@
+{% from "moduk/components/button/macro.njk" import modukButton %}
+
+<div class="govuk-button-group">
+  {{ modukButton({
+    text: "Save and continue"
+  }) }}
+
+  {{ modukButton({
+    text: "Save as draft",
+    classes: "govuk-button--secondary"
+  }) }}
+</div>
