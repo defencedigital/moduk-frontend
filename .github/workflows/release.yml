@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: 'Release type'
+        required: true
+        default: alpha
+        type: choice
+        options:
+          - alpha
+          - stable
+
+jobs:
+  lint-and-test:
+    name: Lint and test
+    uses: ./.github/workflows/lint-and-test.yml
+
+  release:
+    name: Release
+    runs-on: ubuntu-22.04
+    needs:
+      - lint-and-test
+    steps:
+      - name: Fail if not on main branch
+        if: github.ref != 'refs/heads/main'
+        run: |
+          echo "Releases must be performed from the main branch."
+          exit 1
+
+      - name: Git clone repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Configure Git user
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+      - name: Release
+        run: npm run release:${{ inputs.release-type || 'alpha' }} -- --npm.skipChecks
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

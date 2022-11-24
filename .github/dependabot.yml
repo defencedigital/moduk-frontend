@@ -9,6 +9,7 @@ updates:
       - dependencies
     commit-message:
       prefix: 'deps:'
+      prefix-development: 'deps-dev:'
 
   - package-ecosystem: github-actions
     directory: /
