@@ -13,22 +13,22 @@ components, a CSS stylesheet and a client-side JavaScript library.
 ### Importing Nunjucks configuration helpers
 
 ```typescript
-import { createNunjucksEnvironment /* ... */ } from 'moduk-frontend'
+import { createNunjucksEnvironment /* ... */ } from '@moduk/frontend'
 ```
 
 ### Importing the client-side library
 
 If you’re using Webpack 5 or a similar bundler, the client-side library can be
-imported from `moduk-frontend/client`:
+imported from `@moduk/frontend/client`:
 
 ```javascript
-import { initAll } from 'moduk-frontend/client'
+import { initAll } from '@moduk/frontend/client'
 
 initAll()
 ```
 
 In older environments, you may need to import the client-side library from
-`moduk-frontend/dist/client/MODUK.umd.js`.
+`@moduk/frontend/dist/client/MODUK.umd.js`.
 
 ### Importing the CSS
 
@@ -39,14 +39,14 @@ Dart Sass is required.
 You should ensure `node_modules` is resolvable by Sass. If using the `sass` CLI
 you can pass `--load-path=node_modules` to achieve this.
 
-```sass
-@use 'moduk-frontend/src/css';
+```scss
+@use '@moduk/frontend/src/css';
 ```
 
 #### Without Sass
 
 If you aren’t using Sass, a compiled version of the CSS can be found at
-`node_modules/moduk-frontend/dist/css/index.css`.
+`node_modules/@moduk/frontend/dist/css/index.css`.
 
 ## Development
 
