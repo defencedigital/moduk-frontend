@@ -4,9 +4,11 @@ import { devices, expect, Page, PlaywrightTestConfig } from '@playwright/test'
 expect.extend({
   toHaveNoViolations: async (
     page: Page,
+    disabledRules?: string[],
   ) => {
     const axeResults = await new AxeBuilder({ page })
       .include('#root')
+      .disableRules(disabledRules ?? [])
       .analyze()
 
     const pass = axeResults.violations.length === 0
