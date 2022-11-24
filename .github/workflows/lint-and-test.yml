@@ -10,7 +10,7 @@ on:
 jobs:
   lint-code:
     name: Lint code
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
@@ -26,7 +26,7 @@ jobs:
 
   lint-commit-messages:
     name: Lint commit messages
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - name: Git clone repository
@@ -43,7 +43,7 @@ jobs:
 
   check-for-fixup-commits:
     name: Check for fixup! commits
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - name: Git clone repository
@@ -61,7 +61,7 @@ jobs:
 
   test-unit:
     name: Run unit tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
@@ -74,7 +74,7 @@ jobs:
 
   read-playwright-version:
     name: Read Playwright version
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       version: ${{ steps.read-version.outputs.version }}
     steps:
@@ -88,11 +88,11 @@ jobs:
 
   test-e2e:
     name: Run e2e tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs:
       - read-playwright-version
     container:
-      image: mcr.microsoft.com/playwright:${{ needs.read-playwright-version.outputs.version }}
+      image: mcr.microsoft.com/playwright:${{ needs.read-playwright-version.outputs.version }}-jammy
       options: --user 1001
     steps:
       - name: Git clone repository
@@ -112,11 +112,11 @@ jobs:
 
   test-visual-regression:
     name: Run visual regression tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs:
       - read-playwright-version
     container:
-      image: mcr.microsoft.com/playwright:${{ needs.read-playwright-version.outputs.version }}
+      image: mcr.microsoft.com/playwright:${{ needs.read-playwright-version.outputs.version }}-jammy
       options: --user 1001
     steps:
       - name: Git clone repository
@@ -136,7 +136,7 @@ jobs:
 
   audit-dependencies:
     name: Audit dependencies
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
