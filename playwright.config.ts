@@ -31,7 +31,7 @@ expect.extend({
 })
 
 const config: PlaywrightTestConfig = {
-  testDir: './e2e',
+  testDir: './e2e/tests',
   timeout: 30 * 1000,
   expect: {
     timeout: 5000,
