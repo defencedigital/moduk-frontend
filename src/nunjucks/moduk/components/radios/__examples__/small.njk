@@ -1,0 +1,31 @@
+{% from "moduk/components/radios/macro.njk" import modukRadios %}
+
+{{ modukRadios({
+  name: "organisation",
+  classes: "govuk-radios--small",
+  fieldset: {
+    legend: {
+      text: "Organisation",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "royal-navy",
+      text: "Royal Navy"
+    },
+    {
+      value: "british-army",
+      text: "British Army"
+    },
+    {
+      value: "royal-air-force",
+      text: "Royal Air Force"
+    },
+    {
+      value: "strategic-command",
+      text: "Strategic Command"
+    }
+  ]
+}) }}

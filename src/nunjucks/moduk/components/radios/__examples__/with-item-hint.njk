@@ -1,0 +1,31 @@
+{% from "moduk/components/radios/macro.njk" import modukRadios %}
+
+{{ modukRadios({
+  name: "sign-on",
+  fieldset: {
+    legend: {
+      text: "Sign on",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "You need an account to use this service."
+  },
+  items: [
+    {
+      value: "biometric",
+      text: "Sign on with USB security key",
+      hint: {
+        text: "You will need USB secuirty key."
+      }
+    },
+    {
+      value: "userpass",
+      text: "Sign on with username and password",
+      hint: {
+        text: "You will need 2FA enabled."
+      }
+    }
+  ]
+}) }}

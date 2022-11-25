@@ -107,3 +107,6 @@ dist
 
 # Editor configs 
 .vscode/
+
+# MacOS
+.DS_Store

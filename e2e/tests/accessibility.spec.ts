@@ -7,6 +7,9 @@ const DISABLED_RULES: Record<string, Record<string, string[]>> = {
   checkboxes: {
     'with-conditional-reveal': ['aria-allowed-attr'],
   },
+  radios: {
+    'with-conditional-reveal': ['aria-allowed-attr'],
+  },
 }
 
 test.describe('@accessibility', () => {
