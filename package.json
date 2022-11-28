@@ -69,7 +69,7 @@
     "npm": ">=8.15.0"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.5.0",
+    "@axe-core/playwright": "^4.5.2",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
     "@fastify/static": "^6.5.0",
