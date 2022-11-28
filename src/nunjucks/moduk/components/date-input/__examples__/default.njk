@@ -1,0 +1,16 @@
+{% from "moduk/components/date-input/macro.njk" import modukDateInput %}
+
+{{ modukDateInput({
+  id: "contract-start-date",
+  namePrefix: "contract-start-date",
+  fieldset: {
+    legend: {
+      text: "When will the contract start?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "For example, 27 3 2023"
+  }
+}) }}
