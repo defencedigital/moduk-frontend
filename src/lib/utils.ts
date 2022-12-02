@@ -1,6 +1,6 @@
 import { get, set } from 'lodash'
+import { dirname, join } from 'node:path'
 import { configure, ConfigureOptions, Environment } from 'nunjucks'
-import { dirname, join } from 'path'
 
 /**
  * Get the template paths that should be specified when manually creating a new

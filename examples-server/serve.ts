@@ -2,8 +2,8 @@
 import fastifyStatic from '@fastify/static'
 import fastifyView from '@fastify/view'
 import fastify from 'fastify'
+import path from 'node:path'
 import nunjucks, { Environment } from 'nunjucks'
-import path from 'path'
 
 import { addMODUKFilters, getNunjucksPaths } from '../src'
 import { findExamples } from '../src/test-utils'
