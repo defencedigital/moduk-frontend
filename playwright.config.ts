@@ -78,6 +78,7 @@ const config: PlaywrightTestConfig = {
     ['html', { outputFolder: './e2e/output/html/', open: 'never' }],
   ],
   retries: process.env.CI ? 1 : 0,
+  snapshotPathTemplate: '{testDir}/__screenshots__/{testFilePath}/{arg}--{projectName}{ext}',
   testDir: './e2e/tests',
   timeout: 30 * 1000,
   use: {
