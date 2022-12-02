@@ -16,12 +16,12 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
+    'unicorn',
   ],
   rules: {
     'comma-dangle': 'off',
     'eol-last': 'off',
     'function-paren-newline': 'off',
-    semi: ['error', 'never'],
     'implicit-arrow-linebreak': 'off',
     'import/extensions': [
       'error',
@@ -51,6 +51,8 @@ module.exports = {
     indent: 'off',
     'max-len': 'off',
     'object-curly-newline': 'off',
+    semi: ['error', 'never'],
+    'unicorn/prefer-node-protocol': 'error',
   },
   settings: {
     'import/parsers': {
