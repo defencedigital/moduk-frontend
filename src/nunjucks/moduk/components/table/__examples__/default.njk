@@ -1,0 +1,41 @@
+{% from "moduk/components/table/macro.njk" import modukTable %}
+
+{{ modukTable({
+  caption: "Active users of each application",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Application"
+    },
+    {
+      text: "Number of users"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Application A"
+      },
+      {
+        text: "51 per day"
+      }
+    ],
+    [
+      {
+        text: "Application B"
+      },
+      {
+        text: "163 per day"
+      }
+    ],
+    [
+      {
+        text: "Application C"
+      },
+      {
+        text: "75 per day"
+      }
+    ]
+  ]
+}) }}
