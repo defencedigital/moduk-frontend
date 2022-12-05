@@ -33,31 +33,16 @@ expect.extend({
 })
 
 const config: PlaywrightTestConfig = {
-  testDir: './e2e/tests',
-  timeout: 30 * 1000,
   expect: {
     timeout: 5000,
     toHaveScreenshot: {
       scale: 'device',
     },
   },
-  fullyParallel: true,
   forbidOnly: !!process.env.CI,
+  fullyParallel: true,
   maxFailures: process.env.CI ? 10 : undefined,
-  retries: process.env.CI ? 1 : 0,
-  workers: process.env.CI ? 2 : undefined,
-  reporter: [
-    [process.env.CI ? 'github' : 'line'],
-    ['html', { outputFolder: './e2e/output/html/', open: 'never' }],
-  ],
-  use: {
-    baseURL: 'http://localhost:8080',
-    trace: process.env.PLAYWRIGHT_TRACE
-      ? 'retain-on-failure'
-      : 'on-first-retry',
-    screenshot: 'only-on-failure',
-    video: 'off',
-  },
+  outputDir: 'e2e/output/artefacts/',
   projects: [
     {
       name: 'chromium',
@@ -88,11 +73,27 @@ const config: PlaywrightTestConfig = {
       },
     },
   ],
-  outputDir: 'e2e/output/artefacts/',
+  reporter: [
+    [process.env.CI ? 'github' : 'line'],
+    ['html', { outputFolder: './e2e/output/html/', open: 'never' }],
+  ],
+  retries: process.env.CI ? 1 : 0,
+  snapshotPathTemplate: '{testDir}/__screenshots__/{testFilePath}/{arg}--{projectName}{ext}',
+  testDir: './e2e/tests',
+  timeout: 30 * 1000,
+  use: {
+    baseURL: 'http://localhost:8080',
+    trace: process.env.PLAYWRIGHT_TRACE
+      ? 'retain-on-failure'
+      : 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'off',
+  },
   webServer: {
     command: 'npm run serve:no-reload',
     url: 'http://localhost:8080',
     reuseExistingServer: true,
   },
+  workers: process.env.CI ? 2 : undefined,
 }
 export default config
