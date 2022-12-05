@@ -95,7 +95,7 @@
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
     "nodemon": "^2.0.20",
-    "postcss-cli": "^10.0.0",
+    "postcss-cli": "^10.1.0",
     "postcss-fail-on-warn": "^0.2.1",
     "sass": "^1.56.1",
     "shx": "^0.3.4",
