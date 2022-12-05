@@ -1,0 +1,14 @@
+{% from "moduk/components/textarea/macro.njk" import modukTextarea %}
+
+{{ modukTextarea({
+  name: "event-description",
+  id: "event-description",
+  label: {
+    text: "What is the event about?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "This will be shown on the public page for the event, below the event title"
+  }
+}) }}
