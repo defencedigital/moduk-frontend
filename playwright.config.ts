@@ -1,5 +1,5 @@
 import AxeBuilder from '@axe-core/playwright'
-import { devices, expect, Page, PlaywrightTestConfig } from '@playwright/test'
+import { devices, Expect, expect, Locator, Page, PlaywrightTestConfig } from '@playwright/test'
 
 expect.extend({
   toHaveNoViolations: async (
@@ -27,6 +27,44 @@ expect.extend({
 
     return {
       message: () => messages.join('\n'),
+      pass: false,
+    }
+  },
+  async toHaveDescription(this: ReturnType<Expect['getState']>, locator: Locator, expected: string) {
+    const page = locator.page()
+    const describedBy = await locator.getAttribute('aria-describedby')
+    const describedByIds = `#${describedBy?.split(' ').join(', #')}`
+
+    const result = page.locator(describedByIds, {
+      hasText: expected,
+    })
+
+    if (await result.isVisible()) {
+      return {
+        message: () => `Expected aria-describedby not to have text content ${this.utils.printReceived(expected)}`,
+        pass: true,
+      }
+    }
+
+    const receivedResult = page.locator(describedByIds)
+    const receivedTextPromises: Promise<string | null>[] = []
+
+    const count = await receivedResult.count()
+    for (let i = 0; i < count; i += 1) {
+      receivedTextPromises.push(receivedResult.nth(i).textContent())
+    }
+
+    const receivedText = await Promise.all(receivedTextPromises)
+
+    return {
+      message: () => `
+        ${
+        this.utils.matcherHint('toHaveDescription', 'HTMLElement', expected, {
+          isNot: this.isNot,
+          promise: this.promise,
+        })
+      }\n
+        Received: ${this.utils.printReceived(receivedText.map((text) => text?.trim()).join('\n'))}`,
       pass: false,
     }
   },

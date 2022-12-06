@@ -12,6 +12,7 @@ declare global {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     interface Matchers<R, T> {
       toHaveNoViolations(disabledRules?: string[]): Promise<void>
+      toHaveDescription(text: string): Promise<void>
     }
   }
 }

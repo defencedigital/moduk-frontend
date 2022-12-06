@@ -1,0 +1,16 @@
+{% from "moduk/components/input/macro.njk" import modukInput %}
+
+{{ modukInput({
+  id: "with-suffix",
+  name: "weight",
+  label: {
+    text: "What is the weight in kilograms?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  suffix: {
+    text: "kg"
+  },
+  classes: "govuk-input--width-5",
+  spellcheck: false
+}) }}
