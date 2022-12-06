@@ -1,0 +1,12 @@
+{% from "moduk/components/character-count/macro.njk" import modukCharacterCount %}
+
+{{ modukCharacterCount({
+  name: "word-count",
+  id: "word-count",
+  maxwords: 150,
+  label: {
+    text: "Enter a job description",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  }
+}) }}

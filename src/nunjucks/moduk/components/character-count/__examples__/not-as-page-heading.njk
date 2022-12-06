@@ -1,0 +1,10 @@
+{% from "moduk/components/character-count/macro.njk" import modukCharacterCount %}
+
+{{ modukCharacterCount({
+  name: "not-as-page-heading",
+  id: "not-as-page-heading",
+  maxlength: 200,
+  label: {
+    text: "Describe the nature of your event"
+  }
+}) }}
