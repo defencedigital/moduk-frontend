@@ -1,5 +1,5 @@
 {
-  "name": "moduk-frontend",
+  "name": "@moduk/frontend",
   "version": "0.1.0",
   "description": "The MOD.UK Frontend contains the code you need to start building a user interface for Ministry of Defence platforms and services.",
   "main": "dist/lib/index.js",
@@ -34,6 +34,7 @@
     "lint:source": "eslint --ext .js --ext .ts --ext .mjs --ext .mts --max-warnings 0 .",
     "lint:types": "tsc --noEmit",
     "playwright-install": "playwright install --with-deps",
+    "prepack": "npm run build",
     "serve": "nodemon examples-server/serve.ts",
     "serve:no-reload": "ts-node examples-server/serve.ts",
     "test": "vitest run",
@@ -45,7 +46,9 @@
     "test:visual:native": "npm run build && playwright test --grep @visual-regression",
     "test:visual:refresh": "scripts/run-playwright-container.sh bash -c 'npm install && npm run test:visual:native -- --update-snapshots'",
     "test:watch": "vitest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release:alpha": "release-it --preRelease=alpha",
+    "release:stable": "release-it --github.draft"
   },
   "repository": {
     "type": "git",
@@ -75,6 +78,7 @@
     "@fastify/static": "^6.6.0",
     "@fastify/view": "^7.1.2",
     "@playwright/test": "^1.28.1",
+    "@release-it/conventional-changelog": "^5.1.1",
     "@testing-library/dom": "^8.19.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@types/glob": "^8.0.0",
@@ -97,6 +101,7 @@
     "nodemon": "^2.0.20",
     "postcss-cli": "^10.1.0",
     "postcss-fail-on-warn": "^0.2.1",
+    "release-it": "^15.5.0",
     "sass": "^1.56.1",
     "shx": "^0.3.4",
     "ts-node": "^10.9.1",
@@ -119,5 +124,8 @@
   },
   "peerDependencies": {
     "nunjucks": "^3.2.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
