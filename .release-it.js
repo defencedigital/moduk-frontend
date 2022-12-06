@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const commitlintConfig = require('./commitlint.config')
+
 module.exports = {
   git: {
     // eslint-disable-next-line no-template-curly-in-string
@@ -20,6 +23,7 @@ module.exports = {
   },
   plugins: {
     '@release-it/conventional-changelog': {
+      parserOpts: commitlintConfig.parserPreset.parserOpts,
       preset: {
         name: 'conventionalcommits',
         types: [
