@@ -87,13 +87,17 @@ jobs:
           echo "version=$(scripts/get-playwright-version.sh)" >> "$GITHUB_OUTPUT"
 
   test-e2e:
-    name: Run e2e tests
+    name: Run e2e tests (${{ matrix.shard }}/${{ matrix.total_shards }})
     runs-on: ubuntu-22.04
     needs:
       - read-playwright-version
     container:
       image: mcr.microsoft.com/playwright:${{ needs.read-playwright-version.outputs.version }}-jammy
       options: --user 1001
+    strategy:
+      matrix:
+        shard: [1, 2, 3]
+        total_shards: [3]
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
@@ -102,12 +106,12 @@ jobs:
         uses: ./.github/actions/prepare-environment
 
       - name: Run e2e tests
-        run: npm run test:e2e
+        run: npm run test:e2e -- --shard ${{ matrix.shard }}/${{ matrix.total_shards }}
 
       - uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: e2e-test-results
+          name: e2e-test-results-${{ matrix.shard }}
           path: e2e/output
 
   test-visual-regression:
