@@ -1,0 +1,16 @@
+{% from "moduk/components/input/macro.njk" import modukInput %}
+
+{{ modukInput({
+  id: "with-prefix",
+  name: "cost",
+  label: {
+    text: "What is the cost in pounds?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  prefix: {
+    text: "£"
+  },
+  classes: "govuk-input--width-5",
+  spellcheck: false
+}) }}

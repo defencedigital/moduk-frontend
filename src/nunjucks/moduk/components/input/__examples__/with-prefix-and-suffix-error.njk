@@ -1,0 +1,22 @@
+{% from "moduk/components/input/macro.njk" import modukInput %}
+
+{{ modukInput({
+  id: "with-prefix-and-suffix-error",
+  name: "cost-per-item",
+  label: {
+    text: "What is the cost per item, in pounds?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  prefix: {
+    text: "£"
+  },
+  suffix: {
+    text: "per item"
+  },
+  errorMessage: {
+    text: "Enter a cost per item, in pounds"
+  },
+  classes: "govuk-input--width-5",
+  spellcheck: false
+}) }}

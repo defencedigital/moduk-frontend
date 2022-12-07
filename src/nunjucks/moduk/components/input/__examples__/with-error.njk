@@ -1,0 +1,17 @@
+{% from "moduk/components/input/macro.njk" import modukInput %}
+
+{{ modukInput({
+  label: {
+    text: "What is the name of the event?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  id: "with-error",
+  name: "event-name",
+  hint: {
+    text: "The name you’ll use on promotional material"
+  },
+  errorMessage: {
+    text: "Enter an event name"
+  }
+}) }}

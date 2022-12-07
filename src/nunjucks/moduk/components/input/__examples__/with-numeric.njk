@@ -1,0 +1,17 @@
+{% from "moduk/components/input/macro.njk" import modukInput %}
+
+{{ modukInput({
+  label: {
+    text: "What is your account number?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  classes: "govuk-input--width-10",
+  hint: {
+    text: "Must be between 6 and 8 digits long"
+  },
+  id: "with-numeric",
+  name: "account-number",
+  inputmode: "numeric",
+  spellcheck: false
+}) }}
