@@ -1,5 +1,11 @@
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
-{% macro modukInsetText(params) %}
-  {{ govukInsetText(params) }}
-{% endmacro %}
+{% macro modukInsetText(params) -%}
+  {% if caller -%}
+    {% call govukInsetText(params) -%}
+      {{ caller() }}
+    {%- endcall %}
+  {%- else -%}
+    {{ govukInsetText(params) }}
+  {%- endif %}
+{%- endmacro %}
