@@ -1,0 +1,11 @@
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% macro modukFieldset(params) -%}
+  {% if caller -%}
+    {% call govukFieldset(params) -%}
+      {{ caller() }}
+    {%- endcall %}
+  {%- else -%}
+    {{ govukFieldset(params) }}
+  {%- endif %}
+{%- endmacro %}
