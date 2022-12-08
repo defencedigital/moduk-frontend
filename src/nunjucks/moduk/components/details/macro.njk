@@ -1,5 +1,11 @@
 {% from "govuk/components/details/macro.njk" import govukDetails %}
 
-{% macro modukDetails(params) %}
-  {{ govukDetails(params) }}
-{% endmacro %}
+{% macro modukDetails(params) -%}
+  {% if caller -%}
+    {% call govukDetails(params) -%}
+      {{ caller() }}
+    {%- endcall %}
+  {%- else -%}
+    {{ govukDetails(params) }}
+  {%- endif %}
+{%- endmacro %}
