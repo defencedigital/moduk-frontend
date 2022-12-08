@@ -1,5 +1,11 @@
 {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-{% macro modukNotificationBanner(params) %}
-  {{ govukNotificationBanner(params) }}
-{% endmacro %}
+{% macro modukNotificationBanner(params) -%}
+  {% if caller -%}
+    {% call govukNotificationBanner(params) -%}
+      {{ caller() }}
+    {%- endcall %}
+  {%- else -%}
+    {{ govukNotificationBanner(params) }}
+  {%- endif %}
+{%- endmacro %}
