@@ -1,10 +1,8 @@
 {% from "moduk/components/checkboxes/macro.njk" import modukCheckboxes %}
-
-{# TODO: Switch to modukInput when it's been added #}
-{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "moduk/components/input/macro.njk" import modukInput %}
 
 {% set emailHtml %}
-{{ govukInput({
+{{ modukInput({
   id: "contact-by-email",
   name: "contact-by-email",
   type: "email",
@@ -18,7 +16,7 @@
 {% endset -%}
 
 {% set phoneHtml %}
-{{ govukInput({
+{{ modukInput({
   id: "contact-by-phone",
   name: "contact-by-phone",
   type: "tel",
@@ -31,7 +29,7 @@
 {% endset -%}
 
 {% set textHtml %}
-{{ govukInput({
+{{ modukInput({
   id: "contact-by-text",
   name: "contact-by-text",
   type: "tel",
