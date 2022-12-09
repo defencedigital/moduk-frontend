@@ -1,5 +1,11 @@
 {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
-{% macro modukPanel(panel) %}
-  {{ govukPanel(panel) }}
-{% endmacro %}
+{% macro modukPanel(params) -%}
+  {% if caller -%}
+    {% call govukPanel(params) -%}
+      {{ caller() }}
+    {%- endcall %}
+  {%- else -%}
+    {{ govukPanel(params) }}
+  {%- endif %}
+{%- endmacro %}
