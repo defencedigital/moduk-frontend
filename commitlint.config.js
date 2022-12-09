@@ -1,5 +1,10 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
+  parserPreset: {
+    parserOpts: {
+      headerPattern: /^([^():]*)(?:\(([\w$.\-*/ ]*)\))?: (.*)$/,
+    },
+  },
   rules: {
     'subject-case': [1, 'always', 'sentence-case'],
     'body-max-line-length': [0],
