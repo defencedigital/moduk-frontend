@@ -76,7 +76,7 @@
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
     "@fastify/static": "^6.6.0",
-    "@fastify/view": "^7.1.2",
+    "@fastify/view": "^7.3.0",
     "@playwright/test": "^1.28.1",
     "@release-it/conventional-changelog": "^5.1.1",
     "@testing-library/dom": "^8.19.0",
