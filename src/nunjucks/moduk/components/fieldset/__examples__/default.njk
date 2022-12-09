@@ -1,0 +1,45 @@
+{% from "moduk/components/input/macro.njk" import modukInput %}
+{% from "moduk/components/fieldset/macro.njk" import modukFieldset %}
+
+{% call modukFieldset({
+  legend: {
+    text: "What is your address?",
+    classes: "govuk-fieldset__legend--l",
+    isPageHeading: true
+  }
+}) %}
+  {{ modukInput({
+    label: {
+      text: 'Address line 1'
+    },
+    id: "address-line-1",
+    name: "address-line-1",
+    autocomplete: "address-line1"
+  }) }}
+  {{ modukInput({
+    label: {
+      text: 'Address line 2 (optional)'
+    },
+    id: "address-line-2",
+    name: "address-line-2",
+    autocomplete: "address-line2"
+  }) }}
+  {{ modukInput({
+    label: {
+      text: "Town or city"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "address-town",
+    name: "address-town",
+    autocomplete: "address-level2"
+  }) }}
+  {{ modukInput({
+    label: {
+      text: "Postcode"
+    },
+    classes: "govuk-input--width-10",
+    id: "address-postcode",
+    name: "address-postcode",
+    autocomplete: "postal-code"
+  }) }}
+{% endcall %}

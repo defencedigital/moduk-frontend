@@ -21,6 +21,8 @@ server.register(fastifyView, {
     path.join(__dirname, 'templates'),
   ] as unknown as string,
   options: {
+    trimBlocks: true,
+    lstripBlocks: true,
     onConfigure: (env: Environment) => {
       addMODUKFilters(env)
     },
