@@ -5,6 +5,10 @@
   "main": "dist/lib/index.js",
   "sass": "src/css/index.scss",
   "style": "dist/css/index.css",
+  "files": [
+    "dist",
+    "src/css"
+  ],
   "exports": {
     ".": {
       "types": "./dist/lib/index.d.ts",
