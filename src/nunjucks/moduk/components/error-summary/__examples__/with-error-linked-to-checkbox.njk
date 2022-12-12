@@ -1,0 +1,54 @@
+{% from "moduk/components/error-summary/macro.njk" import modukErrorSummary %}
+{% from "moduk/components/checkboxes/macro.njk" import modukCheckboxes %}
+
+<div>
+  {{ modukErrorSummary({
+    titleText: "There is a problem",
+    errorList: [
+      {
+        text: "Select which technologies you use in your role",
+        href: "#technologies"
+      }
+    ]
+  }) }}
+
+{{ modukCheckboxes({
+  name: "technologies",
+  fieldset: {
+    legend: {
+      text: "Which technologies do you use in your role?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  errorMessage: {
+    text: "Select which technologies you use in your role"
+  },
+  items: [
+    {
+      value: "angular",
+      text: "Angular"
+    },
+    {
+      value: "nunjucks",
+      text: "Nunjucks"
+    },
+    {
+      value: "react",
+      text: "React"
+    },
+    {
+      value: "web-components",
+      text: "Web components"
+    },
+    {
+      value: "another-technology",
+      text: "Another technology"
+    }
+  ]
+}) }}
+
+</div>

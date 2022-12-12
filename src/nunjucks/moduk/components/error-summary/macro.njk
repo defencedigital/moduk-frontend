@@ -1,0 +1,11 @@
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% macro modukErrorSummary(params) %}
+  {% if caller -%}
+    {% call govukErrorSummary(params) -%}
+      {{ caller() }}
+    {%- endcall %}
+  {%- else -%}
+    {{ govukErrorSummary(params) }}
+  {%- endif %}
+{% endmacro %}
