@@ -21,8 +21,6 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-22.04
-    needs:
-      - lint-and-test
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
