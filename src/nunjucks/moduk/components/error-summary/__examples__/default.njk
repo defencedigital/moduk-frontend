@@ -1,0 +1,16 @@
+{% from "moduk/components/error-summary/macro.njk" import modukErrorSummary %}
+
+{{ modukErrorSummary({
+  titleText: "There is a problem",
+  descriptionText: "There have been some errors when trying to submit your application.",
+  errorList: [
+    {
+      text: "The start date of the contract must include a year",
+      href: "#incorect-date-format"
+    },
+    {
+      text: "Enter your full name",
+      href: "#full-name-input"
+    }
+  ]
+}) }}
