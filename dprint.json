@@ -5,21 +5,22 @@
     "quoteStyle": "preferSingle",
     "quoteProps": "asNeeded"
   },
-  "json": {
-  },
+  "json": {},
   "markdown": {
     "textWrap": "always"
   },
-  "dockerfile": {
-  },
+  "dockerfile": {},
   "prettier": {
     "bracketSpacing": true,
     "semi": false,
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "includes": ["**/*.{ts,tsx,js,jsx,cjs,mjs,json,md,dockerfile,html,css,sass,scss,yml,yaml}"],
+  "includes": [
+    "**/*.{ts,tsx,js,jsx,cjs,mjs,json,md,dockerfile,html,css,sass,scss,yml,yaml}"
+  ],
   "excludes": [
+    "_site",
     "dist",
     "**/node_modules",
     "**/*-lock.json"

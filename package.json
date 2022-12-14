@@ -28,6 +28,7 @@
     "prebuild:assets": "shx rm -rf dist/assets",
     "build:assets": "ts-node scripts/copy-govuk-static-assets.ts",
     "build:client": "vite build && tsc --project src/client",
+    "build:ssg": "npm run build && vite build -c vite.pages.config.ts",
     "prebuild:css": "shx rm -rf dist/css",
     "build:css": "sass --load-path=node_modules --quiet-deps --style compressed src/css/index.scss | postcss -o dist/css/index.css",
     "prebuild:lib": "shx rm -rf dist/lib",
