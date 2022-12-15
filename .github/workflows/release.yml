@@ -4,7 +4,7 @@ concurrency:
   group: ${{ github.workflow }}
 
 env:
-  release-type: ${{ inputs.release-type || 'stable' }}
+  release-type: ${{ inputs.release-type || 'alpha' }}
 
 on:
   schedule:
