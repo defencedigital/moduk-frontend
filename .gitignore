@@ -111,3 +111,4 @@ _site/
 
 # MacOS
 .DS_Store
+.vercel
