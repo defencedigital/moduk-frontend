@@ -1,0 +1,32 @@
+name: Feature request
+description: Suggest a new feature or an enhancement
+labels:
+  - enhancement
+  - awaiting triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You’re suggesting a feature to add to MOD.UK Frontend. All questions are optional – fill in as much of the form as you’re able to.
+
+        All issues created in this repository are public. Do not include any sensitive information.
+  - type: input
+    id: related-component
+    attributes:
+      label: Related components
+      description: The names of any existing components that this request relates to
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What are you trying to do? Is this something you think should behave differently, or something that you currently cannot do?
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: Are you using or have you tried any alternatives or workarounds?
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Anything else
+      description: Any other information that you think is relevant. Include details of any user research you’ve done on this feature
