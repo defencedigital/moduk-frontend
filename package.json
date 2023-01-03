@@ -115,7 +115,8 @@
     "vitest": "^0.25.8"
   },
   "overrides": {
-    "tsconfig-paths@<4.1.2": "^4.1.2"
+    "tsconfig-paths@<4.1.2": "^4.1.2",
+    "liquidjs": "^10.4.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
