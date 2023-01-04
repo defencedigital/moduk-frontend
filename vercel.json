@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm run examples:build",
+  "framework": null,
+  "outputDirectory": "examples-site/dist"
+}
