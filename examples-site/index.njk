@@ -7,7 +7,7 @@
   <link href="/css/index.css" rel="stylesheet">
 </head>
 <body>
-  {% for component, exampleNames in examples %}
+  {% for component, exampleNames in examples.grouped %}
   <h2 class="govuk-heading-m">{{ component | replace("-", " ") }}</h2>
   <ul class="govuk-list govuk-list--bullet">
   {% for exampleName in exampleNames %}

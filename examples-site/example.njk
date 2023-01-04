@@ -1,7 +1,14 @@
+---
+pagination:
+  data: examples.flat
+  size: 1
+  alias: example
+permalink: 'components/{{ example.component }}/{{ example.exampleName }}/index.html'
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>{{ example }} – {{ component }} – MOD.UK Frontend</title>
+  <title>{{ example.exampleName }} – {{ example.component }} – MOD.UK Frontend</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href="/css/index.css" rel="stylesheet">
@@ -10,9 +17,7 @@
   <script>
     document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
   </script>
-  <div id="root">
-    {% include template %}
-  </div>
+  <div id="root">{% include example.template %}</div>
   <script src="/client/MODUK.umd.js"></script>
   <script>
     window.MODUK.initAll()
