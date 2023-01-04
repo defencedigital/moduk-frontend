@@ -122,6 +122,9 @@
       "dprint fmt"
     ]
   },
+  "overrides": {
+    "liquidjs": "^10.4.0"
+  },
   "dependencies": {
     "govuk-frontend": "^4.4.1",
     "lodash": "^4.17.21"
