@@ -20,7 +20,7 @@
       "import": "./dist/client/moduk-frontend.mjs",
       "require": "./dist/client/moduk-frontend.umd.js"
     },
-    "./dist/": "./dist/"
+    "./dist/*": "./dist/*"
   },
   "types": "dist/lib/index.d.ts",
   "scripts": {
