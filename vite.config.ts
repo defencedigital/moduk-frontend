@@ -5,7 +5,7 @@ export default defineConfig({
     lib: {
       entry: './src/client/index.ts',
       name: 'MODUK',
-      fileName: 'MODUK',
+      fileName: 'moduk-frontend',
     },
     outDir: './dist/client',
   },
