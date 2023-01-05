@@ -28,7 +28,7 @@ initAll()
 ```
 
 In older environments, you may need to import the client-side library from
-`@moduk/frontend/dist/client/MODUK.umd.js`.
+`@moduk/frontend/dist/client/moduk-frontend.umd.js`.
 
 ### Importing the CSS
 

@@ -17,10 +17,10 @@
       "style": "./dist/css/index.css"
     },
     "./client": {
-      "import": "./dist/client/MODUK.mjs",
-      "require": "./dist/client/MODUK.umd.js"
+      "import": "./dist/client/moduk-frontend.mjs",
+      "require": "./dist/client/moduk-frontend.umd.js"
     },
-    "./dist/": "./dist/"
+    "./dist/*": "./dist/*"
   },
   "types": "dist/lib/index.d.ts",
   "scripts": {
