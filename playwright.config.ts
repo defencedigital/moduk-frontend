@@ -128,7 +128,7 @@ const config: PlaywrightTestConfig = {
     video: 'off',
   },
   webServer: {
-    command: 'npm run serve:no-reload',
+    command: 'npm start',
     url: 'http://localhost:8080',
     reuseExistingServer: true,
   },
