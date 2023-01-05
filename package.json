@@ -55,8 +55,7 @@
     "test:visual:refresh": "scripts/run-playwright-container.sh bash -c 'npm install && npm run test:visual:native -- --update-snapshots'",
     "test:watch": "vitest",
     "prepare": "husky install",
-    "release:alpha": "release-it --preRelease=alpha",
-    "release:stable": "release-it --github.draft"
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
