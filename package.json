@@ -32,6 +32,8 @@
     "build:css": "sass --load-path=node_modules --quiet-deps --style compressed src/css/index.scss | postcss -o dist/css/index.css",
     "prebuild:lib": "shx rm -rf dist/lib",
     "build:lib": "tsc --project tsconfig.build.json && shx cp -r src/nunjucks dist/lib",
+    "examples:build": "npm run build && eleventy",
+    "examples:serve": "eleventy --serve",
     "format": "dprint fmt",
     "format:check": "dprint check",
     "lint": "npm run lint:types && npm run lint:source",
@@ -39,8 +41,7 @@
     "lint:types": "tsc --noEmit",
     "playwright-install": "playwright install --with-deps",
     "prepack": "npm run build",
-    "serve": "nodemon examples-server/serve.ts",
-    "serve:no-reload": "ts-node examples-server/serve.ts",
+    "start": "npm run examples:serve",
     "test": "vitest run",
     "test:e2e": "npm run build && playwright test --grep-invert @visual-regression",
     "test:e2e:show-report": "playwright show-report e2e/output/html",
@@ -76,11 +77,10 @@
     "npm": ">=8.15.0"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
     "@axe-core/playwright": "^4.5.2",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
-    "@fastify/static": "^6.6.0",
-    "@fastify/view": "^7.3.0",
     "@playwright/test": "^1.29.1",
     "@release-it/conventional-changelog": "^5.1.1",
     "@testing-library/dom": "^8.19.0",
@@ -97,12 +97,10 @@
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-unicorn": "^45.0.1",
-    "fastify": "^4.10.2",
     "glob": "^8.0.3",
     "happy-dom": "^8.1.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
-    "nodemon": "^2.0.20",
     "postcss-cli": "^10.1.0",
     "postcss-fail-on-warn": "^0.2.1",
     "release-it": "^15.5.0",
@@ -121,6 +119,9 @@
     "*.{md,yaml,yml}": [
       "dprint fmt"
     ]
+  },
+  "overrides": {
+    "liquidjs": "^10.4.0"
   },
   "dependencies": {
     "govuk-frontend": "^4.4.1",
