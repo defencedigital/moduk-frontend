@@ -1,6 +1,6 @@
 {
   "name": "@moduk/frontend",
-  "version": "0.2.1-alpha.4",
+  "version": "0.2.1-alpha.5",
   "description": "The MOD.UK Frontend contains the code you need to start building a user interface for Ministry of Defence platforms and services.",
   "main": "dist/lib/index.js",
   "sass": "src/css/index.scss",
