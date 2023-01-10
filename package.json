@@ -130,6 +130,9 @@
     ]
   },
   "overrides": {
+    "@axe-core/playwright": {
+      "playwright": "$@playwright/test"
+    },
     "liquidjs": "^10.4.0"
   },
   "dependencies": {
