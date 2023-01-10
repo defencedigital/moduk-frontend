@@ -1,3 +1,3 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-export * from 'govuk-frontend/govuk-esm/all'
+export * from 'govuk-frontend'
