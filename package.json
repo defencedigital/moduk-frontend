@@ -55,8 +55,7 @@
     "test:visual:refresh": "scripts/run-playwright-container.sh bash -c 'npm install && npm run test:visual:native -- --update-snapshots'",
     "test:watch": "vitest",
     "prepare": "husky install",
-    "release:alpha": "release-it --preRelease=alpha",
-    "release:stable": "release-it --github.draft"
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
@@ -139,7 +138,7 @@
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
-    "govuk-frontend": "^4.4.1",
+    "govuk-frontend": "4.4.1",
     "nunjucks": "^3.2.3"
   },
   "publishConfig": {
