@@ -120,11 +120,11 @@
     "webpack-cli": "^5.0.1"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --max-warnings 0",
-      "dprint fmt"
+    "*.{cjs,js,jsx,mjs,mts,ts,tsx}": [
+      "dprint fmt",
+      "eslint --max-warnings 0"
     ],
-    "*.{md,yaml,yml}": [
+    "*.{md,scss,yaml,yml}": [
       "dprint fmt"
     ]
   },
