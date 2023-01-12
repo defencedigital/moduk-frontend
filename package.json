@@ -121,8 +121,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --max-warnings 0",
-      "dprint fmt"
+      "dprint fmt",
+      "eslint --max-warnings 0"
     ],
     "*.{md,yaml,yml}": [
       "dprint fmt"
