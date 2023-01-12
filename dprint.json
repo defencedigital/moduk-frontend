@@ -18,11 +18,11 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "includes": ["**/*.{ts,tsx,js,jsx,cjs,mjs,json,md,dockerfile,html,css,sass,scss,yml,yaml}"],
+  "includes": ["*.{ts,tsx,mts,js,jsx,cjs,mjs,json,md,dockerfile,html,css,sass,scss,yml,yaml}"],
   "excludes": [
-    "dist",
-    "**/node_modules",
-    "**/*-lock.json"
+    "dist/",
+    "node_modules/",
+    "*-lock.json"
   ],
   "plugins": [
     "https://plugins.dprint.dev/typescript-0.77.0.wasm",
