@@ -1,0 +1,15 @@
+$moduk-colours: (
+  'maroon': #532a45,
+  'dark-maroon': #4b263e,
+  'light-maroon': #643f58,
+);
+
+@function moduk-colour($colour-name) {
+  $quoted-colour-name: quote($colour-name);
+
+  @if not map-has-key($moduk-colours, $quoted-colour-name) {
+    @error "Unknown colour `#{$quoted-colour-name}`";
+  }
+
+  @return map-get($moduk-colours, $quoted-colour-name);
+}
