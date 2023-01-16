@@ -99,7 +99,7 @@
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.2",
     "dprint": "^0.34.1",
-    "eslint": "^8.29.0",
+    "eslint": "^8.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-import": "^2.26.0",
