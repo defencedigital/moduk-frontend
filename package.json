@@ -132,7 +132,8 @@
     "@axe-core/playwright": {
       "playwright": "$@playwright/test"
     },
-    "liquidjs": "^10.4.0"
+    "liquidjs": "^10.4.0",
+    "ua-parser-js@<1.0.33": "^1.0.33"
   },
   "dependencies": {
     "lodash": "^4.17.21"
