@@ -1,32 +1,29 @@
 {% from "moduk/components/radios/macro.njk" import modukRadios %}
 
 {{ modukRadios({
-  name: "sign-on",
+  name: "with-divider-option",
   fieldset: {
     legend: {
-      text: "Sign on",
+      text: "How do you want to sign in?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
   },
-  hint: {
-    text: "You need an account to use this service"
-  },
   items: [
     {
       value: "biometric",
-      text: "Sign on with USB security key"
+      text: "Sign in with a security key"
     },
     {
       value: "userpass",
-      text: "Sign on with username and password"
+      text: "Sign in with a username and password"
     },
     {
       divider: "or"
     },
     {
-      value: "reset",
-      text: "Reset account"
+      value: "register",
+      text: "Register for a new account"
     }
   ]
 }) }}

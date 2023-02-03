@@ -1,10 +1,10 @@
 {% from "moduk/components/radios/macro.njk" import modukRadios %}
 
 {{ modukRadios({
-  name: "sign-on",
+  name: "sign-in-with-hint",
   fieldset: {
     legend: {
-      text: "Sign on",
+      text: "How do you want to sign in?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -15,16 +15,16 @@
   items: [
     {
       value: "biometric",
-      text: "Sign on with USB security key",
+      text: "Sign in with a security key",
       hint: {
-        text: "You will need USB secuirty key."
+        text: "You’ll need a registered USB security key."
       }
     },
     {
       value: "userpass",
-      text: "Sign on with username and password",
+      text: "Sign in with a username and password",
       hint: {
-        text: "You will need 2FA enabled."
+        text: "You’ll need access to your two-factor authentication device."
       }
     }
   ]
