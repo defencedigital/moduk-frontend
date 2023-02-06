@@ -110,7 +110,7 @@
     "lint-staged": "^13.1.0",
     "postcss-cli": "^10.1.0",
     "postcss-fail-on-warn": "^0.2.1",
-    "release-it": "^15.5.0",
+    "release-it": "^15.6.0",
     "sass": "^1.57.1",
     "shx": "^0.3.4",
     "ts-node": "^10.9.1",
