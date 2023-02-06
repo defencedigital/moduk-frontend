@@ -1,7 +1,12 @@
 import { expect, test as base } from '../../../fixtures'
 
 const test = base.extend({
-  content: ({ page }, use) => use(page.getByText('Press tab to view the skip link component.')),
+  content: ({ page }, use) =>
+    use(
+      page.getByText(
+        'To view the skip link component tab to this example, or click inside this example and press tab.',
+      ),
+    ),
   skipLink: ({ page }, use) => use(page.getByText('Skip to main content')),
 })
 
