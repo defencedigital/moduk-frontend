@@ -1,0 +1,98 @@
+{%- from "moduk/components/summary-list/macro.njk" import modukSummaryList -%}
+
+<div>
+{{- modukSummaryList({
+  card: {
+    title: {
+      text: "Project A"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Change phase",
+          visuallyHiddenText: "of project A"
+        },
+        {
+          href: "#",
+          text: "Archive",
+          visuallyHiddenText: "project A"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Phase"
+      },
+      value: {
+        html: "Beta"
+      }
+    },
+    {
+      key: {
+        text: "Start date"
+      },
+      value: {
+        html: "1 November 2022"
+      }
+    },
+    {
+      key: {
+        text: "Team"
+      },
+      value: {
+        html: "Team A"
+      }
+    }
+  ]
+}) }}
+{{ modukSummaryList({
+  card: {
+    title: {
+      text: "Project B"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Change phase",
+          visuallyHiddenText: "of project B"
+        },
+        {
+          href: "#",
+          text: "Archive",
+          visuallyHiddenText: "project B"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Phase"
+      },
+      value: {
+        html: "Live"
+      }
+    },
+    {
+      key: {
+        text: "Start date"
+      },
+      value: {
+        html: "12 December 2021"
+      }
+    },
+    {
+      key: {
+        text: "Team"
+      },
+      value: {
+        html: "Team B"
+      }
+    }
+  ]
+}) -}}
+</div>
