@@ -4,6 +4,10 @@ import { expect, test } from '../fixtures'
 // There are various known failures in the GOV.UK Design System:
 // https://github.com/alphagov/govuk-frontend/issues/1280#issuecomment-509588851
 const DISABLED_RULES: Record<string, Record<string, string[]>> = {
+  accordion: {
+    default: ['aria-allowed-attr'],
+    'with-summary-lines': ['aria-allowed-attr'],
+  },
   checkboxes: {
     'with-conditional-reveal': ['aria-allowed-attr'],
   },

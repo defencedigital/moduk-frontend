@@ -14,13 +14,15 @@ test.describe('accordion, default', () => {
   })
 
   test('displays no paragraphs', async ({ page }) => {
-    await expect(page.getByRole('paragraph')).toHaveCount(0)
+    await expect(page.locator('[hidden="until-found"] > p')).toHaveCount(4)
   })
 
   test('displays the "Writing well for the web" content after clicking on the "Show" button', async ({ page }) => {
     await page.getByRole('button', { name: 'Writing well for the web' }).click()
 
-    await expect(page.getByRole('paragraph')).toHaveText('This is the content for Writing well for the web.')
+    await expect(page.locator(':not([hidden="until-found"]) > p')).toHaveText(
+      'This is the content for Writing well for the web.',
+    )
   })
 
   test.describe('when JavaScript is disabled', () => {

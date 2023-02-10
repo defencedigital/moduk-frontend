@@ -1,0 +1,184 @@
+{%- from "moduk/components/summary-list/macro.njk" import modukSummaryList -%}
+
+<div>
+{{- modukSummaryList({
+  card: {
+    title: {
+      text: "Project A"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Phase"
+      },
+      value: {
+        html: "Beta"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "status"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Start date"
+      },
+      value: {
+        html: "1 November 2022"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "start date"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Team"
+      },
+      value: {
+        html: "Team A"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "team"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+{{ modukSummaryList({
+  card: {
+    title: {
+      text: "Project B"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Phase"
+      },
+      value: {
+        html: "Live"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "status"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Start date"
+      },
+      value: {
+        html: "12 December 2021"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "start date"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Team"
+      },
+      value: {
+        html: "Team B"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "team"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+{{ modukSummaryList({
+  card: {
+    title: {
+      text: "Project C"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Phase"
+      },
+      value: {
+        html: "Discovery"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "status"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Start date"
+      },
+      value: {
+        html: "1 February 2023"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "start date"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Team"
+      },
+      value: {
+        html: "Team C"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "team"
+          }
+        ]
+      }
+    }
+  ]
+}) -}}
+</div>
