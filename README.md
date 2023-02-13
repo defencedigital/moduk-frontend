@@ -1,183 +1,73 @@
 # MOD.UK Frontend
 
-The MOD.UK Frontend contains the code you need to start building a user
-interface for Ministry of Defence platforms and services.
+MOD.UK Frontend contains the code for components you’ll need to build user
+interfaces for Defence products and services.
 
-This library is currently under development and is not yet ready for use.
+See
+[guidance on the components with coded examples](https://design-system.service.mod.gov.uk/components/).
 
-The library contains a library of [Nunjucks](https://www.typescriptlang.org)
-components, a CSS stylesheet and a client-side JavaScript library.
+## Support
 
-## Usage
+You can
+[report bugs or request new features](https://github.com/defencedigital/moduk-frontend/issues/new/choose).
 
-### Importing Nunjucks configuration helpers
+Email [design-system@digital.mod.uk](mailto:design-system@digital.mod.uk) if you
+have questions or any feedback. Please share examples of how you are using
+MOD.UK Frontend.
 
-```typescript
-import { createNunjucksEnvironment /* ... */ } from '@moduk/frontend'
-```
+## Get started
 
-### Importing the client-side library
+You need to install MOD.UK Frontend to use the components in the MOD.UK Design
+System in your production environment.
 
-If you’re using Webpack 5 or a similar bundler, the client-side library can be
-imported from `@moduk/frontend/client`:
+See
+[setup guide for developers](https://design-system.service.mod.gov.uk/get-started/setup-guide-for-developers/)
+which shows you how to start using MOD.UK Frontend.
 
-```javascript
-import { initAll } from '@moduk/frontend/client'
+## Design library
 
-initAll()
-```
+Design and prototype your Defence project with our
+[component design library in Figma](https://design-system.dev.service.mod.gov.uk/get-started/design-library/).
 
-In older environments, you may need to import the client-side library from
-`@moduk/frontend/dist/client/moduk-frontend.umd.js`.
+## Browser and assistive technology support
 
-### Importing the CSS
+MOD.UK Frontend aims to support:
 
-#### Using Sass
+- [recommended browsers](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices#browsers-to-test-in)
+- [recommended assistive technologies](https://www.gov.uk/service-manual/technology/testing-with-assistive-technologies#which-assistive-technologies-to-test-with)
+- your users overriding colours in Windows, Firefox and Chrome
 
-Dart Sass is required.
+## Accessibility
 
-You should ensure `node_modules` is resolvable by Sass. If using the `sass` CLI
-you can pass `--load-path=node_modules` to achieve this.
+Using MOD.UK Frontend will help your service meet
+[level AA of WCAG 2.1](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag).
+But you must still
+[check that your service meets accessibility requirements](https://www.gov.uk/service-manual/helping-people-to-use-your-service/making-your-service-accessible-an-introduction),
+especially if you extend or modify components.
 
-```scss
-@use '@moduk/frontend/src/css';
-```
+You should also use the
+[JavaScript from MOD.UK Frontend](https://design-system.service.mod.gov.uk/get-started/setup-guide-for-developers/#5.-load-the-javascript).
 
-#### Without Sass
+### Accessibility warnings: known issues
 
-If you aren’t using Sass, a compiled version of the CSS can be found at
-`node_modules/@moduk/frontend/dist/css/index.css`.
+If you get a warning from a linter or accessibility checker, check a list of
+[issues you should not need to fix](https://github.com/alphagov/govuk-frontend/issues/1280#issuecomment-509588851).
 
-## Development
+## Getting updates
 
-The library uses [TypeScript](https://www.typescriptlang.org),
-[Sass](https://sass-lang.com), [ESLint](https://eslint.org),
-[dprint](https://dprint.dev) and [commitlint](https://commitlint.js.org). Git
-hooks are used for enforcing linting and formatting rules.
+To be notified when there’s a new release you can
+[watch the moduk-frontend repository](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository).
+(After selecting ‘Watch’, choose the ‘Custom’ option and select ‘Releases’.)
 
-The unit test suite uses [Vitest](https://vitest.dev) and
-[Testing Library](https://testing-library.com).
+## Security
 
-The end-to-end test suite uses [Playwright](https://playwright.dev/). Tests are
-run across a variety of browsers and configurations against a local web server
-that serves examples of components. This includes accessibility checks using
-[axe](https://www.deque.com/axe/) and visual regression tests.
+If you have found a security vulnerability, please let us know so we can fix it.
 
-Local development requires Node.js 16 or 18 and npm 8.
+[Report a vulnerability on an MOD system](https://www.gov.uk/guidance/report-a-vulnerability-on-an-mod-system).
 
-### Setting up your development environment
+## Licence
 
-1. Clone the repository:
-
-   ```shell
-   git clone https://github.com/defencedigital/moduk-frontend
-   cd moduk-frontend
-   ```
-
-2. Install dependencies:
-
-   ```shell
-   npm install
-   ```
-
-3. Install Playwright browsers and system dependencies:
-
-   ```shell
-   npm run playwright-install
-   ```
-
-4. Install Podman using
-   [the instructions for your platform](https://podman.io/getting-started/installation).
-
-   Podman is required only for running visual regression tests.
-
-5. Ensure jq is installed. On macOS it can be installed using
-   [Homebrew](https://brew.sh/):
-
-   jq is required only for running visual regression tests.
-
-   ```shell
-   brew install jq
-   ```
-
-### Commands
-
-#### Lint all files
-
-```shell
-npm run lint
-```
-
-#### Reformat all files
-
-```shell
-npm run format
-```
-
-#### Build the library ready for publishing
-
-```shell
-npm run build
-```
-
-#### Run all unit tests
-
-```shell
-npm run test
-```
-
-#### Run the examples web server
-
-```shell
-npm run serve
-```
-
-#### Run end-to-end tests
-
-```shell
-npm run test:e2e
-```
-
-##### Run specific files using a regex
-
-```shell
-npm run test:e2e <regex>
-```
-
-##### Run tests with tracing
-
-```shell
-npm run test:e2e:trace
-```
-
-#### Run visual regression tests in a container
-
-Visual regression tests run in a container, using Podman, to ensure screenshots
-are taken in a consistent environment.
-
-To run the visual regression tests:
-
-```shell
-npm run test:visual
-```
-
-This will also generate any missing screenshots.
-
-#### Update visual regression snapshots
-
-To update any screenshots that have changed:
-
-```shell
-npm run test:visual:refresh
-```
-
-#### Delete all visual regression snapshots
-
-To delete all existing screenshots:
-
-```shell
-npm run test:visual:clean
-```
-
-This can be useful after renaming or deleting visual regression tests or
-component examples.
+Unless stated otherwise, the codebase is released under the MIT License. This
+covers both the codebase and any sample code in the documentation. The
+documentation is © Crown copyright and available under the terms of the Open
+Government 3.0 licence.
