@@ -25,8 +25,11 @@
 .moduk-header__navigation-item--active.govuk-header__navigation-item--active {
   a:link,
   a:hover,
-  a:active {
-    color: variables.$moduk-header-link-active;
+  a:active,
+  a:visited {
+    &:not(:focus) {
+      color: variables.$moduk-header-link-active;
+    }
   }
 }
 
