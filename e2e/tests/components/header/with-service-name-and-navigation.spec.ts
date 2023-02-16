@@ -12,6 +12,23 @@ test.describe('header, with service name and navigation', () => {
           page.getByRole('link'),
         ).toHaveCount(6)
       })
+
+      test.describe('@accessibility', () => {
+        test('passes accessibility checks when the active navigation link is hovered', async ({ page }) => {
+          await page.getByText('Navigation item 1').hover()
+          await expect(page).toHaveNoViolations()
+        })
+
+        test('passes accessibility checks when the active navigation link is focused', async ({ page }) => {
+          await page.getByText('Navigation item 1').focus()
+          await expect(page).toHaveNoViolations()
+        })
+
+        test('passes accessibility checks when the second navigation link is hovered', async ({ page }) => {
+          await page.getByText('Navigation item 2').hover()
+          await expect(page).toHaveNoViolations()
+        })
+      })
     })
 
     test.describe('@mobile', () => {
@@ -49,6 +66,20 @@ test.describe('header, with service name and navigation', () => {
         await page.getByText('Navigation item 1').hover()
 
         await expect(componentElement).toHaveScreenshot('navigation-item-1-hover.png')
+      })
+
+      test('matches the saved screenshot when the active navigation link is focused', async ({ componentElement, page }) => {
+        await page.getByText('Navigation item 1').focus()
+
+        await expect(componentElement).toHaveScreenshot('navigation-item-1-focus.png')
+      })
+
+      test('matches the saved screenshot when the active navigation link is focused and hovered', async ({ componentElement, page }) => {
+        const item1 = page.getByText('Navigation item 1')
+        await item1.focus()
+        await item1.hover()
+
+        await expect(componentElement).toHaveScreenshot('navigation-item-1-focus-and-hover.png')
       })
 
       test('matches the saved screenshot when the second navigation link is hovered', async ({ componentElement, page }) => {
