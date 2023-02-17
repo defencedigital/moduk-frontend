@@ -87,7 +87,7 @@
     "@babel/preset-typescript": "^7.18.6",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.3",
-    "@playwright/test": "^1.29.2",
+    "@playwright/test": "^1.30.0",
     "@release-it/conventional-changelog": "^5.1.1",
     "@testing-library/dom": "^8.20.0",
     "@testing-library/jest-dom": "^5.16.5",
