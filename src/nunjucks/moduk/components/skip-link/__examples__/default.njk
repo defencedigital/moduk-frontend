@@ -1,12 +1,11 @@
 {%- from "moduk/components/skip-link/macro.njk" import modukSkipLink -%}
 
-{# Wrapped in a <div> so there is one root element, for visual regression tests to use #}
+{# Wrapped in a <div> so there is one root element, for visual regression tests to use -#}
 
 <div>
   <p class="govuk-body" id="content">To view the skip link component tab to this example, or click inside this example and press tab.</p>
-
   {{ modukSkipLink({
     text: "Skip to main content",
     href: "#content"
-  }) }}
+  }) -}}
 </div>

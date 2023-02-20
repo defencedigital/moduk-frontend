@@ -5,9 +5,9 @@
  The logo has been changed, some CSS classes have been added and there are some slight markup changes.
 #}
 
-{% macro modukHeader(params) %}
+{% macro modukHeader(params) -%}
 
-{% set menuButtonText = params.menuButtonText if params.menuButtonText else 'Menu' %}
+{% set menuButtonText = params.menuButtonText if params.menuButtonText else 'Menu' -%}
 
 <header class="govuk-header {{ params.classes if params.classes }}" role="banner" data-module="govuk-header"
         {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
@@ -35,43 +35,42 @@
         </span>
       </a>
     </div>
-    {% if params.serviceName or params.navigation  %}
+    {%- if params.serviceName or params.navigation %}
     <div class="govuk-header__content">
-    {% if params.serviceName %}
-    {% if params.serviceUrl %}
+    {%- if params.serviceName %}
+    {%- if params.serviceUrl %}
       <a href="{{ params.serviceUrl }}" class="govuk-header__link moduk-header__service-name govuk-header__service-name">
         {{ params.serviceName }}
       </a>
-    {% else%}
+    {%- else %}
       <span class="moduk-header__service-name govuk-header__service-name">
         {{ params.serviceName }}
       </span>
-    {% endif %}
-    {% endif %}
-    {% if params.navigation %}
-    <nav aria-label="{{ params.navigationLabel | default(menuButtonText) }}" class="govuk-header__navigation {{ params.navigationClasses if params.navigationClasses }}">
-      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="{{ params.menuButtonLabel | default('Show or hide menu') }}" hidden>{{ menuButtonText }}</button>
-
-      <ul id="navigation" class="govuk-header__navigation-list">
-        {% for item in params.navigation %}
-          {% if item.text or item.html %}
-            <li class="govuk-header__navigation-item{{ ' govuk-header__navigation-item--active moduk-header__navigation-item--active' if item.active }}">
-              {% if item.href %}
-                <a class="govuk-header__link" href="{{ item.href }}"{% for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %}>
-              {% endif %}
-                {{ item.html | safe if item.html else item.text }}
-              {% if item.href %}
-                </a>
-              {% endif %}
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </nav>
-    {% endif %}
+    {% endif -%}
+    {%- endif -%}
+    {%- if params.navigation %}
+      <nav aria-label="{{ params.navigationLabel | default(menuButtonText) }}" class="govuk-header__navigation {{ params.navigationClasses if params.navigationClasses }}">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="{{ params.menuButtonLabel | default('Show or hide menu') }}" hidden>{{ menuButtonText }}</button>
+        <ul id="navigation" class="govuk-header__navigation-list">
+        {%- for item in params.navigation -%}
+        {%- if item.text or item.html %}
+          <li class="govuk-header__navigation-item{{ ' govuk-header__navigation-item--active moduk-header__navigation-item--active' if item.active }}">
+            {% if item.href -%}
+              <a class="govuk-header__link" href="{{ item.href }}"{% for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+            {%- endif -%}
+              {{ item.html | safe if item.html else item.text }}
+            {%- if item.href -%}
+              </a>
+            {%- endif %}
+          </li>
+        {%- endif %}
+        {%- endfor %}
+        </ul>
+      </nav>
+    {%- endif %}
     </div>
-    {% endif %}
+    {%- endif %}
   </div>
 </header>
 
-{% endmacro %}
+{%- endmacro -%}

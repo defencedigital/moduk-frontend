@@ -1,5 +1,5 @@
-{% from "moduk/components/error-summary/macro.njk" import modukErrorSummary %}
-{% from "moduk/components/date-input/macro.njk" import modukDateInput %}
+{% from "moduk/components/error-summary/macro.njk" import modukErrorSummary -%}
+{% from "moduk/components/date-input/macro.njk" import modukDateInput -%}
 
 <div>
   {{ modukErrorSummary({
@@ -10,7 +10,7 @@
         href: "#incorect-date-format-year"
       }
     ]
-  }) }}
+  }) -}}
 
   {{ modukDateInput({
     id: "incorect-date-format",

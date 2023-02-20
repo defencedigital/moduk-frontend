@@ -1,14 +1,14 @@
-{% from "moduk/components/input/macro.njk" import modukInput %}
+{% from "moduk/components/input/macro.njk" import modukInput  -%}
 
 <div>
-  {{ modukInput({
+  {{- modukInput({
     label: {
       text: "Full width"
     },
     classes: "govuk-!-width-full",
     id: "full",
     name: "full"
-  }) }}
+  }) -}}
 
   {{ modukInput({
     label: {
@@ -17,7 +17,7 @@
     classes: "govuk-!-width-three-quarters",
     id: "three-quarters",
     name: "three-quarters"
-  }) }}
+  }) -}}
 
   {{ modukInput({
     label: {
@@ -26,7 +26,7 @@
     classes: "govuk-!-width-two-thirds",
     id: "two-thirds",
     name: "two-thirds"
-  }) }}
+  }) -}}
 
   {{ modukInput({
     label: {
@@ -35,7 +35,7 @@
     classes: "govuk-!-width-one-half",
     id: "one-half",
     name: "one-half"
-  }) }}
+  }) -}}
 
   {{ modukInput({
     label: {
@@ -44,7 +44,7 @@
     classes: "govuk-!-width-one-third",
     id: "one-third",
     name: "one-third"
-  }) }}
+  }) -}}
 
   {{ modukInput({
     label: {
@@ -53,5 +53,5 @@
     classes: "govuk-!-width-one-quarter",
     id: "one-quarter",
     name: "one-quarter"
-  }) }}
+  }) -}}
 </div>

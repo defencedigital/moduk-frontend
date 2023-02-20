@@ -1,8 +1,8 @@
-{% from "moduk/components/radios/macro.njk" import modukRadios %}
-{% from "moduk/components/input/macro.njk" import modukInput %}
+{% from "moduk/components/radios/macro.njk" import modukRadios -%}
+{% from "moduk/components/input/macro.njk" import modukInput -%}
 
 {% set emailHtml %}
-{{ modukInput({
+{{- modukInput({
   id: "contact-by-email",
   name: "contact-by-email",
   type: "email",
@@ -12,11 +12,11 @@
   label: {
     text: "Email address"
   }
-}) }}
+}) -}}
 {% endset -%}
 
 {% set phoneHtml %}
-{{ modukInput({
+{{- modukInput({
   id: "contact-by-phone",
   name: "contact-by-phone",
   type: "tel",
@@ -25,11 +25,11 @@
   label: {
     text: "Phone number"
   }
-}) }}
+}) -}}
 {% endset -%}
 
 {% set textHtml %}
-{{ modukInput({
+{{- modukInput({
   id: "contact-by-text",
   name: "contact-by-text",
   type: "tel",
@@ -38,7 +38,7 @@
   label: {
     text: "Mobile phone number"
   }
-}) }}
+}) -}}
 {% endset -%}
 
 {{ modukRadios({
@@ -77,4 +77,4 @@
       }
     }
   ]
-}) }}
+}) -}}

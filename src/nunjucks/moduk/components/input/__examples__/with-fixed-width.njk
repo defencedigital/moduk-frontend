@@ -1,14 +1,14 @@
-{% from "moduk/components/input/macro.njk" import modukInput %}
+{% from "moduk/components/input/macro.njk" import modukInput  -%}
 
 <div>
-  {{ modukInput({
+  {{- modukInput({
     label: {
       text: "20 character width"
     },
     classes: "govuk-input--width-20",
     id: "width-20",
     name: "width-20"
-  }) }}
+  }) -}}
 
   {{ modukInput({
     label: {
@@ -17,7 +17,7 @@
     classes: "govuk-input--width-10",
     id: "width-10",
     name: "width-10"
-  }) }}
+  }) -}}
 
   {{ modukInput({
     label: {
@@ -26,7 +26,7 @@
     classes: "govuk-input--width-5",
     id: "width-5",
     name: "width-5"
-  }) }}
+  }) -}}
 
   {{ modukInput({
     label: {
@@ -35,7 +35,7 @@
     classes: "govuk-input--width-4",
     id: "width-4",
     name: "width-4"
-  }) }}
+  }) -}}
 
   {{ modukInput({
     label: {
@@ -44,14 +44,14 @@
     classes: "govuk-input--width-3",
     id: "width-3",
     name: "width-3"
-  }) }}
+  }) -}}
 
-    {{ modukInput({
-      label: {
-        text: "2 character width"
-      },
-      classes: "govuk-input--width-2",
-      id: "width-2",
-      name: "width-2"
-    }) }}
+  {{ modukInput({
+    label: {
+      text: "2 character width"
+    },
+    classes: "govuk-input--width-2",
+    id: "width-2",
+    name: "width-2"
+  }) -}}
 </div>

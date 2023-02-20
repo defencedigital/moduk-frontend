@@ -1,5 +1,5 @@
-{% from "moduk/components/tabs/macro.njk" import modukTabs %}
-{% from "moduk/components/table/macro.njk" import modukTable %}
+{% from "moduk/components/tabs/macro.njk" import modukTabs -%}
+{% from "moduk/components/table/macro.njk" import modukTable -%}
 
 {% set pastDayHtml %}
 <h2 class="govuk-heading-l">Past day</h2>
@@ -50,7 +50,7 @@
       }
     ]
   ]
-}) }}
+}) -}}
 {% endset -%}
 
 {% set pastWeekHtml %}
@@ -102,7 +102,7 @@
       }
     ]
   ]
-}) }}
+}) -}}
 {% endset -%}
 
 {% set pastMonthHtml %}
@@ -154,7 +154,7 @@
       }
     ]
   ]
-}) }}
+}) -}}
 {% endset -%}
 
 {% set pastYearHtml %}
@@ -206,7 +206,7 @@
       }
     ]
   ]
-}) }}
+}) -}}
 {% endset -%}
 
 {{ modukTabs({
@@ -240,4 +240,4 @@
       }
     }
   ]
-}) }}
+}) -}}
