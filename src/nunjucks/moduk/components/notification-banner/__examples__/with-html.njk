@@ -1,12 +1,12 @@
-{% from "moduk/components/notification-banner/macro.njk" import modukNotificationBanner %}
+{% from "moduk/components/notification-banner/macro.njk" import modukNotificationBanner -%}
 
 {% set html %}
   <p class="govuk-notification-banner__heading">
     You have 7 days left to send your application.
     <a class="govuk-notification-banner__link" href="#">View application</a>.
   </p>
-{% endset %}
+{% endset -%}
 
 {{ modukNotificationBanner({
   html: html
-}) }}
+}) -}}

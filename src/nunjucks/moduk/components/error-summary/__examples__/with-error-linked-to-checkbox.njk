@@ -1,5 +1,5 @@
-{% from "moduk/components/error-summary/macro.njk" import modukErrorSummary %}
-{% from "moduk/components/checkboxes/macro.njk" import modukCheckboxes %}
+{% from "moduk/components/error-summary/macro.njk" import modukErrorSummary -%}
+{% from "moduk/components/checkboxes/macro.njk" import modukCheckboxes -%}
 
 <div>
   {{ modukErrorSummary({
@@ -10,7 +10,7 @@
         href: "#technologies"
       }
     ]
-  }) }}
+  }) -}}
 
 {{ modukCheckboxes({
   name: "technologies",
@@ -49,6 +49,6 @@
       text: "Another technology"
     }
   ]
-}) }}
+}) -}}
 
 </div>

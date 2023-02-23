@@ -3,9 +3,9 @@
 {% macro modukNotificationBanner(params) -%}
   {% if caller -%}
     {% call govukNotificationBanner(params) -%}
-      {{ caller() }}
+      {{- caller() -}}
     {%- endcall %}
   {%- else -%}
-    {{ govukNotificationBanner(params) }}
+    {{- govukNotificationBanner(params) -}}
   {%- endif %}
 {%- endmacro %}

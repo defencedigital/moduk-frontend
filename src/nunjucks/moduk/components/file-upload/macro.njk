@@ -1,5 +1,5 @@
 {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
-{% macro modukFileUpload(params) %}
+{% macro modukFileUpload(params) -%}
   {{ govukFileUpload(params) }}
-{% endmacro %}
+{%- endmacro %}

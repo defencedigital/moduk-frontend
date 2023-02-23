@@ -1,4 +1,4 @@
-{% from "moduk/components/file-upload/macro.njk" import modukFileUpload %}
+{% from "moduk/components/file-upload/macro.njk" import modukFileUpload -%}
 
 {{ modukFileUpload({
   id: "file-upload-with-error",
@@ -9,4 +9,4 @@
   errorMessage: {
     text: "The CSV must be smaller than 2MB"
   }
-}) }}
+}) -}}
