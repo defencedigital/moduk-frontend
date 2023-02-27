@@ -79,7 +79,7 @@
     "npm": ">=8.15.0"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy": "^2.0.0",
     "@axe-core/playwright": "^4.6.0",
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
@@ -131,9 +131,7 @@
   "overrides": {
     "@axe-core/playwright": {
       "playwright": "$@playwright/test"
-    },
-    "liquidjs": "^10.4.0",
-    "ua-parser-js@<1.0.33": "^1.0.33"
+    }
   },
   "dependencies": {
     "lodash": "^4.17.21"
