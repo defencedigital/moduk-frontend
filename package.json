@@ -98,7 +98,7 @@
     "@typescript-eslint/parser": "^5.53.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.2",
-    "dprint": "^0.34.4",
+    "dprint": "^0.34.5",
     "eslint": "^8.34.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-typescript": "^3.5.3",
