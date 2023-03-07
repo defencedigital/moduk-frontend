@@ -10,7 +10,7 @@ test.describe(' cookie banner, default', () => {
       page.getByRole('heading', {
         level: 2,
       }),
-    ).toHaveText('Cookies on the Defence Service Manual')
+    ).toHaveText('Cookies on [name of service]')
     await expect(page.getByRole('button')).toHaveText([
       'Accept analytics cookies',
       'Reject analytics cookies',
