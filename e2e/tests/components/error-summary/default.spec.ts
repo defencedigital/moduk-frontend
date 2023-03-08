@@ -2,7 +2,7 @@ import { expect, test } from '../../../fixtures'
 
 test.describe('error summary, default', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/components/error-summary/default')
+    await page.goto('/components/error-summary/with-description-and-error-list')
   })
 
   test('displays the error summary heading', async ({ componentElement }) => {

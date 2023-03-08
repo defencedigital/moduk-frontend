@@ -4,7 +4,7 @@ import { render, renderFile } from '../../../../../test-utils'
 
 describe('error summary', async () => {
   it('renders the content when using the text property', () => {
-    const element = renderFile('moduk/components/error-summary/__examples__/default.njk')
+    const element = renderFile('moduk/components/error-summary/__examples__/with-description-and-error-list.njk')
     expect(element).toHaveTextContent('There is a problem')
   })
 
