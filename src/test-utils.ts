@@ -1,4 +1,4 @@
-import glob from 'glob'
+import { globSync } from 'glob'
 import { basename, dirname } from 'node:path'
 import { createNunjucksEnvironment } from './index'
 
@@ -17,7 +17,8 @@ export function render(
 }
 
 export function findExamples(): [string, string[]][] {
-  const paths = glob.sync(`${__dirname}/nunjucks/**/__examples__/*.njk`)
+  const glob = `${__dirname}/nunjucks/**/__examples__/*.njk`
+  const paths = globSync(glob, { windowsPathsNoEscape: true }).sort()
   const exampleList = paths.map((path) => {
     const component = basename(dirname(dirname(path)))
     const exampleName = basename(path, '.njk')
