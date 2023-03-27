@@ -1,0 +1,42 @@
+@use 'sass-true' as test;
+@use '../colour-palette' as moduk;
+
+@include test.describe('moduk-colour') {
+  @include test.it('returns untinted colours') {
+    @include test.assert-equal(moduk.moduk-colour('dark-purple'), #532a45);
+    @include test.assert-equal(moduk.moduk-colour('dark-grey'), #323e48);
+    @include test.assert-equal(moduk.moduk-colour('dark-blue'), #13284c);
+    @include test.assert-equal(moduk.moduk-colour('dark-green'), #153e35);
+    @include test.assert-equal(moduk.moduk-colour('dark-yellow'), #f6a800);
+    @include test.assert-equal(moduk.moduk-colour('dark-orange'), #e0592b);
+    @include test.assert-equal(moduk.moduk-colour('dark-pink'), #8e1537);
+    @include test.assert-equal(moduk.moduk-colour('muted-purple'), #94368d);
+    @include test.assert-equal(moduk.moduk-colour('muted-grey'), #7b98ac);
+    @include test.assert-equal(moduk.moduk-colour('muted-blue'), #4298cc);
+    @include test.assert-equal(moduk.moduk-colour('muted-green'), #00945f);
+    @include test.assert-equal(moduk.moduk-colour('muted-yellow'), #ffc845);
+    @include test.assert-equal(moduk.moduk-colour('muted-orange'), #f28b00);
+    @include test.assert-equal(moduk.moduk-colour('muted-pink'), #fa7699);
+    @include test.assert-equal(moduk.moduk-colour('bright-purple'), #ab92e1);
+    @include test.assert-equal(moduk.moduk-colour('bright-grey'), #becdd6);
+    @include test.assert-equal(moduk.moduk-colour('bright-blue'), #3db5e6);
+    @include test.assert-equal(moduk.moduk-colour('bright-green'), #00ce7d);
+    @include test.assert-equal(moduk.moduk-colour('bright-yellow'), #ffc600);
+    @include test.assert-equal(moduk.moduk-colour('bright-orange'), #ff8200);
+    @include test.assert-equal(moduk.moduk-colour('bright-pink'), #f087cf);
+    @include test.assert-equal(moduk.moduk-colour('light-maroon'), #643f58);
+    @include test.assert-equal(moduk.moduk-colour('maroon'), #532a45);
+    @include test.assert-equal(moduk.moduk-colour('dark-maroon'), #4b263e);
+  }
+
+  @include test.it('returns tinted colours') {
+    @include test.assert-equal(moduk.moduk-colour('dark-purple', 80), #75556a);
+    @include test.assert-equal(moduk.moduk-colour('dark-purple', 60), #987f8f);
+    @include test.assert-equal(moduk.moduk-colour('dark-purple', 40), #baaab5);
+    @include test.assert-equal(moduk.moduk-colour('dark-purple', 20), #ddd4da);
+    @include test.assert-equal(moduk.moduk-colour('dark-grey', 80), #5b656d);
+    @include test.assert-equal(moduk.moduk-colour('dark-grey', 60), #848b91);
+    @include test.assert-equal(moduk.moduk-colour('dark-grey', 40), #adb2b6);
+    @include test.assert-equal(moduk.moduk-colour('dark-grey', 20), #d6d8da);
+  }
+}

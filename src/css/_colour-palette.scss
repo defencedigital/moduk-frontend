@@ -1,15 +1,67 @@
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:map';
+
+@use 'govuk-frontend/govuk/helpers/colour';
+
 $moduk-colours: (
-  'maroon': #532a45,
+  'dark-purple': #532a45,
+  'dark-grey': #323e48,
+  'dark-blue': #13284c,
+  'dark-green': #153e35,
+  'dark-yellow': #f6a800,
+  'dark-orange': #e0592b,
+  'dark-pink': #8e1537,
+  'muted-purple': #94368d,
+  'muted-grey': #7b98ac,
+  'muted-blue': #4298cc,
+  'muted-green': #00945f,
+  'muted-yellow': #ffc845,
+  'muted-orange': #f28b00,
+  'muted-pink': #fa7699,
+  'bright-purple': #ab92e1,
+  'bright-grey': #becdd6,
+  'bright-blue': #3db5e6,
+  'bright-green': #00ce7d,
+  'bright-yellow': #ffc600,
+  'bright-orange': #ff8200,
+  'bright-pink': #f087cf,
+);
+
+$legacy-moduk-colours: (
+  'maroon': map-get($moduk-colours, 'dark-purple'),
   'dark-maroon': #4b263e,
   'light-maroon': #643f58,
 );
 
-@function moduk-colour($colour-name) {
+// Get a colour from the MOD.UK colour palette.
+//
+// @param $colour-name {String} the name of the colour (e.g. dark-purple, muted-blue)
+// @param $tint {Number} Optional colour tint (80, 60, 40 or 20)
+//
+// @return {String}
+@function moduk-colour($colour-name, $tint: null) {
+  $valid_tints: [20, 40, 60, 80];
   $quoted-colour-name: quote($colour-name);
+  $all_colours: map.merge($legacy-moduk-colours, $moduk-colours);
 
-  @if not map-has-key($moduk-colours, $quoted-colour-name) {
+  @if $tint and not list.index($valid_tints, $tint) {
+    @error "Invalid tint `#{$tint}`";
+  }
+
+  @if not map.has-key($all_colours, $quoted-colour-name) {
     @error "Unknown colour `#{$quoted-colour-name}`";
   }
 
-  @return map-get($moduk-colours, $quoted-colour-name);
+  @if $tint and map.has-key($legacy-moduk-colours, $quoted-colour-name) {
+    @error "Invalid tint `#{$tint}` for colour `#{$quoted-colour-name}`";
+  }
+
+  $resolved_colour: map.get($all_colours, $quoted-colour-name);
+
+  @if $tint {
+    @return colour.govuk-tint($resolved_colour, 100 - $tint);
+  }
+
+  @return $resolved_colour;
 }
