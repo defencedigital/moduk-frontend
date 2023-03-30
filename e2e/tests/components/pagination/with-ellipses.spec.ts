@@ -5,7 +5,7 @@ test.describe('pagination, with ellipses', () => {
     await page.goto('/components/pagination/with-ellipses')
   })
 
-  test.describe('@desktop', () => {
+  test.describe('@tablet-and-desktop', () => {
     test('displays the expected links', async ({ page }) => {
       await expect(page.getByRole('link')).toHaveCount(7)
       await expect(page.getByRole('link', { name: 'Previous' })).toBeVisible()

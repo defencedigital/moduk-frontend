@@ -5,7 +5,7 @@ test.describe('tabs, default', () => {
     await page.goto('/components/tabs/default')
   })
 
-  test.describe('@desktop', () => {
+  test.describe('@tablet-and-desktop', () => {
     test('displays four tabs', async ({ page }) => {
       await expect(page.getByRole('tab')).toHaveCount(4)
     })
