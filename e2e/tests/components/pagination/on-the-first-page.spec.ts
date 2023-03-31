@@ -5,7 +5,7 @@ test.describe('pagination, on the first page', () => {
     await page.goto('/components/pagination/on-the-first-page')
   })
 
-  test.describe('@desktop', () => {
+  test.describe('@tablet-and-desktop', () => {
     test('displays the expected links', async ({ page }) => {
       await expect(page.getByRole('link')).toHaveCount(4)
       await expect(page.getByRole('link', { name: 'Next' })).toBeVisible()

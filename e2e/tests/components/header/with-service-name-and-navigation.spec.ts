@@ -31,7 +31,7 @@ test.describe('header, with service name and navigation', () => {
       })
     })
 
-    test.describe('@mobile', () => {
+    test.describe('@mobile-and-tablet', () => {
       test('has two links in total', async ({ page }) => {
         await expect(
           page.getByRole('link'),
@@ -90,7 +90,7 @@ test.describe('header, with service name and navigation', () => {
     })
 
     test.describe('when JavaScript is enabled', () => {
-      test.describe('@mobile', () => {
+      test.describe('@mobile-and-tablet', () => {
         test('matches the saved screenshot when the menu is open', async ({ componentElement, page }) => {
           await page.getByText('Menu').click()
 
