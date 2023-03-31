@@ -1,4 +1,4 @@
-# Submitting a pull request
+# Creating a pull request
 
 ## Branching strategy
 
@@ -50,17 +50,26 @@ When committing use the following pattern:
 type(scope?): Subject
 ```
 
+In the uncommon case of a breaking change (signifying that the next release will
+be a major release), include a `!` after the type:
+
+```
+type!(scope?): Subject
+```
+
 #### Types
 
 - build
 - chore
 - ci
 - deps
+- deps-dev
 - docs
 - feat
 - fix
 - perf
 - refactor
+- release
 - revert
 - style
 - test
@@ -109,3 +118,12 @@ git switch feature/<name>
 // replay feature branch changes after latest code
 git rebase -i --autosquash origin/main
 ```
+
+## Releasing the change
+
+Releases are created and published by
+[the release GitHub Actions workflow](https://github.com/defencedigital/moduk-frontend/actions/workflows/release.yml).
+
+It runs automatically on a daily basis overnight. If a change is urgent, it can
+also be run manually from the previous link (by someone with write access to
+this repository).
