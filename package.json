@@ -115,7 +115,7 @@
     "sass-true": "^7.0.0",
     "shx": "^0.3.4",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.3",
+    "typescript": "^5.0.4",
     "vitest": "^0.29.2",
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1"
