@@ -139,7 +139,7 @@
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
-    "govuk-frontend": "4.5.0",
+    "govuk-frontend": "4.6.0",
     "nunjucks": "^3.2.3"
   },
   "publishConfig": {
