@@ -5,7 +5,8 @@
     "moduleResolution": "node",
     "strict": true,
     "skipLibCheck": true,
-    "types": ["node"]
+    "types": ["node"],
+    "jsx": "react-jsx"
   },
   "exclude": ["**/dist", "node_modules"]
 }

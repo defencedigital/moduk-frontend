@@ -8,7 +8,6 @@ module.exports = {
     'airbnb-base',
     'plugin:@typescript-eslint/recommended',
   ],
-  overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -19,9 +18,11 @@ module.exports = {
     'unicorn',
   ],
   rules: {
+    '@typescript-eslint/no-var-requires': 'off',
     'comma-dangle': 'off',
     'eol-last': 'off',
     'function-paren-newline': 'off',
+    'global-require': 'off',
     'implicit-arrow-linebreak': 'off',
     'import/extensions': [
       'error',

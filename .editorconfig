@@ -4,8 +4,10 @@ root = true
 insert_final_newline = true
 charset = utf-8
 
-[*.{ts,js}]
+[*.{ts,js,tsx}]
 quote_type = single
+indent_style = space
+indent_size = 2
 
 [*.njk]
 indent_style = space
