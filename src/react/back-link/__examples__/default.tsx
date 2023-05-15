@@ -1,3 +1,3 @@
-import { BackLink } from '../BackLink'
+import { BackLink } from '@moduk/frontend/react'
 
-export default () => <BackLink>Back</BackLink>
+export default () => <BackLink href='#'>Back</BackLink>
