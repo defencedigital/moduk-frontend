@@ -6,20 +6,25 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
+    'plugin:eslint-comments/recommended',
     'plugin:@typescript-eslint/recommended',
   ],
-  overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
   plugins: [
+    'eslint-comments',
     '@typescript-eslint',
     'unicorn',
   ],
   rules: {
+    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/no-extra-semi': 'off',
     'comma-dangle': 'off',
+    'eslint-comments/no-unused-disable': 'error',
+    'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
     'eol-last': 'off',
     'function-paren-newline': 'off',
     'implicit-arrow-linebreak': 'off',

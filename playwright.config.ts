@@ -1,5 +1,6 @@
 import AxeBuilder from '@axe-core/playwright'
-import { devices, Expect, expect, Locator, Page, PlaywrightTestConfig } from '@playwright/test'
+import type { Expect, Locator, Page, PlaywrightTestConfig } from '@playwright/test'
+import { devices, expect } from '@playwright/test'
 
 expect.extend({
   toHaveNoViolations: async (

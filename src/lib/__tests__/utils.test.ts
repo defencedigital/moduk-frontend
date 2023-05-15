@@ -1,4 +1,5 @@
-import nunjucks, { Environment } from 'nunjucks'
+import type { Environment } from 'nunjucks'
+import nunjucks from 'nunjucks'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { addMODUKFilters } from '../utils'
 
