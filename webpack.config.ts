@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { Configuration } from 'webpack'
+import type { Configuration } from 'webpack'
 
 const config: Configuration = {
   context: path.resolve(__dirname),
