@@ -8,7 +8,7 @@ test.describe('warning text, default', () => {
   test('displays the warning text', async ({ page }) => {
     await expect(
       page.getByText(
-        'This operation cannot be undone when complete.',
+        'You must appeal within 1 year of getting your decision letter.',
       ),
     ).toBeVisible()
   })
