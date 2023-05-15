@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>React examples – MOD.UK Frontend React</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+  <h1 class="govuk-heading-l">React examples</h1>
+  {% for component, exampleNames in reactExamples.grouped %}
+  <h2 class="govuk-heading-m">{{ component | replace("-", " ") }}</h2>
+  <ul class="govuk-list govuk-list--bullet">
+  {% for exampleName in exampleNames %}
+    <li>
+      <a class="govuk-link" href="/react/{{ component }}/{{ exampleName }}">
+        {{ exampleName | replace("-", " ") }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+  {% endfor %}
+</body>
+</html>

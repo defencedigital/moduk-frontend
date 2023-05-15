@@ -16,12 +16,12 @@ export function render(
   return document.body.firstElementChild
 }
 
-export function findExamples(): [string, string[]][] {
-  const glob = `${__dirname}/nunjucks/**/__examples__/*.njk`
+export function findExamples(language = 'nunjucks', extension = '.njk'): [string, string[]][] {
+  const glob = `${__dirname}/${language}/**/__examples__/*${extension}`
   const paths = globSync(glob, { windowsPathsNoEscape: true }).sort()
   const exampleList = paths.map((path) => {
     const component = basename(dirname(dirname(path)))
-    const exampleName = basename(path, '.njk')
+    const exampleName = basename(path, extension)
     return {
       component,
       exampleName,

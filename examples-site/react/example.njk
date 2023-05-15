@@ -1,0 +1,23 @@
+---
+pagination:
+  data: reactExamples.flat
+  size: 1
+  alias: example
+permalink: 'react/{{ example.component }}/{{ example.exampleName }}/index.html'
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{ example.exampleName }} – {{ example.component }} – MOD.UK Frontend React</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="/css/index.css" rel="stylesheet">
+</head>
+<body>
+  <script>
+    document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+  </script>
+  <div id="root">{%react example.componentPath %}</div>
+  <script src="/react-example-client/index.js"></script>
+</body>
+</html>

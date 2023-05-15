@@ -15,7 +15,7 @@ module.exports = (config) => {
   config.addPassthroughCopy({ dist: '.' })
 
   config.addWatchTarget(path.join(__dirname, 'src/react'))
-  config.addShortcode('react', async (componentPath) => {
+  config.addShortcode('react', (componentPath) => {
     /* The eslint rule import/no-dynamic-require is asking for
     * await import() however this has been difficult to get this working with ts-node
     * https://github.com/TypeStrong/ts-node/issues/1548
