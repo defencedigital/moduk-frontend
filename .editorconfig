@@ -7,6 +7,6 @@ charset = utf-8
 [*.{ts,js,tsx}]
 quote_type = single
 
-[*.njk,ts,js,tsx]
+[*.{njk,ts,js,tsx}]
 indent_style = space
 indent_size = 2
