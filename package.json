@@ -128,7 +128,7 @@
     "typescript": "^5.0.4",
     "vitest": "^0.29.2",
     "webpack": "^5.76.3",
-    "webpack-cli": "^5.0.2"
+    "webpack-cli": "^5.1.1"
   },
   "lint-staged": {
     "*.{cjs,js,jsx,mjs,mts,ts,tsx}": [
