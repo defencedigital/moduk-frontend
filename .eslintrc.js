@@ -8,6 +8,9 @@ module.exports = {
     'airbnb-base',
     'plugin:eslint-comments/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -69,6 +72,9 @@ module.exports = {
         alwaysTryTypes: true,
         project: '.',
       },
+    },
+    react: {
+      version: '17.0',
     },
   },
 }

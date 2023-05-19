@@ -20,11 +20,9 @@ module.exports = (config) => {
     * await import() however this has been difficult to get this working with ts-node
     * https://github.com/TypeStrong/ts-node/issues/1548
     */
-    const component = require(path.join(__dirname, 'src/react', componentPath)).default
+    const component = require(path.join(__dirname, 'src/react', componentPath)).Example
     return renderToString(
-      createElement(StrictMode, {
-        children: createElement(component),
-      }),
+      createElement(StrictMode, null, createElement(component)),
     )
   })
 
