@@ -8,12 +8,12 @@ test.describe('character count, default', () => {
   test('displays the heading', async ({ page }) => {
     await expect(
       page.getByRole('heading'),
-    ).toHaveText('What is the event about?')
+    ).toHaveText('Can you provide more detail?')
   })
 
   test('displays the main hint', async ({ page }) => {
     await expect(
-      page.getByText('This will be shown on the public page for the event, below the event title'),
+      page.getByText('Do not include personal information like your service number.'),
     ).toBeVisible()
   })
 

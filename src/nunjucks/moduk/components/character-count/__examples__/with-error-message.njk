@@ -3,14 +3,17 @@
 {{ modukCharacterCount({
   id: "exceeding-characters",
   name: "exceeding",
-  maxlength: 350,
-  value: "A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.",
+  maxlength: 200,
+  value: "I would like to request my service record and have a question about what proof of address is acceptable. The guidance doesn’t say if a digital bank statement will be accepted. Can someone please confirm if",
   label: {
-    text: "Enter a job description",
+    text: "Can you provide more detail?",
     classes: "govuk-label--l",
     isPageHeading: true
   },
+  hint: {
+    text: "Do not include personal information like your service number."
+  },
   errorMessage: {
-    text: "Job description must be 350 characters or less"
+    text: "Detail must be 200 characters or less"
   }
 }) -}}
