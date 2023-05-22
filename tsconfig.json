@@ -6,7 +6,15 @@
     "strict": true,
     "skipLibCheck": true,
     "types": ["node"],
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@moduk/frontend/react": [
+        "./src/react/"
+      ]
+    }
   },
-  "exclude": ["**/dist", "node_modules"]
+  "exclude": ["**/dist", "node_modules"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
 }

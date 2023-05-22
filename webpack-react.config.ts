@@ -39,6 +39,9 @@ const config: Configuration = {
     path: path.resolve(__dirname, './examples-site/dist/react-example-client'),
   },
   resolve: {
+    alias: {
+      '@moduk/frontend/react': path.resolve(__dirname, 'src/react/'),
+    },
     extensions: ['.ts', '.tsx', '.mjs', '...'],
   },
 }
