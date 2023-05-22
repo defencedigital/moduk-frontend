@@ -8,7 +8,7 @@ test.describe('table, default', () => {
   test('displays the caption', async ({ page }) => {
     await expect(
       page.getByRole('caption'),
-    ).toHaveText('Active users of each application')
+    ).toHaveText('Dates and amounts')
   })
 
   test('displays two column headers', async ({ page }) => {
