@@ -1,22 +1,22 @@
 {% from "moduk/components/summary-list/macro.njk" import modukSummaryList -%}
 
 <div>
-{{- modukSummaryList({
+{{ modukSummaryList({
   card: {
     title: {
-      text: "Project A"
+      text: "University of Gloucestershire"
     },
     actions: {
       items: [
         {
           href: "#",
-          text: "Change phase",
-          visuallyHiddenText: "of project A"
+          text: "Delete choice",
+          visuallyHiddenText: "of University of Gloucestershire"
         },
         {
           href: "#",
-          text: "Archive",
-          visuallyHiddenText: "project A"
+          text: "Withdraw",
+          visuallyHiddenText: "from University of Gloucestershire"
         }
       ]
     }
@@ -24,46 +24,39 @@
   rows: [
     {
       key: {
-        text: "Phase"
+        text: "Course"
       },
       value: {
-        html: "Beta"
+        html: "English (3DMD)<br>PGCE with QTS full time"
       }
     },
     {
       key: {
-        text: "Start date"
+        text: "Location"
       },
       value: {
-        html: "1 November 2022"
-      }
-    },
-    {
-      key: {
-        text: "Team"
-      },
-      value: {
-        html: "Team A"
+        html: "School name<br>Road, City, SW1 1AA"
       }
     }
   ]
 }) -}}
+
 {{ modukSummaryList({
   card: {
     title: {
-      text: "Project B"
+      text: "University of Bristol"
     },
     actions: {
       items: [
         {
           href: "#",
-          text: "Change phase",
-          visuallyHiddenText: "of project B"
+          text: "Delete choice",
+          visuallyHiddenText: "of University of Bristol"
         },
         {
           href: "#",
-          text: "Archive",
-          visuallyHiddenText: "project B"
+          text: "Withdraw",
+          visuallyHiddenText: "from University of Bristol"
         }
       ]
     }
@@ -71,26 +64,18 @@
   rows: [
     {
       key: {
-        text: "Phase"
+        text: "Course"
       },
       value: {
-        html: "Live"
+        html: "English (Q3X1)<br>PGCE with QTS full time"
       }
     },
     {
       key: {
-        text: "Start date"
+        text: "Location"
       },
       value: {
-        html: "12 December 2021"
-      }
-    },
-    {
-      key: {
-        text: "Team"
-      },
-      value: {
-        html: "Team B"
+        html: "School name<br>Road, City, SW2 1AA"
       }
     }
   ]
