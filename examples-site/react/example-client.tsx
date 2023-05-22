@@ -15,7 +15,7 @@ async function getComponent(): Promise<ComponentType> {
   return (await import(
     /* webpackInclude: /\/\w+\/__examples__\/(\w|-)+\.tsx$/ */
     `../../src/react/${component}/__examples__/${exampleName}`
-  )).default as ComponentType
+  )).Example as ComponentType
 }
 
 ;(async () => {
