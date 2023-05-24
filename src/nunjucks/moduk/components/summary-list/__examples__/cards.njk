@@ -1,180 +1,217 @@
 {% from "moduk/components/summary-list/macro.njk" import modukSummaryList -%}
 
 <div>
-{{- modukSummaryList({
+
+{{ modukSummaryList({
   card: {
     title: {
-      text: "Project A"
+      text: "Lead tenant"
     }
   },
   rows: [
     {
       key: {
-        text: "Phase"
+        text: "Age"
       },
       value: {
-        html: "Beta"
+        html: "38"
       },
       actions: {
         items: [
           {
             href: "#",
             text: "Change",
-            visuallyHiddenText: "status"
+            visuallyHiddenText: "age"
           }
         ]
       }
     },
     {
       key: {
-        text: "Start date"
+        text: "Nationality"
       },
       value: {
-        html: "1 November 2022"
+        html: "UK national resident in UK"
       },
       actions: {
         items: [
           {
             href: "#",
             text: "Change",
-            visuallyHiddenText: "start date"
+            visuallyHiddenText: "nationality"
           }
         ]
       }
     },
     {
       key: {
-        text: "Team"
+        text: "Working situation"
       },
       value: {
-        html: "Team A"
+        html: "Part time – less than 30 hours a week"
       },
       actions: {
         items: [
           {
             href: "#",
             text: "Change",
-            visuallyHiddenText: "team"
+            visuallyHiddenText: "working situation"
           }
         ]
       }
     }
   ]
 }) -}}
+
 {{ modukSummaryList({
   card: {
     title: {
-      text: "Project B"
+      text: "Person 2"
     }
   },
   rows: [
     {
       key: {
-        text: "Phase"
+        text: "Details known"
       },
       value: {
-        html: "Live"
+        html: "Yes"
       },
       actions: {
         items: [
           {
             href: "#",
             text: "Change",
-            visuallyHiddenText: "status"
+            visuallyHiddenText: "whether details are known"
           }
         ]
       }
     },
     {
       key: {
-        text: "Start date"
+        text: "Relationship to lead tenant"
       },
       value: {
-        html: "12 December 2021"
+        html: "Partner"
       },
       actions: {
         items: [
           {
             href: "#",
             text: "Change",
-            visuallyHiddenText: "start date"
+            visuallyHiddenText: "relationship to lead tenant"
           }
         ]
       }
     },
     {
       key: {
-        text: "Team"
+        text: "Age"
       },
       value: {
-        html: "Team B"
+        html: "42"
       },
       actions: {
         items: [
           {
             href: "#",
             text: "Change",
-            visuallyHiddenText: "team"
+            visuallyHiddenText: "age"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Working situation"
+      },
+      value: {
+        html: "Unable to work because of long-term sickness or disability"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "working situation"
           }
         ]
       }
     }
   ]
 }) -}}
+
 {{ modukSummaryList({
   card: {
     title: {
-      text: "Project C"
+      text: "Person 3"
     }
   },
   rows: [
     {
       key: {
-        text: "Phase"
+        text: "Details known"
       },
       value: {
-        html: "Discovery"
+        html: "Yes"
       },
       actions: {
         items: [
           {
             href: "#",
             text: "Change",
-            visuallyHiddenText: "status"
+            visuallyHiddenText: "whether details are known"
           }
         ]
       }
     },
     {
       key: {
-        text: "Start date"
+        text: "Relationship to lead tenant"
       },
       value: {
-        html: "1 February 2023"
+        html: "Child"
       },
       actions: {
         items: [
           {
             href: "#",
             text: "Change",
-            visuallyHiddenText: "start date"
+            visuallyHiddenText: "relationship to lead tenant"
           }
         ]
       }
     },
     {
       key: {
-        text: "Team"
+        text: "Age"
       },
       value: {
-        html: "Team C"
+        html: "7"
       },
       actions: {
         items: [
           {
             href: "#",
             text: "Change",
-            visuallyHiddenText: "team"
+            visuallyHiddenText: "age"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Working situation"
+      },
+      value: {
+        html: "Child under 16"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "working situation"
           }
         ]
       }
