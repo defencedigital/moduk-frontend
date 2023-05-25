@@ -1,9 +1,31 @@
 /* eslint-disable @typescript-eslint/no-var-requires, import/no-dynamic-require, global-require  */
-require('ts-node').register({
-  project: 'tsconfig.json',
+const path = require('node:path')
+
+require('@babel/register')({
+  extensions: ['.tsx', '.mjs', '.ts'],
+  babelrc: false,
+  configFile: false,
+  only: [
+    /\/src\/react\//,
+    /\/node_modules\/react-merge-refs\//,
+  ],
+  presets: [
+    ['@babel/preset-env'],
+    '@babel/preset-typescript',
+    ['@babel/preset-react', {
+      runtime: 'automatic',
+    }],
+  ],
+  plugins: [
+    'inline-react-svg',
+  ],
 })
 
-const path = require('node:path')
+require('ts-node').register({
+  project: 'tsconfig.json',
+  transpileOnly: true,
+})
+
 const { createElement, StrictMode } = require('react')
 const { renderToString } = require('react-dom/server')
 
@@ -20,9 +42,17 @@ module.exports = (config) => {
     * await import() however this has been difficult to get this working with ts-node
     * https://github.com/TypeStrong/ts-node/issues/1548
     */
-    const component = require(path.join(__dirname, 'src/react', componentPath)).Example
+
+    const moduleId = require.resolve(path.join(__dirname, 'src/react', componentPath))
+    /* Delete the module cache for @moduk/frontend/react
+    * when reloading to avoid SSR mismatch when making changes.
+    */
+    delete require.cache[moduleId]
+    delete require.cache[require.resolve('@moduk/frontend/react')]
+
+    const { Example } = require(path.join(__dirname, 'src/react', componentPath))
     return renderToString(
-      createElement(StrictMode, null, createElement(component)),
+      createElement(StrictMode, null, createElement(Example)),
     )
   })
 

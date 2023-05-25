@@ -12,4 +12,14 @@ describe('Header', async () => {
 `)
     ).not.toThrowError()
   })
+
+  it('renders the MOOUK svg logo', () => {
+    const el = render(`
+{%- from "moduk/components/header/macro.njk" import modukHeader -%}
+
+{{ modukHeader({ }) }}
+`)
+
+    expect(el.getElementsByTagName('svg')).toHaveLength(1)
+  })
 })

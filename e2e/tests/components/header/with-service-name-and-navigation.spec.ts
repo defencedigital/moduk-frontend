@@ -2,7 +2,7 @@ import { expect, test } from '../../../fixtures'
 
 test.describe('header, with service name and navigation', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/components/header/with-service-name-and-navigation')
+    await page.goto('./components/header/with-service-name-and-navigation')
   })
 
   test.describe('when JavaScript is enabled', () => {
@@ -45,6 +45,12 @@ test.describe('header, with service name and navigation', () => {
           page.getByRole('link'),
         ).toHaveCount(6)
       })
+
+      test('has the correct attributes when the menu is open', async ({ page }) => {
+        await page.getByText('Menu').click()
+
+        await expect(page.getByText('Menu')).toHaveAttribute('aria-expanded', 'true')
+      })
     })
   })
 
@@ -55,6 +61,12 @@ test.describe('header, with service name and navigation', () => {
       await expect(
         page.getByRole('link'),
       ).toHaveCount(6)
+    })
+    test.describe('@mobile-and-tablet', () => {
+      test('does not show the mobile menu button', async ({ page }) => {
+        await expect(page.getByText('Menu')).toBeHidden()
+        await expect(page.getByText('Menu')).toHaveAttribute('hidden', '')
+      })
     })
   })
 

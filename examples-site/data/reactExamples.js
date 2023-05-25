@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { findExamples } = require('../../src/test-utils')
+const { findReactExamples } = require('../../src/test-utils')
 
-const examples = findExamples('react', '.tsx')
+const examples = findReactExamples()
 
 module.exports = {
   grouped: examples,

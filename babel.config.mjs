@@ -7,4 +7,7 @@ export default {
       runtime: 'automatic',
     }],
   ],
+  plugins: [
+    'inline-react-svg',
+  ],
 }

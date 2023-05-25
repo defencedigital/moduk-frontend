@@ -2,7 +2,7 @@ import { expect, test } from '../../../fixtures'
 
 test.describe('header, with service name', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/components/header/with-service-name')
+    await page.goto('./components/header/with-service-name')
   })
 
   test('has two links in total', async ({ page }) => {

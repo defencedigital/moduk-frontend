@@ -1,6 +1,9 @@
 import AxeBuilder from '@axe-core/playwright'
-import type { Expect, Locator, Page, PlaywrightTestConfig } from '@playwright/test'
+import type { Expect, Locator, Page, PlaywrightTestConfig, Project } from '@playwright/test'
 import { devices, expect } from '@playwright/test'
+
+import { escapeRegExp } from 'lodash'
+import { findReactExamples } from './src/test-utils'
 
 expect.extend({
   toHaveNoViolations: async (
@@ -71,6 +74,38 @@ expect.extend({
   },
 })
 
+const baseURL = 'http://localhost:8080'
+
+interface FrameworkProject extends Project {
+  grepInvert: RegExp
+}
+
+const libraryProjects = (projects: FrameworkProject[]): Project[] => {
+  const reactComponents = findReactExamples().map(([component]) => escapeRegExp(component)).join('|')
+
+  return projects.flatMap(({ grepInvert, ...project }) => [
+    {
+      ...project,
+      grepInvert: [grepInvert, /@react(\s|$)/],
+    },
+    {
+      ...project,
+      name: `react-${project.name}`,
+      snapshotPathTemplate: `{testDir}/__screenshots__/{testFilePath}/{arg}--${project.name}{ext}`,
+      testMatch: [
+        new RegExp(`components/(${reactComponents})/.+\\.spec\\.ts$`),
+        'accessibility.spec.ts',
+        'visual-regression.spec.ts',
+      ],
+      grepInvert: [grepInvert, /@nunjucks(\s|$)/],
+      use: {
+        ...project.use,
+        baseURL: new URL('/react/', baseURL).toString(),
+      },
+    },
+  ])
+}
+
 const config: PlaywrightTestConfig = {
   expect: {
     timeout: 5000,
@@ -82,7 +117,7 @@ const config: PlaywrightTestConfig = {
   fullyParallel: true,
   maxFailures: process.env.CI ? 10 : undefined,
   outputDir: 'e2e/output/artefacts/',
-  projects: [
+  projects: libraryProjects([
     {
       name: 'chromium',
       grepInvert: /(@mobile|@mobile-and-tablet|@tablet)(\s|$)/,
@@ -111,7 +146,7 @@ const config: PlaywrightTestConfig = {
         ...devices['iPad (gen 6)'],
       },
     },
-  ],
+  ]),
   reporter: [
     [process.env.CI ? 'github' : 'line'],
     ['html', { outputFolder: './e2e/output/html/', open: 'never' }],
@@ -121,7 +156,7 @@ const config: PlaywrightTestConfig = {
   testDir: './e2e/tests',
   timeout: 30 * 1000,
   use: {
-    baseURL: 'http://localhost:8080',
+    baseURL,
     trace: process.env.PLAYWRIGHT_TRACE
       ? 'retain-on-failure'
       : 'on-first-retry',
@@ -130,7 +165,7 @@ const config: PlaywrightTestConfig = {
   },
   webServer: {
     command: 'npm start',
-    url: 'http://localhost:8080',
+    url: baseURL,
     reuseExistingServer: true,
   },
   workers: process.env.CI ? 2 : undefined,

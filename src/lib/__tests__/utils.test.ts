@@ -1,11 +1,9 @@
 import type { Environment } from 'nunjucks'
-import nunjucks from 'nunjucks'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { addMODUKFilters } from '../utils'
+import { createNunjucksEnvironment } from '../utils'
 
 function createNunjucksEnv() {
-  const env = nunjucks.configure({})
-  addMODUKFilters(env)
+  const env = createNunjucksEnvironment()
   return env
 }
 

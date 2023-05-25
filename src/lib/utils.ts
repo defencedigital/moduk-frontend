@@ -1,7 +1,8 @@
 import { get, set } from 'lodash'
-import { dirname, join } from 'node:path'
+import { readFileSync } from 'node:fs'
+import { basename, dirname, join } from 'node:path'
 import type { ConfigureOptions, Environment } from 'nunjucks'
-import { configure } from 'nunjucks'
+import { configure, runtime } from 'nunjucks'
 
 /**
  * Get the template paths that should be specified when manually creating a new
@@ -41,15 +42,53 @@ const addCustomMODUKClass: NunjucksFilter = (
 }
 
 /**
+ * Add MOD.UK svg loader to an existing Nunjucks environment.
+ * @param nunjucksEnv Nunjucks environment
+ * Based from https://github.com/11ty/eleventy/blob/v2.0.1/src/Engines/Nunjucks.js#L166-L228
+ * as https://mozilla.github.io/nunjucks/api.html#custom-tags
+ */
+function addSvgExtension(nunjucksEnv: Environment) {
+  class SvgLoader {
+    tags = ['MODUKincludeSVG']
+
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+    parse(parser: any, nodes: any) {
+      const tok = parser.nextToken()
+      const args = parser.parseSignature(null, true)
+      parser.advanceAfterBlockEnd(tok.value)
+
+      return new nodes.CallExtension(this, 'run', args, null)
+    }
+
+    /* eslint-disable-next-line class-methods-use-this */
+    run(_context: unknown, fileName: string) {
+      const svgPath = `${join(__dirname, '..', '/assets/svg', basename(fileName, '.svg'))}.svg`
+      return new runtime.SafeString(readFileSync(svgPath, 'utf8'))
+    }
+  }
+  nunjucksEnv.addExtension('MODUKincludeSVG', new SvgLoader())
+}
+
+/**
+ * Add MOD.UK extensions to an existing Nunjucks environment.
+ * @param nunjucksEnv Nunjucks environment
+ */
+export function addNunjucksExtensions(nunjucksEnv: Environment) {
+  nunjucksEnv.addFilter('addCustomMODUKClass', addCustomMODUKClass)
+  addSvgExtension(nunjucksEnv)
+}
+
+/**
+ * @deprecated Use addNunjucksExtensions instead.
  * Add MOD.UK filters to an existing Nunjucks environment.
  * @param nunjucksEnv Nunjucks environment
  */
 export function addMODUKFilters(nunjucksEnv: Environment) {
-  nunjucksEnv.addFilter('addCustomMODUKClass', addCustomMODUKClass)
+  addNunjucksExtensions(nunjucksEnv)
 }
 
 /**
- * Create a Nunjucks environment with MOD.UK template paths and filters pre-configured.
+ * Create a Nunjucks environment pre-configured with MOD.UK template paths and internal extensions.
  *
  * @param templatePaths Additional template paths to add
  * @param options Environment configuration options
@@ -59,6 +98,6 @@ export function createNunjucksEnvironment(
   options: ConfigureOptions | undefined = undefined,
 ) {
   const env = configure([...getNunjucksPaths(), ...templatePaths], options)
-  addMODUKFilters(env)
+  addNunjucksExtensions(env)
   return env
 }

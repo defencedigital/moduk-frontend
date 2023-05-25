@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { findExamples } = require('../../src/test-utils')
+const { findNunjucksExamples } = require('../../src/test-utils')
 
-const examples = findExamples()
+const examples = findNunjucksExamples()
 
 module.exports = {
   grouped: examples,

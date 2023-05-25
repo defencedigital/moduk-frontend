@@ -16,8 +16,8 @@ export function render(
   return document.body.firstElementChild
 }
 
-export function findExamples(language = 'nunjucks', extension = '.njk'): [string, string[]][] {
-  const glob = `${__dirname}/${language}/**/__examples__/*${extension}`
+function findExamples(library: string, extension: string): [string, string[]][] {
+  const glob = `${__dirname}/${library}/**/__examples__/*${extension}`
   const paths = globSync(glob, { windowsPathsNoEscape: true }).sort()
   const exampleList = paths.map((path) => {
     const component = basename(dirname(dirname(path)))
@@ -35,6 +35,14 @@ export function findExamples(language = 'nunjucks', extension = '.njk'): [string
   })
 
   return Object.entries(examples)
+}
+
+export function findNunjucksExamples() {
+  return findExamples('nunjucks', '.njk')
+}
+
+export function findReactExamples() {
+  return findExamples('react', '.tsx')
 }
 
 export function renderFile(
