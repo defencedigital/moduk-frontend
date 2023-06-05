@@ -6,7 +6,7 @@ test.describe('checkboxes, default', () => {
   })
 
   test('displays the heading', async ({ page }) => {
-    await expect(page.getByRole('heading')).toHaveText('Which technologies do you use in your role?')
+    await expect(page.getByRole('heading')).toHaveText('Who did you report the incident to?')
   })
 
   test('displays the hint text', async ({ componentElement }) => {

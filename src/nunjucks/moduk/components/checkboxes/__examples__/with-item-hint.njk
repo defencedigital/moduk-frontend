@@ -1,40 +1,32 @@
 {% from "moduk/components/checkboxes/macro.njk" import modukCheckboxes -%}
 
 {{ modukCheckboxes({
-  name: "technologies-with-item-hint",
+  name: "nationality-with-item-hint",
   fieldset: {
     legend: {
-      text: "Which technologies do you use in your role?",
+      text: "What is your nationality?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
   },
   hint: {
-    text: "Select all that apply."
+    text: "If you have dual nationality, select all options that are relevant to you."
   },
   items: [
     {
-      value: "angular",
-      text: "Angular"
-    },
-    {
-      value: "nunjucks",
-      text: "Nunjucks"
-    },
-    {
-      value: "react",
-      text: "React"
-    },
-    {
-      value: "web-components",
-      text: "Web components",
+      value: "british",
+      text: "British",
       hint: {
-        text: "including any frameworks based on web component technology"
+        text: "including English, Scottish, Welsh and Northern Irish"
       }
     },
     {
-      value: "another-technology",
-      text: "Another technology"
+      value: "irish",
+      text: "Irish"
+    },
+    {
+      value: "another-country",
+      text: "Citizen of another country"
     }
   ]
 }) -}}

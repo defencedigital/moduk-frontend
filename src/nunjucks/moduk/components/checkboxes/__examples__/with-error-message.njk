@@ -1,10 +1,10 @@
 {% from "moduk/components/checkboxes/macro.njk" import modukCheckboxes -%}
 
 {{ modukCheckboxes({
-  name: "technologies-with-error-message",
+  name: "incident-with-error-message",
   fieldset: {
     legend: {
-      text: "Which technologies do you use in your role?",
+      text: "Who did you report the incident to?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -13,28 +13,28 @@
     text: "Select all that apply."
   },
   errorMessage: {
-    text: "Select which technologies you use in your role"
+    text: "Select who you reported the incident to"
   },
   items: [
     {
-      value: "angular",
-      text: "Angular"
+      value: "unit-medic",
+      text: "Unit medic"
     },
     {
-      value: "nunjucks",
-      text: "Nunjucks"
+      value: "hospital",
+      text: "Hospital"
     },
     {
-      value: "react",
-      text: "React"
+      value: "chain-of-command",
+      text: "Chain of command"
     },
     {
-      value: "web-components",
-      text: "Web components"
+      value: "colleague",
+      text: "Colleague"
     },
     {
-      value: "another-technology",
-      text: "Another technology"
+      value: "other-person",
+      text: "Other person"
     }
   ]
 }) -}}
