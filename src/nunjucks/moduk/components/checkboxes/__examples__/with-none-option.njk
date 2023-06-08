@@ -1,10 +1,10 @@
 {% from "moduk/components/checkboxes/macro.njk" import modukCheckboxes -%}
 
 {{ modukCheckboxes({
-  name: "technologies-with-none-option",
+  name: "incident-with-none-option",
   fieldset: {
     legend: {
-      text: "Which technologies do you use in your role?",
+      text: "Who did you report the incident to?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -14,27 +14,31 @@
   },
   items: [
     {
-      value: "angular",
-      text: "Angular"
+      value: "unit-medic",
+      text: "Unit medic"
     },
     {
-      value: "nunjucks",
-      text: "Nunjucks"
+      value: "hospital",
+      text: "Hospital"
     },
     {
-      value: "react",
-      text: "React"
+      value: "chain-of-command",
+      text: "Chain of command"
     },
     {
-      value: "web-components",
-      text: "Web components"
+      value: "colleague",
+      text: "Colleague"
+    },
+    {
+      value: "other-person",
+      text: "Other person"
     },
     {
       divider: "or"
     },
     {
       value: "none",
-      text: "I do not use any of these technologies",
+      text: "I did not report the incident",
       behaviour: "exclusive"
     }
   ]

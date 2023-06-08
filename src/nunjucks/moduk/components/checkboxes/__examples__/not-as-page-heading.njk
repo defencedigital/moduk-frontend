@@ -1,10 +1,10 @@
 {% from "moduk/components/checkboxes/macro.njk" import modukCheckboxes -%}
 
 {{ modukCheckboxes({
-  name: "technologies-not-as-page-heading",
+  name: "incident-not-as-page-heading",
   fieldset: {
     legend: {
-      text: "Which technologies do you use in your role?"
+      text: "Who did you report the incident to?"
     }
   },
   hint: {
@@ -12,24 +12,24 @@
   },
   items: [
     {
-      value: "angular",
-      text: "Angular"
+      value: "unit-medic",
+      text: "Unit medic"
     },
     {
-      value: "nunjucks",
-      text: "Nunjucks"
+      value: "hospital",
+      text: "Hospital"
     },
     {
-      value: "react",
-      text: "React"
+      value: "chain-of-command",
+      text: "Chain of command"
     },
     {
-      value: "web-components",
-      text: "Web components"
+      value: "colleague",
+      text: "Colleague"
     },
     {
-      value: "another-technology",
-      text: "Another technology"
+      value: "other-person",
+      text: "Other person"
     }
   ]
 }) -}}

@@ -6,13 +6,13 @@ test.describe('checkboxes, with none option', () => {
   })
 
   test('deselects other options when the none option is selected', async ({ page }) => {
-    const reactCheckbox = page.getByLabel('React')
-    const noneCheckbox = page.getByLabel('I do not use any of these technologies')
+    const unitMedicCheckbox = page.getByLabel('Unit medic')
+    const noneCheckbox = page.getByLabel('I did not report the incident')
 
-    await reactCheckbox.click()
+    await unitMedicCheckbox.click()
     await noneCheckbox.click()
 
-    await expect(reactCheckbox).not.toBeChecked()
+    await expect(unitMedicCheckbox).not.toBeChecked()
     await expect(noneCheckbox).toBeChecked()
   })
 })
