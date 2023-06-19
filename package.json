@@ -86,7 +86,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",
-    "@axe-core/playwright": "^4.7.1",
+    "@axe-core/playwright": "^4.7.2",
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.22.1",
     "@babel/preset-env": "^7.22.4",
@@ -142,11 +142,6 @@
     "*.{md,scss,yaml,yml}": [
       "dprint fmt"
     ]
-  },
-  "overrides": {
-    "@axe-core/playwright": {
-      "playwright": "$@playwright/test"
-    }
   },
   "dependencies": {
     "clsx": "^1.2.1",
