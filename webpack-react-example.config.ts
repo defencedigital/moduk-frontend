@@ -22,13 +22,7 @@ const config: Configuration = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-typescript',
-              ['@babel/preset-react', {
-                runtime: 'automatic',
-              }],
-            ],
+            comments: true,
           },
         },
       },
@@ -41,6 +35,7 @@ const config: Configuration = {
   resolve: {
     alias: {
       '@moduk/frontend/react': path.resolve(__dirname, 'src/react/'),
+      '@moduk/frontend/client': path.resolve(__dirname, 'src/client/'),
     },
     extensions: ['.ts', '.tsx', '.mjs', '...'],
   },

@@ -1,4 +1,4 @@
-import { findExamples } from '../../src/test-utils'
+import { findNunjucksExamples, findReactExamples } from '../../src/test-utils'
 import { expect, test } from '../fixtures'
 
 // There are various known failures in the GOV.UK Design System:
@@ -17,12 +17,12 @@ const DISABLED_RULES: Record<string, Record<string, string[]>> = {
 }
 
 test.describe('@accessibility', () => {
-  findExamples().forEach(([component, exampleNames]) => {
+  const accessibilitySuite = ([component, exampleNames]: [string, string[]]) => {
     test.describe(component, () => {
       exampleNames.forEach((exampleName) => {
         test.describe(exampleName, () => {
           test.beforeEach(async ({ page }) => {
-            await page.goto(`/components/${component}/${exampleName}`)
+            await page.goto(`./components/${component}/${exampleName}`)
           })
 
           test('passes accessibility checks', async ({ page }) => {
@@ -31,6 +31,18 @@ test.describe('@accessibility', () => {
           })
         })
       })
+    })
+  }
+
+  test.describe('@nunjucks', () => {
+    findNunjucksExamples().forEach((example) => {
+      accessibilitySuite(example)
+    })
+  })
+
+  test.describe('@react', () => {
+    findReactExamples().forEach((example) => {
+      accessibilitySuite(example)
     })
   })
 })
