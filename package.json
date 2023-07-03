@@ -156,6 +156,7 @@
   "dependencies": {
     "clsx": "^1.2.1",
     "lodash": "^4.17.21",
+    "react-keyed-flatten-children": "^2.2.1",
     "react-merge-refs": "^2.0.2"
   },
   "overrides": {

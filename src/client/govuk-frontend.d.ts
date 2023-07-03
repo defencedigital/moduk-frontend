@@ -1,7 +1,13 @@
 /* eslint-disable lines-between-class-members */
+// eslint-disable-next-line max-classes-per-file
 declare module 'govuk-frontend' {
-  export class Header<E extends HTMLElement = HTMLElement> {
-    constructor(el: E)
+  class Accordion {
+    constructor(el: HTMLElement)
+    init(): void
+  }
+
+  class Header {
+    constructor(el: HTMLElement)
     init(): void
   }
 }

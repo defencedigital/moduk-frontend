@@ -5,8 +5,7 @@ import { expect, test } from '../fixtures'
 // https://github.com/alphagov/govuk-frontend/issues/1280#issuecomment-509588851
 const DISABLED_RULES: Record<string, Record<string, string[]>> = {
   accordion: {
-    default: ['aria-allowed-attr'],
-    'with-summary-lines': ['aria-allowed-attr'],
+    '*': ['aria-allowed-attr'],
   },
   checkboxes: {
     'with-conditional-reveal': ['aria-allowed-attr'],
@@ -26,7 +25,10 @@ test.describe('@accessibility', () => {
           })
 
           test('passes accessibility checks', async ({ page }) => {
-            const disabledRules = DISABLED_RULES[component]?.[exampleName] ?? []
+            const disabledRules = [
+              ...(DISABLED_RULES[component]?.['*'] ?? []),
+              ...(DISABLED_RULES[component]?.[exampleName] ?? []),
+            ]
             await expect(page).toHaveNoViolations(disabledRules)
           })
         })
