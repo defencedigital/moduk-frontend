@@ -1,6 +1,6 @@
 import { globSync } from 'glob'
 import { basename, dirname } from 'node:path'
-import { createNunjucksEnvironment } from './index'
+import { createNunjucksEnvironment } from './lib'
 
 export function render(
   templateString: string,
