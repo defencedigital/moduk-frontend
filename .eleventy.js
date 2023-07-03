@@ -29,7 +29,7 @@ require('ts-node').register({
 const { createElement, StrictMode } = require('react')
 const { renderToString } = require('react-dom/server')
 
-const { createNunjucksEnvironment } = require('./src')
+const { createNunjucksEnvironment } = require('./src/lib')
 
 module.exports = (config) => {
   config.setLibrary('njk', createNunjucksEnvironment())
