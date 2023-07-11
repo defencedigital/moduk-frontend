@@ -61,6 +61,7 @@ module.exports = {
     'max-len': 'off',
     'object-curly-newline': 'off',
     semi: ['error', 'never'],
+    'semi-style': 'off',
     'unicorn/prefer-node-protocol': 'error',
   },
   settings: {

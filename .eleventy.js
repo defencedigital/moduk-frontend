@@ -28,7 +28,7 @@ require('ts-node').register({
 
 const { createElement, StrictMode } = require('react')
 const { renderToString } = require('react-dom/server')
-
+const { Root } = require('./src/react/test-utils/Root')
 const { createNunjucksEnvironment } = require('./src/lib')
 
 module.exports = (config) => {
@@ -37,7 +37,7 @@ module.exports = (config) => {
   config.addPassthroughCopy({ dist: '.' })
 
   config.addWatchTarget(path.join(__dirname, 'src/react'))
-  config.addShortcode('react', (componentPath) => {
+  config.addShortcode('react', ({ componentPath, exampleName, component }) => {
     /* The eslint rule import/no-dynamic-require is asking for
     * await import() however this has been difficult to get this working with ts-node
     * https://github.com/TypeStrong/ts-node/issues/1548
@@ -52,7 +52,7 @@ module.exports = (config) => {
 
     const { Example } = require(path.join(__dirname, 'src/react', componentPath))
     return renderToString(
-      createElement(StrictMode, null, createElement(Example)),
+      createElement(StrictMode, null, createElement(Root, { exampleName, component }, createElement(Example))),
     )
   })
 
