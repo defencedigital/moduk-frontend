@@ -2,6 +2,7 @@ import { escape } from 'lodash'
 import type { ComponentType } from 'react'
 import { StrictMode } from 'react'
 import { hydrateRoot } from 'react-dom/client'
+import { Root } from '../../src/react/test-utils/Root'
 
 const errorDom = (
   title: string,
@@ -23,49 +24,54 @@ const errorDom = (
 </div>`
 )
 
-async function getComponent(): Promise<ComponentType> {
+const getParams = () => {
   const regex = /^\/react\/components\/(?<component>[\w|-]+)\/(?<exampleName>[\w|-]+)\/?$/
 
   const match = window.location.pathname.match(regex)
 
   if (!match || !match?.groups) {
-    throw new Error('404, No component found')
+    throw new Error('No component found')
   }
   const { component, exampleName } = match.groups
+  return { component, exampleName }
+}
 
+const getComponent = async (): Promise<ComponentType> => {
+  const { component, exampleName } = getParams()
   return (await import(
     /* webpackInclude: /\/(\w|-)+\/__examples__\/(\w|-)+\.tsx$/ */
     `../../src/react/${component}/__examples__/${exampleName}`
   )).Example as ComponentType
 }
-
 ;(async () => {
-  const domNode = document.getElementById('root')
-  if (!domNode) {
-    return
-  }
-
   try {
+    const { component, exampleName } = getParams()
+
     const Component = await getComponent()
+
     hydrateRoot(
-      domNode,
+      document,
       <StrictMode>
-        <Component />
+        <Root exampleName={exampleName} component={component}>
+          <Component />
+        </Root>
       </StrictMode>,
       {
         onRecoverableError: (error, errorInfo) => {
           const info = errorInfo.componentStack
           if (error instanceof Error) {
-            domNode.innerHTML = errorDom(error.message, info)
+            document.body.innerHTML = errorDom(error.message, info)
           }
         },
       },
     )
   } catch (err) {
     hydrateRoot(
-      domNode,
+      document,
       <StrictMode>
-        <div>{err instanceof Error ? err.message : 'Unexpected Error'}</div>
+        <Root>
+          <div>{err instanceof Error ? err.message : 'Unexpected Error'}</div>
+        </Root>
       </StrictMode>,
     )
   }
