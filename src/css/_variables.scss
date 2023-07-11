@@ -4,7 +4,7 @@
 $moduk-assets-path: '/assets/' !default;
 $moduk-images-path: '#{$moduk-assets-path}images/' !default;
 
-$moduk-font-family: 'Helvetica', 'Arial', 'sans-serif' !default;
+$moduk-font-family: 'Helvetica', 'Arial', sans-serif !default;
 
 $moduk-brand-colour: colour-palette.moduk-colour('maroon') !default;
 $moduk-header-link-active: #af6098 !default;
