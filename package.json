@@ -160,6 +160,7 @@
   },
   "overrides": {
     "playwright-core": "$@playwright/test",
+    "proxy-agent": "^6.3.0",
     "semver": "^7.5.3",
     "optionator": "^0.9.3"
   },
