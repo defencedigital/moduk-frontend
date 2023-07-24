@@ -1,29 +1,27 @@
 import { useEffect, useRef } from 'react'
 
-type HeaderConfig = {
-  name: 'Header'
-  element: HTMLElement
+type ComponentElement = {
+  Accordion: HTMLDivElement
+  Header: HTMLElement
 }
 
-type ComponentConfig = HeaderConfig
+type ComponentNameLiteral = keyof ComponentElement
 
-type ComponentName = ComponentConfig['name']
-
-type FindElementType<Name extends ComponentName> = Extract<ComponentConfig, { name: Name }>['element']
-
-const initialiseComponent = async (componentName: ComponentName, el: HTMLElement) => {
+const initialiseComponent = async <ComponentName extends ComponentNameLiteral>(
+  componentName: ComponentName,
+  el: ComponentElement[ComponentName],
+) => {
   const client = await import('govuk-frontend')
   new client[componentName](el).init()
 }
 
 export function useMODUKComponent<
-  MODUKComponent extends ComponentName,
-  ComponentElement extends HTMLElement = FindElementType<MODUKComponent>,
+  ComponentName extends ComponentNameLiteral,
 >(
-  componentName: MODUKComponent,
+  componentName: ComponentName,
 ) {
-  const ref = useRef<ComponentElement>(null)
-  const previousRef = useRef<ComponentElement | null>(null)
+  const ref = useRef<ComponentElement[ComponentName]>(null)
+  const previousRef = useRef<ComponentElement[ComponentName] | null>(null)
 
   useEffect(() => {
     // Initialise the component if and only if the DOM element has changed

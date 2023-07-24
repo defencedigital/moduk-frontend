@@ -1,0 +1,40 @@
+{% from "moduk/components/accordion/macro.njk" import modukAccordion -%}
+
+{{ modukAccordion({
+  id: "accordion-default",
+  headingLevel: 3,
+  items: [
+    {
+      heading: {
+        text: "Writing well for the web"
+      },
+      content: {
+        text: "This is the content for Writing well for the web."
+      }
+    },
+    {
+      heading: {
+        text: "Writing well for specialists"
+      },
+      content: {
+        text: "This is the content for Writing well for specialists."
+      }
+    },
+    {
+      heading: {
+        text: "Know your audience"
+      },
+      content: {
+        text: "This is the content for Know your audience."
+      }
+    },
+    {
+      heading: {
+        text: "How people read"
+      },
+      content: {
+        text: "This is the content for How people read."
+      }
+    }
+  ]
+}) -}}
