@@ -7,6 +7,9 @@ export interface HeaderNavigationItemProps {
   active?: boolean
 }
 
+/**
+ * @experimental React components are in alpha and subject to change.
+ */
 export const HeaderNavigationItem = forwardRef<
   HTMLLIElement,
   HeaderNavigationItemProps

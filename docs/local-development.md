@@ -131,3 +131,15 @@ npm run test:visual:clean
 
 This can be useful after renaming or deleting visual regression tests or
 component examples.
+
+### Build and pack the package as a tarball
+
+To build the package as it would be distributed, run:
+
+```shell
+npm run dist:pack
+```
+
+A .tgz file will be output in the `dist` directory. This can be manually
+installed in another project by running `npm install file:<path to .tgz>` in the
+other project.

@@ -1,9 +1,13 @@
 'use client'
 
 import clsx from 'clsx'
-import { type JSX, useEffect, useState } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
+import { useEffect, useState } from 'react'
 
-export const MODUKBody = ({ children, className, ...rest }: JSX.IntrinsicElements['body']) => {
+/**
+ * @experimental React components are in alpha and subject to change.
+ */
+export const MODUKBody = ({ children, className, ...rest }: ComponentPropsWithoutRef<'body'>) => {
   const [isClient, setClient] = useState(false)
   useEffect(() => {
     setClient(true)

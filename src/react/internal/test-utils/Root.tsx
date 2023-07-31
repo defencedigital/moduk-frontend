@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react'
-import { MODUKBody } from '../MODUKBody/MODUKBody'
+import { MODUKBody } from '../../MODUKBody/MODUKBody'
 
 interface RootProps {
   exampleName?: string

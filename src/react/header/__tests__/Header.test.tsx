@@ -1,7 +1,7 @@
-import { Header, HeaderNavigationItem, HeaderNavigationLink } from '@moduk/frontend/react'
 import { render } from '@testing-library/react'
 import type { JSX, ReactNode } from 'react'
 import { describe, expect, test } from 'vitest'
+import { Header, HeaderNavigationItem, HeaderNavigationLink } from '..'
 
 const RouterLink = ({ to, children }: { to: string; children: ReactNode }): JSX.Element => <a href={to}>{children}</a>
 

@@ -25,6 +25,19 @@ jobs:
       - name: Check formatting
         run: npm run format:check
 
+  build-package:
+    name: Build package
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Build package
+        run: npm run dist:build
+
   lint-commit-messages:
     name: Lint commit messages
     runs-on: ubuntu-22.04
