@@ -27,6 +27,8 @@ require('ts-node').register({
 })
 
 const { createElement, StrictMode } = require('react')
+// See https://github.com/jsx-eslint/eslint-plugin-react/issues/3606
+// eslint-disable-next-line react/no-deprecated
 const { renderToString } = require('react-dom/server')
 const { Root } = require('./src/react/test-utils/Root')
 const { createNunjucksEnvironment } = require('./src/lib')
