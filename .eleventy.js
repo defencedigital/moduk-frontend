@@ -3,21 +3,14 @@ const path = require('node:path')
 
 require('@babel/register')({
   extensions: ['.tsx', '.mjs', '.ts'],
-  babelrc: false,
-  configFile: false,
   only: [
     /\/src\/react\//,
     /\/node_modules\/react-merge-refs\//,
   ],
   presets: [
-    ['@babel/preset-env'],
-    '@babel/preset-typescript',
-    ['@babel/preset-react', {
-      runtime: 'automatic',
-    }],
-  ],
-  plugins: [
-    'inline-react-svg',
+    [
+      '@babel/preset-env',
+    ],
   ],
 })
 
