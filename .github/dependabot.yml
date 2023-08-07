@@ -11,6 +11,19 @@ updates:
     commit-message:
       prefix: 'deps:'
       prefix-development: 'deps-dev:'
+    groups:
+      babel:
+        patterns:
+          - '@babel/*'
+      commitlint:
+        patterns:
+          - '@commitlint/*'
+      testing-library:
+        patterns:
+          - '@testing-library/*'
+      typescript-eslint:
+        patterns:
+          - '@typescript-eslint/*'
 
   - package-ecosystem: github-actions
     directory: /
