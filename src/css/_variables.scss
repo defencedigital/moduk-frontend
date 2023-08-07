@@ -6,5 +6,8 @@ $moduk-images-path: '#{$moduk-assets-path}images/' !default;
 
 $moduk-font-family: 'Helvetica', 'Arial', sans-serif !default;
 
-$moduk-brand-colour: colour-palette.moduk-colour('maroon') !default;
-$moduk-header-link-active: #af6098 !default;
+$moduk-brand-colour: colour-palette.moduk-colour('dark-purple') !default;
+$moduk-header-link-active: colour-palette.moduk-colour(
+  'dark-purple',
+  60
+) !default;

@@ -111,6 +111,7 @@ const config: PlaywrightTestConfig = {
     timeout: 5000,
     toHaveScreenshot: {
       scale: 'device',
+      threshold: 0.05,
     },
   },
   forbidOnly: !!process.env.CI,
