@@ -2,22 +2,21 @@
 
 import clsx from 'clsx'
 import { isEqual, pick } from 'lodash'
-import type { ComponentPropsWithoutRef, ReactElement } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import { Children, forwardRef, isValidElement, useRef } from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
 
 import { mergeRefs } from 'react-merge-refs'
 import { useMODUKComponent } from '../internal/hooks/useMODUKComponent'
 import { usePrevious } from '../internal/hooks/usePrevious'
+import { type PermissiveChild } from '../internal/PermissiveChild'
 import { AccordionContext } from './AccordionContext'
 import type { AccordionHeadingTag } from './AccordionHeadingTag'
 import type { AccordionItemProps } from './AccordionItem'
 import { AccordionItemIndexContext } from './AccordionItemIndexContext'
 
-type AccordionChild = ReactElement<AccordionItemProps> | boolean | null | Iterable<AccordionChild>
-
 export interface AccordionProps extends ComponentPropsWithoutRef<'div'> {
-  children: AccordionChild
+  children: PermissiveChild<AccordionItemProps>
   headingTag?: AccordionHeadingTag
   hideAllSectionsText?: string
   hideSectionText?: string

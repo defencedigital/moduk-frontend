@@ -12,4 +12,8 @@ test.describe('footer, with secondary navigation and links', () => {
       ),
     ).toHaveCount(9 + 3 + 3)
   })
+
+  test('displays the "Support links" heading', async ({ page }) => {
+    await expect(page.getByRole('heading', { level: 2, name: 'Support links' })).toBeVisible()
+  })
 })

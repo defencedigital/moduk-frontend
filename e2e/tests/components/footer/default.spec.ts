@@ -18,4 +18,8 @@ test.describe('footer, default', () => {
       page.getByText('© Crown copyright'),
     ).toBeVisible()
   })
+
+  test('does not display the "Support links" heading', async ({ page }) => {
+    await expect(page.getByRole('heading', { level: 2, name: 'Support links' })).not.toBeVisible()
+  })
 })
