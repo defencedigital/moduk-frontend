@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-type ComponentElement = {
+interface ComponentElement {
   Accordion: HTMLDivElement
   Header: HTMLElement
 }

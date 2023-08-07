@@ -8,6 +8,7 @@ module.exports = {
     'airbnb-base',
     'plugin:eslint-comments/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/stylistic',
     'plugin:react-hooks/recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
@@ -24,7 +25,6 @@ module.exports = {
   ],
   rules: {
     '@typescript-eslint/consistent-type-imports': 'error',
-    '@typescript-eslint/no-extra-semi': 'off',
     'comma-dangle': 'off',
     'eslint-comments/no-unused-disable': 'error',
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
@@ -59,6 +59,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     indent: 'off',
     'max-len': 'off',
+    'no-extra-semi': 'off',
     'object-curly-newline': 'off',
     semi: ['error', 'never'],
     'semi-style': 'off',
