@@ -102,7 +102,7 @@
     "@playwright/test": "^1.36.2",
     "@release-it/conventional-changelog": "^6.0.0",
     "@testing-library/dom": "^9.3.1",
-    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
     "@types/lodash": "^4.14.195",
     "@types/node": "^18.16.19",
