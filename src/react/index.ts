@@ -2,6 +2,5 @@
 
 export * from './accordion'
 export * from './back-link/BackLink'
-export * from './header/Header'
-export * from './header/HeaderNavigationItem'
+export * from './header'
 export * from './MODUKBody/MODUKBody'
