@@ -1,10 +1,23 @@
 import { describe, expect, it } from 'vitest'
 
-import { renderFile } from '../../../../../test-utils'
+import { render, renderFile } from '../../../../../test-utils'
 
 describe('Phase Banner', () => {
   it('renders the content', () => {
-    const element = renderFile('moduk/components/phase-banner/__examples__/default.njk')
+    const template = `{% from "moduk/components/phase-banner/macro.njk" import modukPhaseBanner -%}
+
+{{ modukPhaseBanner({
+  tag: {
+    text: "alpha"
+  },
+  classes: "custom-class",
+  attributes: {
+    "data-testid": "phase-banner"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) -}}
+`
+    const element = render(template)
     expect(element.querySelector('.govuk-tag')).toHaveClass('moduk-tag--default')
     expect(element.querySelector('.govuk-tag')).toHaveTextContent('alpha')
     expect(element).toHaveClass('custom-class')
