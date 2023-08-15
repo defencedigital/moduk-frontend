@@ -86,11 +86,11 @@ jobs:
       - name: Run unit tests
         run: npm run test
 
-  read-playwright-version:
-    name: Read Playwright version
+  determine-playwright-image:
+    name: Determine Playwright container image
     runs-on: ubuntu-22.04
     outputs:
-      version: ${{ steps.read-version.outputs.version }}
+      container-image: mcr.microsoft.com/playwright:${{ steps.read-version.outputs.version }}-jammy
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
@@ -104,14 +104,14 @@ jobs:
     name: Run e2e tests (${{ matrix.shard }}/${{ matrix.total_shards }})
     runs-on: ubuntu-22.04
     needs:
-      - read-playwright-version
+      - determine-playwright-image
     container:
-      image: mcr.microsoft.com/playwright:${{ needs.read-playwright-version.outputs.version }}-jammy
+      image: ${{ needs.determine-playwright-image.outputs.container-image }}
       options: --user 1001
     strategy:
       matrix:
-        shard: [1, 2, 3]
-        total_shards: [3]
+        shard: [1, 2, 3, 4]
+        total_shards: [4]
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
@@ -125,17 +125,42 @@ jobs:
       - uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: e2e-test-results-${{ matrix.shard }}
-          path: e2e/output
+          name: e2e-blob-reports
+          path: blob-report
+          retention-days: 1
+
+  merge-e2e-reports:
+    name: Merge e2e test reports
+    runs-on: ubuntu-22.04
+    if: always()
+    needs:
+      - determine-playwright-image
+      - test-e2e
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Merge reports
+        uses: ./.github/actions/merge-playwright-reports
+        with:
+          input-artifact: e2e-blob-reports
+          output-artifact: e2e-html-report
 
   test-visual-regression:
-    name: Run visual regression tests
+    name: Run visual regression tests (${{ matrix.shard }}/${{ matrix.total_shards }})
     runs-on: ubuntu-22.04
     needs:
-      - read-playwright-version
+      - determine-playwright-image
     container:
-      image: mcr.microsoft.com/playwright:${{ needs.read-playwright-version.outputs.version }}-jammy
+      image: ${{ needs.determine-playwright-image.outputs.container-image }}
       options: --user 1001
+    strategy:
+      matrix:
+        shard: [1, 2]
+        total_shards: [2]
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
@@ -144,13 +169,34 @@ jobs:
         uses: ./.github/actions/prepare-environment
 
       - name: Run visual regression tests
-        run: npm run test:visual:native
+        run: npm run test:visual:native -- --shard ${{ matrix.shard }}/${{ matrix.total_shards }}
 
       - uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: visual-regression-test-results
-          path: e2e/output
+          name: visual-regression-blob-reports
+          path: blob-report
+          retention-days: 1
+
+  merge-visual-regression-reports:
+    name: Merge visual regression reports
+    runs-on: ubuntu-22.04
+    if: always()
+    needs:
+      - determine-playwright-image
+      - test-visual-regression
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Merge reports
+        uses: ./.github/actions/merge-playwright-reports
+        with:
+          input-artifact: visual-regression-blob-reports
+          output-artifact: visual-regression-html-report
 
   audit-dependencies:
     name: Audit dependencies
