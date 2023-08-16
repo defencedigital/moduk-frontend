@@ -24,7 +24,7 @@ module.exports = {
     'unicorn',
   ],
   rules: {
-    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/consistent-type-imports': ['error', { fixStyle: 'inline-type-imports' }],
     'comma-dangle': 'off',
     'eslint-comments/no-unused-disable': 'error',
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
@@ -62,6 +62,7 @@ module.exports = {
     'max-len': 'off',
     'no-extra-semi': 'off',
     'object-curly-newline': 'off',
+    'react/jsx-no-constructed-context-values': 'error',
     semi: ['error', 'never'],
     'semi-style': 'off',
     'unicorn/prefer-node-protocol': 'error',

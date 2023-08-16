@@ -11,7 +11,11 @@ test.describe('input, with error', () => {
     ).toHaveText('What is the name of the event?')
   })
 
-  test('displays the error message', async ({ page }) => {
+  test('has an accessible error message', async ({ page }) => {
     await expect(page.getByRole('textbox')).toHaveDescription('Error: Enter an event name')
+  })
+
+  test('has an accessible hint', async ({ page }) => {
+    await expect(page.getByRole('textbox')).toHaveDescription('The name you’ll use on promotional material')
   })
 })

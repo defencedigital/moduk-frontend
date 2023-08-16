@@ -114,6 +114,7 @@
     "@testing-library/dom": "^9.3.1",
     "@testing-library/jest-dom": "^6.0.1",
     "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/lodash": "^4.14.195",
     "@types/node": "^18.16.19",
     "@types/nunjucks": "^3.2.3",
