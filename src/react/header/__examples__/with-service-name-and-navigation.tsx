@@ -1,4 +1,4 @@
-import { Header, HeaderNavigationItem } from '@moduk/frontend/react'
+import { Header, HeaderNavigationItem, HeaderNavigationLink } from '@moduk/frontend/react'
 
 export const Example = () => (
   <Header
@@ -6,9 +6,17 @@ export const Example = () => (
     serviceName='Service name'
     serviceUrl='#'
   >
-    <HeaderNavigationItem active href='#1'>Navigation item 1</HeaderNavigationItem>
-    <HeaderNavigationItem href='#2'>Navigation item 2</HeaderNavigationItem>
-    <HeaderNavigationItem href='#3'>Navigation item 3</HeaderNavigationItem>
-    <HeaderNavigationItem href='#4'>Navigation item 4</HeaderNavigationItem>
+    <HeaderNavigationItem active>
+      <HeaderNavigationLink href='#1'>Navigation item 1</HeaderNavigationLink>
+    </HeaderNavigationItem>
+    <HeaderNavigationItem>
+      <HeaderNavigationLink href='#2'>Navigation item 2</HeaderNavigationLink>
+    </HeaderNavigationItem>
+    <HeaderNavigationItem>
+      <HeaderNavigationLink href='#3'>Navigation item 3</HeaderNavigationLink>
+    </HeaderNavigationItem>
+    <HeaderNavigationItem>
+      <HeaderNavigationLink href='#4'>Navigation item 4</HeaderNavigationLink>
+    </HeaderNavigationItem>
   </Header>
 )
