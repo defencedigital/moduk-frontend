@@ -104,6 +104,7 @@ dist
 .tern-port
 
 /e2e/output/
+/blob-report/
 
 # Editor configs 
 .vscode/

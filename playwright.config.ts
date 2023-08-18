@@ -148,10 +148,12 @@ const config: PlaywrightTestConfig = {
       },
     },
   ]),
-  reporter: [
-    [process.env.CI ? 'github' : 'line'],
-    ['html', { outputFolder: './e2e/output/html/', open: 'never' }],
-  ],
+  reporter: process.env.CI
+    ? [['blob'], ['github']]
+    : [
+      ['line'],
+      ['html', { outputFolder: './e2e/output/html/', open: 'never' }],
+    ],
   retries: process.env.CI ? 1 : 0,
   snapshotPathTemplate: '{testDir}/__screenshots__/{testFilePath}/{arg}--{projectName}{ext}',
   testDir: './e2e/tests',

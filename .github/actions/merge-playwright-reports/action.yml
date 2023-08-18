@@ -1,0 +1,27 @@
+name: Merge sharded Playwright blob reports
+description: Merges sharded Playwright blob reports
+inputs:
+  input-artifact:
+    required: true
+    description: Name of the artefact containing blob reports
+  output-artifact:
+    required: true
+    description: Name of the artefact to save the HTML report as
+runs:
+  using: composite
+  steps:
+    - name: Download blob reports
+      uses: actions/download-artifact@v3
+      with:
+        name: ${{ inputs.input-artifact }}
+        path: blob-reports
+
+    - name: Merge reports
+      shell: bash
+      run: npm exec --no -- playwright merge-reports --reporter html blob-reports
+
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: ${{ inputs.output-artifact }}
+        path: playwright-report
