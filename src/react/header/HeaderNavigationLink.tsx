@@ -7,6 +7,9 @@ export interface HeaderNavigationLinkProps {
   className?: string
 }
 
+/**
+ * @experimental React components are in alpha and subject to change.
+ */
 export const HeaderNavigationLink: LinkComponent<HeaderNavigationLinkProps> = forwardRef<
   HTMLAnchorElement,
   HeaderNavigationLinkProps

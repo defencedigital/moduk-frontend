@@ -10,6 +10,9 @@ interface BackLinkProps {
   className?: string
 }
 
+/**
+ * @experimental React components are in alpha and subject to change.
+ */
 export const BackLink: LinkComponent<BackLinkProps> = forwardRef<HTMLAnchorElement, BackLinkProps>((
   { children, className, ...props },
   forwardedRef,

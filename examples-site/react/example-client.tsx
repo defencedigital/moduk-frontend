@@ -2,7 +2,7 @@ import { escape } from 'lodash'
 import type { ComponentType } from 'react'
 import { StrictMode } from 'react'
 import { hydrateRoot } from 'react-dom/client'
-import { Root } from '../../src/react/test-utils/Root'
+import { Root } from '../../src/react/internal/test-utils/Root'
 
 const errorDom = (
   title: string,

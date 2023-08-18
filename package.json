@@ -6,9 +6,12 @@
   "sass": "src/css/index.scss",
   "style": "dist/css/index.css",
   "files": [
-    "dist",
-    "src/css",
-    "src/react/**/__examples__/**"
+    "dist/**",
+    "src/css/",
+    "!src/react/",
+    "src/react/**/__examples__/**",
+    "!**/*.tgz",
+    "!**/__tests__/**"
   ],
   "exports": {
     ".": {
@@ -21,8 +24,12 @@
       "import": "./dist/client/moduk-frontend.mjs",
       "require": "./dist/client/moduk-frontend.umd.js"
     },
-    "./dist/*": "./dist/*",
-    "./src/*": "./src/*"
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/esm/index.js",
+      "require": "./dist/react/index.js"
+    },
+    "./dist/*": "./dist/*"
   },
   "types": "dist/lib/index.d.ts",
   "scripts": {
@@ -31,7 +38,7 @@
     "build:assets": "ts-node scripts/copy-govuk-static-assets.ts && npm run build:assets:svg",
     "build:assets:svg": "shx mkdir -p dist/assets/svg && cp src/assets/svg/* dist/assets/svg",
     "prebuild:client": "shx rm -rf dist/client",
-    "build:client": "npm run build:client:umd && npm run build:client:es && tsc --project src/client",
+    "build:client": "npm run build:client:umd && npm run build:client:es && npm run build:client:react && tsc --project src/client",
     "build:client:umd": "webpack --config webpack.config.ts",
     "build:client:es": "babel src/client/index.ts --extensions .ts,.tsx --out-file dist/client/moduk-frontend.mjs",
     "prebuild:client:react": "shx rm -rf dist/react",
@@ -51,8 +58,11 @@
     "format": "dprint fmt",
     "format:check": "dprint check",
     "lint": "eslint --ext .js --ext .ts --ext .tsx --ext .mjs --ext .mts --max-warnings 0 .",
+    "dist:build": "npm run build && ts-node scripts/prepare-dist-package.ts",
+    "dist:pack": "npm run dist:build && cd dist && npm pack",
     "playwright-install": "playwright install --with-deps",
-    "prepack": "npm run build",
+    "prepack": "[ \"$npm_command\" = 'pack' ]] && echo 'Use `npm run dist:pack` instead' && exit 1",
+    "prepublishOnly": "echo 'Run `npm run predist:pack && npm publish ./dist` instead' && exit 1",
     "start": "concurrently npm:examples:serve npm:examples:dev:react",
     "test": "vitest run && npm run test:types",
     "test:e2e": "npm run build && playwright test --grep-invert @visual-regression",
@@ -135,6 +145,7 @@
     "release-it": "^15.11.0",
     "sass": "^1.63.4",
     "sass-true": "^7.0.0",
+    "shelljs": "^0.8.5",
     "shx": "^0.3.4",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
@@ -153,6 +164,7 @@
     ]
   },
   "dependencies": {
+    "@types/shelljs": "^0.8.12",
     "clsx": "^2.0.0",
     "lodash": "^4.17.21",
     "react-keyed-flatten-children": "^2.2.1",

@@ -16,6 +16,7 @@ module.exports = {
   },
   npm: {
     publish: false,
+    publishPath: './dist/',
   },
   hooks: {
     // eslint-disable-next-line no-template-curly-in-string

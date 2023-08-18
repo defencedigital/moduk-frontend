@@ -1,9 +1,9 @@
 import clsx from 'clsx'
-import { Children, forwardRef, type JSX, type ReactNode } from 'react'
+import { Children, type ComponentPropsWithoutRef, forwardRef, type ReactNode } from 'react'
 import { mergeRefs } from 'react-merge-refs'
 
 import MODUKHeaderLogo from '../../assets/svg/moduk-header-logo.svg'
-import { useMODUKComponent } from '../hooks/useMODUKComponent'
+import { useMODUKComponent } from '../internal/hooks/useMODUKComponent'
 
 interface HeaderContentProps {
   serviceName?: string
@@ -15,7 +15,7 @@ interface HeaderContentProps {
   navigationLabel?: string
 }
 
-export interface HeaderProps extends HeaderContentProps {
+export interface HeaderProps extends HeaderContentProps, ComponentPropsWithoutRef<'header'> {
   homepageUrl?: string
   containerClassName?: string
 }
@@ -73,7 +73,10 @@ function HeaderContent(props: HeaderContentProps) {
   )
 }
 
-export const Header = forwardRef<HTMLElement, HeaderProps & JSX.IntrinsicElements['header']>((props, forwardedRef) => {
+/**
+ * @experimental React components are in alpha and subject to change.
+ */
+export const Header = forwardRef<HTMLElement, HeaderProps>((props, forwardedRef) => {
   const { ref } = useMODUKComponent('Header')
 
   const {

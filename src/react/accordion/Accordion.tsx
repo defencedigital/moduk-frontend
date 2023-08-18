@@ -2,13 +2,13 @@
 
 import clsx from 'clsx'
 import { isEqual, pick } from 'lodash'
-import type { JSX, ReactElement } from 'react'
+import type { ComponentPropsWithoutRef, ReactElement } from 'react'
 import { Children, forwardRef, isValidElement, useRef } from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
 
 import { mergeRefs } from 'react-merge-refs'
-import { useMODUKComponent } from '../hooks/useMODUKComponent'
-import { usePrevious } from '../hooks/usePrevious'
+import { useMODUKComponent } from '../internal/hooks/useMODUKComponent'
+import { usePrevious } from '../internal/hooks/usePrevious'
 import { AccordionContext } from './AccordionContext'
 import type { AccordionHeadingTag } from './AccordionHeadingTag'
 import type { AccordionItemProps } from './AccordionItem'
@@ -16,7 +16,7 @@ import { AccordionItemIndexContext } from './AccordionItemIndexContext'
 
 type AccordionChild = ReactElement<AccordionItemProps> | boolean | null | Iterable<AccordionChild>
 
-export interface AccordionProps {
+export interface AccordionProps extends ComponentPropsWithoutRef<'div'> {
   children: AccordionChild
   headingTag?: AccordionHeadingTag
   hideAllSectionsText?: string
@@ -47,7 +47,10 @@ function getRemountProps(props: AccordionProps) {
   return [rootProps, childrenProps]
 }
 
-export const Accordion = forwardRef<HTMLDivElement, AccordionProps & JSX.IntrinsicElements['div']>(
+/**
+ * @experimental React components are in alpha and subject to change.
+ */
+export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
   (props, forwardedRef) => {
     const { ref } = useMODUKComponent('Accordion')
     const key = useRef<number>(0)

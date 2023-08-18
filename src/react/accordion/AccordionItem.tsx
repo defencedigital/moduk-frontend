@@ -13,6 +13,9 @@ export interface AccordionItemProps {
   summary?: Exclude<ReactNode, ReactPortal>
 }
 
+/**
+ * @experimental React components are in alpha and subject to change.
+ */
 export function AccordionItem({
   children,
   expanded,
