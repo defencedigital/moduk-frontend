@@ -1,0 +1,36 @@
+{% from "moduk/components/summary-list/macro.njk" import modukSummaryList -%}
+
+{{ modukSummaryList({
+  card: {
+    title: {
+      text: "University of Gloucestershire"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Withdraw",
+          visuallyHiddenText: "from University of Gloucestershire"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Course"
+      },
+      value: {
+        html: "English (3DMD)<br>PGCE with QTS full time"
+      }
+    },
+    {
+      key: {
+        text: "Location"
+      },
+      value: {
+        html: "School name<br>Road, City, SW1 1AA"
+      }
+    }
+  ]
+}) -}}
