@@ -3,7 +3,7 @@
 import clsx from 'clsx'
 import { isEqual, pick } from 'lodash'
 import type { ComponentPropsWithoutRef } from 'react'
-import { Children, forwardRef, isValidElement, useRef } from 'react'
+import { Children, forwardRef, isValidElement, useMemo, useRef } from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
 
 import { mergeRefs } from 'react-merge-refs'
@@ -75,6 +75,8 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
       ...rest
     } = props
 
+    const contextValue = useMemo(() => ({ headingTag, id }), [headingTag, id])
+
     const i18nAttributes = {
       'data-i18n.hide-all-sections': hideAllSectionsText,
       'data-i18n.hide-section': hideSectionText,
@@ -85,7 +87,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
     }
 
     return (
-      <AccordionContext.Provider value={{ headingTag, id }}>
+      <AccordionContext.Provider value={contextValue}>
         <div
           ref={mergeRefs([ref, forwardedRef])}
           key={key.current}

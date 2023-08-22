@@ -10,4 +10,8 @@ test.describe('input, with hint', () => {
       page.getByText('The name you’ll use on promotional material'),
     ).toBeVisible()
   })
+
+  test('has an accessible hint', async ({ page }) => {
+    await expect(page.getByRole('textbox')).toHaveDescription('The name you’ll use on promotional material')
+  })
 })
