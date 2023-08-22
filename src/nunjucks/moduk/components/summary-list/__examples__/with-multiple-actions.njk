@@ -1,0 +1,28 @@
+{% from "moduk/components/summary-list/macro.njk" import modukSummaryList -%}
+
+{{ modukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Sarah Philips"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "name"
+          },
+          {
+            href: "#",
+            text: "Remove",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) -}}
