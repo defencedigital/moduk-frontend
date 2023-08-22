@@ -1,12 +1,10 @@
 import clsx from 'clsx'
-import type { ReactElement } from 'react'
 import { forwardRef } from 'react'
 import { LinkBase, type LinkComponent } from '../internal/Link/Link'
-
-type BackLinkChild = ReactElement | boolean | null | Iterable<BackLinkChild>
+import type { PermissiveChild } from '../internal/PermissiveChild'
 
 interface BackLinkProps {
-  children: BackLinkChild
+  children: PermissiveChild
   className?: string
 }
 
