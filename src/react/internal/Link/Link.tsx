@@ -1,5 +1,11 @@
-import type { ComponentPropsWithoutRef, ComponentPropsWithRef, ComponentType, ElementType, JSX } from 'react'
-import { forwardRef } from 'react'
+import {
+  type ComponentPropsWithoutRef,
+  type ComponentPropsWithRef,
+  type ComponentType,
+  type ElementType,
+  forwardRef,
+  type JSX,
+} from 'react'
 
 type LinkProps<T extends ElementType> = {
   component?: T

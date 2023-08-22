@@ -1,10 +1,10 @@
 import clsx from 'clsx'
 import { type ComponentPropsWithoutRef, forwardRef, type Key, type ReactElement, type ReactNode } from 'react'
-import { type SummaryCardActionsProps } from './SummaryCardActions'
-import { type SummaryCardTitleProps } from './SummaryCardTitle'
-import { type SummaryListActionsProps } from './SummaryListActions'
-import { type SummaryListKeyProps } from './SummaryListKey'
-import { type SummaryListValueProps } from './SummaryListValue'
+import type { SummaryCardActionsProps } from './SummaryCardActions'
+import type { SummaryCardTitleProps } from './SummaryCardTitle'
+import type { SummaryListActionsProps } from './SummaryListActions'
+import type { SummaryListKeyProps } from './SummaryListKey'
+import type { SummaryListValueProps } from './SummaryListValue'
 
 interface SummaryCardProps {
   children?: ReactNode

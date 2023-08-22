@@ -1,7 +1,6 @@
 import { render, waitFor } from '@testing-library/react'
 import { Header as GOVUKHeader } from 'govuk-frontend'
-import type { MockedClass } from 'vitest'
-import { describe, expect, test, vi } from 'vitest'
+import { describe, expect, type MockedClass, test, vi } from 'vitest'
 import { useMODUKComponent } from '../useMODUKComponent'
 
 const Header = GOVUKHeader as MockedClass<typeof GOVUKHeader>

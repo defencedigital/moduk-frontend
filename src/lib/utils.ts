@@ -1,8 +1,7 @@
 import { get, set } from 'lodash'
 import { readFileSync } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
-import type { ConfigureOptions, Environment } from 'nunjucks'
-import { configure, runtime } from 'nunjucks'
+import { configure, type ConfigureOptions, type Environment, runtime } from 'nunjucks'
 
 /**
  * Get the template paths that should be specified when manually creating a new

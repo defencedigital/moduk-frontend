@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { type ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 
 type VisuallyHiddenTextProps = ComponentPropsWithoutRef<'span'>
 

@@ -1,8 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
-import type { ComponentPropsWithoutRef } from 'react'
-import { useEffect, useState } from 'react'
+import { type ComponentPropsWithoutRef, useEffect, useState } from 'react'
 
 /**
  * @experimental React components are in alpha and subject to change.
