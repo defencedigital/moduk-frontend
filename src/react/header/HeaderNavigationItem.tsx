@@ -2,12 +2,20 @@ import clsx from 'clsx'
 import { forwardRef, type ReactNode } from 'react'
 
 export interface HeaderNavigationItemProps {
+  /**
+   * An instance of HeaderNavigationLink.
+   */
   children: ReactNode
   className?: string
+  /**
+   * Whether this navigation item is active.
+   */
   active?: boolean
 }
 
 /**
+ * A header navigation item.
+ *
  * @experimental React components are in alpha and subject to change.
  */
 export const HeaderNavigationItem = forwardRef<

@@ -8,6 +8,12 @@ import {
 } from 'react'
 
 type LinkProps<T extends ElementType> = {
+  /**
+   * The component to use for links (for example, a Link component
+   * from a routing library).
+   *
+   * Defaults to an anchor tag.
+   */
   component?: T
 } & ComponentPropsWithoutRef<T>
 

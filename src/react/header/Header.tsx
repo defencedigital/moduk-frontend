@@ -6,12 +6,40 @@ import MODUKHeaderLogo from '../../assets/svg/moduk-header-logo.svg'
 import { useMODUKComponent } from '../internal/hooks/useMODUKComponent'
 
 interface HeaderContentProps {
+  /**
+   * The name of your service, included in the header.
+   */
   serviceName?: string
+  /**
+   * URL for the service name anchor.
+   */
   serviceUrl?: string
+  /**
+   * Text for the aria-label attribute of the button that
+   * opens the mobile navigation, if there is a mobile
+   * navigation menu. Defaults to 'Show or hide menu'.
+   */
   menuButtonLabel?: string
+  /**
+   * Text of the button that opens the mobile navigation
+   * menu, if there is a mobile navigation menu. There is
+   * no enforced character limit, but there is a limited
+   * display space so keep text as short as possible. By
+   * default, this is set to 'Menu'.
+   */
   menuButtonText?: string
+  /**
+   * Optional instances of HeaderNavigationItem.
+   */
   children?: ReactNode
+  /**
+   * CSS classes for the navigation section of the header.
+   */
   navigationClassName?: string
+  /**
+   * Text for the aria-label attribute of the navigation.
+   * Defaults to the same value as menuButtonText.
+   */
   navigationLabel?: string
 }
 
@@ -74,7 +102,32 @@ function HeaderContent(props: HeaderContentProps) {
 }
 
 /**
+ * Header.
+ *
  * @experimental React components are in alpha and subject to change.
+ *
+ * @example
+ * <Header homepageUrl='#' serviceName='Service name' serviceUrl='#' />
+ *
+ * @example
+ * <Header
+ *   homepageUrl='#'
+ *   serviceName='Service name'
+ *   serviceUrl='#'
+ * >
+ *   <HeaderNavigationItem active>
+ *     <HeaderNavigationLink href='#1'>Navigation item 1</HeaderNavigationLink>
+ *   </HeaderNavigationItem>
+ *   <HeaderNavigationItem>
+ *     <HeaderNavigationLink href='#2'>Navigation item 2</HeaderNavigationLink>
+ *   </HeaderNavigationItem>
+ *   <HeaderNavigationItem>
+ *     <HeaderNavigationLink href='#3'>Navigation item 3</HeaderNavigationLink>
+ *   </HeaderNavigationItem>
+ *   <HeaderNavigationItem>
+ *     <HeaderNavigationLink href='#4'>Navigation item 4</HeaderNavigationLink>
+ *   </HeaderNavigationItem>
+ * </Header>
  */
 export const Header = forwardRef<HTMLElement, HeaderProps>((props, forwardedRef) => {
   const { ref } = useMODUKComponent('Header')

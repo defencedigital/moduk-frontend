@@ -8,6 +8,8 @@ export interface HeaderNavigationLinkProps {
 }
 
 /**
+ * A link within a header navigation item.
+ *
  * @experimental React components are in alpha and subject to change.
  */
 export const HeaderNavigationLink: LinkComponent<HeaderNavigationLinkProps> = forwardRef<
