@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 import { isValidElement } from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
-import { type PermissiveChild } from '../internal/PermissiveChild'
-import { type SummaryListActionLinkProps } from './SummaryListActionLink'
+import type { PermissiveChild } from '../internal/PermissiveChild'
+import type { SummaryListActionLinkProps } from './SummaryListActionLink'
 
 export interface SummaryCardActionsProps {
   /**

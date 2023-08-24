@@ -1,6 +1,5 @@
 import { escape } from 'lodash'
-import type { ComponentType } from 'react'
-import { StrictMode } from 'react'
+import { type ComponentType, StrictMode } from 'react'
 import { hydrateRoot } from 'react-dom/client'
 import { Root } from '../../src/react/internal/test-utils/Root'
 

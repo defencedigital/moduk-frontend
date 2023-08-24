@@ -1,11 +1,11 @@
 import clsx from 'clsx'
 import { type ComponentPropsWithoutRef, forwardRef, type ReactElement, type ReactNode, useId } from 'react'
-import { type ErrorMessageProps } from '../error-message'
-import { type HintProps } from '../hint'
+import type { ErrorMessageProps } from '../error-message'
+import type { HintProps } from '../hint'
 import { FormGroup } from '../internal/FormGroup'
-import { type LabelProps } from '../label'
-import { type InputPrefixProps } from './InputPrefix'
-import { type InputSuffixProps } from './InputSuffix'
+import type { LabelProps } from '../label'
+import type { InputPrefixProps } from './InputPrefix'
+import type { InputSuffixProps } from './InputSuffix'
 
 export interface InputProps extends Omit<ComponentPropsWithoutRef<'input'>, 'children' | 'prefix'> {
   /**

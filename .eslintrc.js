@@ -24,7 +24,8 @@ module.exports = {
     'unicorn',
   ],
   rules: {
-    '@typescript-eslint/consistent-type-imports': ['error', { fixStyle: 'inline-type-imports' }],
+    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/no-import-type-side-effects': 'error',
     'comma-dangle': 'off',
     'eslint-comments/no-unused-disable': 'error',
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
@@ -42,6 +43,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'import/no-duplicates': ['error', { 'prefer-inline': true }],
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: [
         '**/__tests__/**',

@@ -2,14 +2,13 @@
 
 import clsx from 'clsx'
 import { isEqual, pick } from 'lodash'
-import type { ComponentPropsWithoutRef } from 'react'
-import { Children, forwardRef, isValidElement, useMemo, useRef } from 'react'
+import { Children, type ComponentPropsWithoutRef, forwardRef, isValidElement, useMemo, useRef } from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
 
 import { mergeRefs } from 'react-merge-refs'
 import { useMODUKComponent } from '../internal/hooks/useMODUKComponent'
 import { usePrevious } from '../internal/hooks/usePrevious'
-import { type PermissiveChild } from '../internal/PermissiveChild'
+import type { PermissiveChild } from '../internal/PermissiveChild'
 import { AccordionContext } from './AccordionContext'
 import type { AccordionHeadingTag } from './AccordionHeadingTag'
 import type { AccordionItemProps } from './AccordionItem'

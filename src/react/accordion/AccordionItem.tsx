@@ -1,8 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
-import type { ReactNode, ReactPortal } from 'react'
-import { useContext } from 'react'
+import { type ReactNode, type ReactPortal, useContext } from 'react'
 import { AccordionContext } from './AccordionContext'
 import { AccordionItemIndexContext } from './AccordionItemIndexContext'
 

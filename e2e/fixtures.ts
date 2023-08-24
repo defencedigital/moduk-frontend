@@ -1,5 +1,4 @@
-import type { Locator } from '@playwright/test'
-import { test as base } from '@playwright/test'
+import { type Locator, test as base } from '@playwright/test'
 
 interface Fixtures {
   componentElement: Locator

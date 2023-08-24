@@ -1,6 +1,13 @@
 import AxeBuilder from '@axe-core/playwright'
-import type { Expect, Locator, Page, PlaywrightTestConfig, Project } from '@playwright/test'
-import { devices, expect } from '@playwright/test'
+import {
+  devices,
+  type Expect,
+  expect,
+  type Locator,
+  type Page,
+  type PlaywrightTestConfig,
+  type Project,
+} from '@playwright/test'
 
 import { escapeRegExp } from 'lodash'
 import { findReactExamples } from './src/test-utils'
