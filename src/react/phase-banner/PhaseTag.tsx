@@ -9,8 +9,8 @@ export type PhaseTagProps = ComponentPropsWithoutRef<typeof Tag>
  *
  * @experimental React components are in alpha and subject to change.
  */
-export const PhaseTag = forwardRef<HTMLElement, PhaseTagProps>(({ children, className, ...rest }) => (
-  <Tag className={clsx('govuk-phase-banner__content__tag', className)} {...rest}>{children}</Tag>
+export const PhaseTag = forwardRef<HTMLElement, PhaseTagProps>(({ children, className, ...rest }, ref) => (
+  <Tag ref={ref} className={clsx('govuk-phase-banner__content__tag', className)} {...rest}>{children}</Tag>
 ))
 
 PhaseTag.displayName = 'PhaseTag'
