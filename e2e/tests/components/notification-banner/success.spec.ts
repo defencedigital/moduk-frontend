@@ -6,7 +6,15 @@ test.describe('notification banner, success', () => {
   })
 
   test('focuses the component', async ({ page }) => {
-    await expect(page.getByRole('alert')).toBeFocused()
+    const banner = page.getByRole('alert')
+    await expect(banner).toBeFocused()
+    await expect(banner).toHaveAttribute('tabindex', '-1')
+  })
+
+  test('removes tabindex on blur', async ({ page }) => {
+    const banner = page.getByRole('alert')
+    await banner.blur()
+    await expect(banner).not.toHaveAttribute('tabindex', /.*/)
   })
 
   test('displays the notification heading', async ({ page }) => {
