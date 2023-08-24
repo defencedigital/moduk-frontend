@@ -78,8 +78,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((
   const resolvedId = id || autoId
   const resolvedAriaDescribedBy = [
     ariaDescribedBy ?? [],
-    errorMessage ? `${resolvedId}-error` : [],
     hint ? `${resolvedId}-hint` : [],
+    errorMessage ? `${resolvedId}-error` : [],
   ].flat().join(' ')
 
   return (
