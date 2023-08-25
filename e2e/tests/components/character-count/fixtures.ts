@@ -6,6 +6,9 @@ const test = base.extend({
     // message just for screen readers
     use((text: string) => page.locator('.govuk-character-count__message', { hasText: text }))
   },
+  getScreenReaderMessage: ({ page }, use) => {
+    use(() => page.locator('.govuk-character-count__sr-status'))
+  },
 })
 
 export { expect, test }

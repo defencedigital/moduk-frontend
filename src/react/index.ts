@@ -2,6 +2,7 @@
 
 export * from './accordion'
 export * from './back-link/BackLink'
+export * from './character-count'
 export * from './details'
 export * from './error-message'
 export * from './fieldset'

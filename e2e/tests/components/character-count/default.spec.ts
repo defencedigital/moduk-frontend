@@ -35,6 +35,30 @@ test.describe('character count, default', () => {
     ).toBeVisible()
   })
 
+  test('updates the character count hint after typing one under the limit', async ({ getCharacterCountMessage, page }) => {
+    await page.getByRole('textbox').fill(`${'Hello'.repeat(39)}ello`)
+
+    await expect(
+      getCharacterCountMessage('You have 1 character remaining'),
+    ).toBeVisible()
+  })
+
+  test('updates the character count hint when at the limit', async ({ getCharacterCountMessage, page }) => {
+    await page.getByRole('textbox').fill('Hello'.repeat(40))
+
+    await expect(
+      getCharacterCountMessage('You have 0 characters remaining'),
+    ).toBeVisible()
+  })
+
+  test('updates the character count hint when one over the limit', async ({ getCharacterCountMessage, page }) => {
+    await page.getByRole('textbox').fill(`${'Hello'.repeat(40)}H`)
+
+    await expect(
+      getCharacterCountMessage('You have 1 character too many'),
+    ).toBeVisible()
+  })
+
   test('updates the character count hint after typing over the limit', async ({ getCharacterCountMessage, page }) => {
     await page.getByRole('textbox').fill('Hello'.repeat(45))
 
