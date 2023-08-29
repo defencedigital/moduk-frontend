@@ -2,6 +2,7 @@
 
 export * from './accordion'
 export * from './back-link/BackLink'
+export * from './details'
 export * from './error-message'
 export * from './footer'
 export * from './header'
