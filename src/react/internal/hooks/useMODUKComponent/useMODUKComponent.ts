@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react'
 interface ComponentElement {
   Accordion: HTMLDivElement
   Header: HTMLElement
+  SkipLink: HTMLAnchorElement
 }
 
 type ComponentNameLiteral = keyof ComponentElement
