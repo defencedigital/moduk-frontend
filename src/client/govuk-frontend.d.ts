@@ -10,5 +10,10 @@ declare module 'govuk-frontend' {
     constructor(el: HTMLElement)
     init(): void
   }
+
+  class SkipLink {
+    constructor(el: HTMLElement)
+    init(): void
+  }
 }
 /* eslint-enable lines-between-class-members */

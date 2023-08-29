@@ -26,12 +26,26 @@ test.describe('skip link, default', () => {
     await expect(skipLink).toBeFocused()
   })
 
-  test('scrolls to and focuses the content when the skip link is clicked', async ({ content, page, skipLink }) => {
-    await skipLink.focus()
-    await skipLink.click()
+  test.describe('when the skip link is clicked', () => {
+    test.beforeEach(async ({ skipLink }) => {
+      await skipLink.focus()
+      await skipLink.click()
+    })
 
-    expect(page.url()).toMatch(/#content$/)
-    await expect(content).toBeFocused()
+    test('scrolls to and focuses the content', async ({ content, page }) => {
+      expect(page.url()).toMatch(/#content$/)
+      await expect(content).toBeFocused()
+      await expect(content).toHaveAttribute('tabindex', '-1')
+      await expect(content).toHaveClass('govuk-body govuk-skip-link-focused-element')
+    })
+
+    test('removes content element modifications when it is blurred', async ({ content }) => {
+      await expect(content).toHaveAttribute('tabindex', '-1')
+      await expect(content).toHaveClass('govuk-body govuk-skip-link-focused-element')
+      await content.blur()
+      await expect(content).not.toHaveAttribute('tabindex', /.*/)
+      await expect(content).toHaveClass('govuk-body')
+    })
   })
 
   test.describe('when JavaScript is disabled', () => {
