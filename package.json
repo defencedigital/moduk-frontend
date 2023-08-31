@@ -142,7 +142,7 @@
     "lint-staged": "^13.1.2",
     "postcss-cli": "^10.1.0",
     "postcss-fail-on-warn": "^0.2.1",
-    "postcss-preset-env": "^8.4.1",
+    "postcss-preset-env": "^9.1.2",
     "react-merge-refs": "^2.0.2",
     "release-it": "^16.1.5",
     "sass": "^1.63.4",
