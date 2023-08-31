@@ -139,7 +139,7 @@
     "glob": "^10.2.2",
     "happy-dom": "^10.11.2",
     "husky": "^8.0.3",
-    "lint-staged": "^13.1.2",
+    "lint-staged": "^14.0.1",
     "postcss-cli": "^10.1.0",
     "postcss-fail-on-warn": "^0.2.1",
     "postcss-preset-env": "^9.1.2",
