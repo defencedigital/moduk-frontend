@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Examples – MOD.UK Frontend</title>
+  <title>Nunjucks examples – MOD.UK Frontend</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href="/css/index.css" rel="stylesheet">
 </head>
 <body>
+  <h1 class="govuk-heading-l">Nunjucks examples</h1>
+  <p class="govuk-body-l"><a class="govuk-link" href="/react/">go to the React examples</a></p>
   {% for component, exampleNames in examples.grouped %}
   <h2 class="govuk-heading-m">{{ component | replace("-", " ") }}</h2>
   <ul class="govuk-list govuk-list--bullet">
