@@ -6,13 +6,27 @@ import { AccordionContext } from './AccordionContext'
 import { AccordionItemIndexContext } from './AccordionItemIndexContext'
 
 export interface AccordionItemProps {
+  /**
+   * Content for the section.
+   */
   children: Exclude<ReactNode, ReactPortal | null | undefined>
+  /**
+   * Whether this section is expanded.
+   */
   expanded?: boolean
+  /**
+   * Heading for the section.
+   */
   heading: Exclude<ReactNode, ReactPortal | null | undefined>
+  /**
+   * Summary line content.
+   */
   summary?: Exclude<ReactNode, ReactPortal>
 }
 
 /**
+ * An accordion section.
+ *
  * @experimental React components are in alpha and subject to change.
  */
 export function AccordionItem({

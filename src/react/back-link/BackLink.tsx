@@ -9,7 +9,15 @@ interface BackLinkProps {
 }
 
 /**
+ * A back link.
+ *
  * @experimental React components are in alpha and subject to change.
+ *
+ * @example
+ * <BackLink href='/previous-page'>Back</BackLink>
+ *
+ * @example
+ * <BackLink component={Link} to='/previous-page'>Back</BackLink>
  */
 export const BackLink: LinkComponent<BackLinkProps> = forwardRef<HTMLAnchorElement, BackLinkProps>((
   { children, className, ...props },
