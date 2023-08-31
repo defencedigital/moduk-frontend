@@ -157,4 +157,24 @@ describe('Accordion', () => {
     expect(queryByText('This is the content for Writing well for the web.')).not.toBeInTheDocument()
     expect(getByText('Updated text.')).toBeInTheDocument()
   })
+
+  test('generates correct IDs for items nested in a fragment', async () => {
+    const { getByText } = render(
+      <Accordion id='accordion-default'>
+        <AccordionItem heading='Writing well for the web'>
+          <p className='govuk-body'>This is the content for Writing well for the web.</p>
+        </AccordionItem>
+        <>
+          <AccordionItem heading='Writing well for specialists'>
+            <p className='govuk-body'>This is the content for Writing well for specialists.</p>
+          </AccordionItem>
+          <AccordionItem heading='Know your audience'>
+            <p className='govuk-body'>This is the content for Know your audience.</p>
+          </AccordionItem>
+        </>
+      </Accordion>,
+    )
+
+    expect(getByText('Know your audience')).toHaveAttribute('id', 'accordion-default-heading-3')
+  })
 })

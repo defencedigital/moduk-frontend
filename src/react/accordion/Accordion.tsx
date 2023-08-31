@@ -2,7 +2,7 @@
 
 import clsx from 'clsx'
 import { isEqual, pick } from 'lodash'
-import { Children, type ComponentPropsWithoutRef, forwardRef, isValidElement, useMemo, useRef } from 'react'
+import { type ComponentPropsWithoutRef, forwardRef, isValidElement, useMemo, useRef } from 'react'
 import flattenChildren from 'react-keyed-flatten-children'
 
 import { mergeRefs } from 'react-merge-refs'
@@ -150,6 +150,8 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
       'data-i18n.show-section-aria-label': showSectionAriaLabelText,
     }
 
+    const flattenedChildren = flattenChildren(children).filter(isValidElement)
+
     return (
       <AccordionContext.Provider value={contextValue}>
         <div
@@ -162,10 +164,11 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
           id={id}
           {...i18nAttributes}
         >
-          {Children.map(
-            children,
+          {flattenedChildren.map(
             (child, index) => (
-              <AccordionItemIndexContext.Provider value={index}>{child}</AccordionItemIndexContext.Provider>
+              <AccordionItemIndexContext.Provider key={child.key} value={index}>
+                {child}
+              </AccordionItemIndexContext.Provider>
             ),
           )}
         </div>
