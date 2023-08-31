@@ -1,11 +1,16 @@
 import clsx from 'clsx'
-import { type ComponentPropsWithoutRef, forwardRef, type ReactElement, useId } from 'react'
+import { type ComponentPropsWithoutRef, forwardRef, type ReactElement, type ReactNode, useId } from 'react'
 import type { ErrorMessageProps } from '../error-message'
 import type { HintProps } from '../hint'
 import { FormGroup } from '../internal/FormGroup'
 import type { LabelProps } from '../label'
 
 export interface TextareaProps extends Omit<ComponentPropsWithoutRef<'textarea'>, 'children'> {
+  /**
+   * Additional content to be displayed below the <textarea>,
+   * within the form group.
+   */
+  children?: ReactNode
   /**
    * Optional error message. This should be an instance of ErrorMessage.
    */
@@ -47,6 +52,7 @@ export interface TextareaProps extends Omit<ComponentPropsWithoutRef<'textarea'>
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((
   {
     'aria-describedby': ariaDescribedBy,
+    children,
     className,
     errorMessage,
     formGroupClassName,
@@ -79,6 +85,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((
         rows={rows}
         {...rest}
       />
+      {children}
     </FormGroup>
   )
 })

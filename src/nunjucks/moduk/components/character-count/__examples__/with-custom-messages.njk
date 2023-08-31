@@ -1,0 +1,25 @@
+{% from "moduk/components/character-count/macro.njk" import modukCharacterCount -%}
+
+{{ modukCharacterCount({
+  name: "with-hint",
+  id: "with-hint",
+  maxlength: 200,
+  label: {
+    text: "Can you provide more detail?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Do not include personal information like your service number."
+  },
+  charactersAtLimitText: "characters at limit",
+  charactersOverLimitText: {
+    one: "characters over limit, one, %{count}",
+    other: "characters over limit, other, %{count}"
+  },
+  charactersUnderLimitText: {
+    one: "characters under limit, one, %{count}",
+    other: "characters under limit, other, %{count}"
+  },
+  textareaDescriptionText: "description text, %{count}"
+}) -}}
