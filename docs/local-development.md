@@ -3,7 +3,9 @@
 The library uses [TypeScript](https://www.typescriptlang.org),
 [Sass](https://sass-lang.com), [ESLint](https://eslint.org),
 [dprint](https://dprint.dev) and [commitlint](https://commitlint.js.org). Git
-hooks are used for enforcing linting and formatting rules.
+hooks (via [Husky](https://typicode.github.io/husky/) and
+[lint-staged](https://github.com/okonet/lint-staged)) are used for enforcing
+linting and formatting rules.
 
 The unit test suite uses [Vitest](https://vitest.dev) and
 [Testing Library](https://testing-library.com).
@@ -13,7 +15,7 @@ run across a variety of browsers and configurations against a local web server
 that serves examples of components. This includes accessibility checks using
 [axe](https://www.deque.com/axe/) and visual regression tests.
 
-Local development requires Node.js 16 or 18 and npm 8.
+Local development requires Node.js 16 or 18 and npm 8 or newer.
 
 ## Setting up your development environment
 
@@ -44,11 +46,11 @@ Local development requires Node.js 16 or 18 and npm 8.
 5. Ensure jq is installed. On macOS it can be installed using
    [Homebrew](https://brew.sh/):
 
-   jq is required only for running visual regression tests.
-
    ```shell
    brew install jq
    ```
+
+   jq is required only for running visual regression tests.
 
 ## Useful commands
 
