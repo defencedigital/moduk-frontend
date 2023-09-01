@@ -3,8 +3,8 @@ import {
   type ComponentPropsWithRef,
   type ComponentType,
   type ElementType,
+  type ExoticComponent,
   forwardRef,
-  type JSX,
 } from 'react'
 
 type LinkProps<T extends ElementType> = {
@@ -22,7 +22,7 @@ type LinksComponentType = Extract<ElementType, 'a' | ComponentType>
 export interface LinkComponent<Props = object> {
   <T extends LinksComponentType = 'a'>(
     props: LinkProps<T> & { ref?: ComponentPropsWithRef<T>['ref'] } & Props,
-  ): JSX.Element | null
+  ): ReturnType<ExoticComponent>
   displayName?: string | undefined
 }
 
