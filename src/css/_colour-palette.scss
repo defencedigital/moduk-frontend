@@ -1,6 +1,7 @@
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:map';
+@use 'sass:string';
 
 @use 'govuk-frontend/govuk/helpers/colour';
 
@@ -29,20 +30,20 @@ $moduk-colours: (
 );
 
 $legacy-moduk-colours: (
-  'maroon': map-get($moduk-colours, 'dark-purple'),
+  'maroon': map.get($moduk-colours, 'dark-purple'),
   'dark-maroon': #4b263e,
   'light-maroon': #643f58,
 );
 
-// Get a colour from the MOD.UK colour palette.
-//
-// @param $colour-name {String} the name of the colour (e.g. dark-purple, muted-blue)
-// @param $tint {Number} Optional colour tint (80, 60, 40 or 20)
-//
-// @return {String}
+/// Get a colour from the MOD.UK colour palette.
+///
+/// @param $colour-name {String} the name of the colour (e.g. dark-purple, muted-blue)
+/// @param $tint {Number} Optional colour tint (80, 60, 40 or 20)
+///
+/// @return {String}
 @function moduk-colour($colour-name, $tint: null) {
   $valid_tints: [20, 40, 60, 80];
-  $quoted-colour-name: quote($colour-name);
+  $quoted-colour-name: string.quote($colour-name);
   $all_colours: map.merge($legacy-moduk-colours, $moduk-colours);
 
   @if $tint and not list.index($valid_tints, $tint) {
