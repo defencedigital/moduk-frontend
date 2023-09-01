@@ -2,8 +2,9 @@
 
 The library uses [TypeScript](https://www.typescriptlang.org),
 [Sass](https://sass-lang.com), [ESLint](https://eslint.org),
-[dprint](https://dprint.dev) and [commitlint](https://commitlint.js.org). Git
-hooks (via [Husky](https://typicode.github.io/husky/) and
+[Stylelint](https://stylelint.io/), [dprint](https://dprint.dev) and
+[commitlint](https://commitlint.js.org). Git hooks (via
+[Husky](https://typicode.github.io/husky/) and
 [lint-staged](https://github.com/okonet/lint-staged)) are used for enforcing
 linting and formatting rules.
 

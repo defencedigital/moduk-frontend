@@ -57,8 +57,10 @@
     "examples:serve": "eleventy --serve",
     "format": "dprint fmt",
     "format:check": "dprint check",
-    "lint": "eslint --ext .js --ext .ts --ext .tsx --ext .mjs --ext .mts --max-warnings 0 .",
-    "lint:fix": "npm run lint -- --fix",
+    "lint": "npm run lint:source && npm run lint:styles",
+    "lint:source": "eslint --ext .js --ext .ts --ext .tsx --ext .mjs --ext .mts --max-warnings 0 .",
+    "lint:source:fix": "npm run lint -- --fix",
+    "lint:styles": "stylelint 'src/**/*.scss'",
     "dist:build": "npm run build && ts-node scripts/prepare-dist-package.ts",
     "dist:pack": "npm run dist:build && cd dist && npm pack",
     "playwright-install": "playwright install --with-deps",
@@ -149,6 +151,8 @@
     "sass-true": "^7.0.0",
     "shelljs": "^0.8.5",
     "shx": "^0.3.4",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard-scss": "^10.0.0",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.0.4",
@@ -161,7 +165,11 @@
       "dprint fmt",
       "eslint --max-warnings 0"
     ],
-    "*.{md,scss,yaml,yml}": [
+    "*.{scss}": [
+      "dprint fmt",
+      "stylelint"
+    ],
+    "*.{md,yaml,yml}": [
       "dprint fmt"
     ]
   },
