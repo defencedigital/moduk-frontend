@@ -11,7 +11,7 @@ on:
 jobs:
   lint-code:
     name: Lint code
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
@@ -27,7 +27,7 @@ jobs:
 
   build-package:
     name: Build package
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
@@ -40,7 +40,7 @@ jobs:
 
   lint-commit-messages:
     name: Lint commit messages
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - name: Git clone repository
@@ -55,27 +55,9 @@ jobs:
         run: |
           npm exec --no -- commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
 
-  check-for-fixup-commits:
-    name: Check for fixup! commits
-    runs-on: ubuntu-22.04
-    if: ${{ github.event_name == 'pull_request' }}
-    steps:
-      - name: Git clone repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Check for fixup! commits
-        shell: bash
-        run: |
-          if [[ $(git log --pretty=oneline --grep=^fixup! ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}) ]]; then
-            echo "fixup! commits found. Squash these before merging."
-            exit 1
-          fi
-
   test-unit:
     name: Run unit tests
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
@@ -88,7 +70,7 @@ jobs:
 
   determine-playwright-image:
     name: Determine Playwright container image
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     outputs:
       container-image: mcr.microsoft.com/playwright:${{ steps.read-version.outputs.version }}-jammy
     steps:
@@ -102,7 +84,7 @@ jobs:
 
   test-e2e:
     name: Run e2e tests (${{ matrix.shard }}/${{ matrix.total_shards }})
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     needs:
       - determine-playwright-image
     container:
@@ -131,7 +113,7 @@ jobs:
 
   merge-e2e-reports:
     name: Merge e2e test reports
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     if: always()
     needs:
       - determine-playwright-image
@@ -151,7 +133,7 @@ jobs:
 
   test-visual-regression:
     name: Run visual regression tests (${{ matrix.shard }}/${{ matrix.total_shards }})
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     needs:
       - determine-playwright-image
     container:
@@ -180,7 +162,7 @@ jobs:
 
   merge-visual-regression-reports:
     name: Merge visual regression reports
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     if: always()
     needs:
       - determine-playwright-image
@@ -200,7 +182,7 @@ jobs:
 
   audit-dependencies:
     name: Audit dependencies
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Git clone repository
         uses: actions/checkout@v3
