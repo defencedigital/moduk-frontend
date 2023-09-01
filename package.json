@@ -151,7 +151,7 @@
     "shx": "^0.3.4",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.0.4",
+    "typescript": "^5.2.2",
     "vitest": "^0.34.1",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
