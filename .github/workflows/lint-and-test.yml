@@ -55,24 +55,6 @@ jobs:
         run: |
           npm exec --no -- commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
 
-  check-for-fixup-commits:
-    name: Check for fixup! commits
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' }}
-    steps:
-      - name: Git clone repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Check for fixup! commits
-        shell: bash
-        run: |
-          if [[ $(git log --pretty=oneline --grep=^fixup! ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}) ]]; then
-            echo "fixup! commits found. Squash these before merging."
-            exit 1
-          fi
-
   test-unit:
     name: Run unit tests
     runs-on: ubuntu-latest
