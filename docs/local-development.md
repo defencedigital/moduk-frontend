@@ -20,10 +20,17 @@ Local development requires Node.js 16 or 18 and npm 8 or newer.
 
 ## Setting up your development environment
 
-1. Clone the repository:
+1. Clone the repository via SSH:
 
    ```shell
-   git clone https://github.com/defencedigital/moduk-frontend
+   git clone git@github.com:defencedigital/moduk-frontend.git
+   cd moduk-frontend
+   ```
+
+   If you haven't authenticated with GitHub, you can clone via HTTPS instead:
+
+   ```shell
+   git clone https://github.com/defencedigital/moduk-frontend.git
    cd moduk-frontend
    ```
 
@@ -61,29 +68,37 @@ Local development requires Node.js 16 or 18 and npm 8 or newer.
 npm run lint
 ```
 
+#### Apply fixes suggested by the linter
+
+```shell
+npm run lint:fix
+```
+
 ### Reformat all files
 
 ```shell
 npm run format
 ```
 
-### Build the library ready for publishing
+### Build the library ready for distribution
 
 ```shell
 npm run build
 ```
 
-### Run all unit tests
+### Run all unit and type tests
 
 ```shell
 npm run test
 ```
 
-### Run the examples web server
+### Start the examples site server
 
 ```shell
-npm run serve
+npm start
 ```
+
+By default, the server is accessible at http://localhost:8080/.
 
 ### Run end-to-end tests
 
@@ -91,17 +106,30 @@ npm run serve
 npm run test:e2e
 ```
 
-#### Run specific files using a regex
+This runs end-to-end tests using Playwright for all configured browser
+configurations. The examples site server is started automatically, so does not
+need to be started separately.
+
+#### Run specific test files using a regex
 
 ```shell
 npm run test:e2e <regex>
 ```
+
+You can also use `test.only` or `test.desribe.only` within a test file to skip
+other tests.
 
 #### Run tests with tracing
 
 ```shell
 npm run test:e2e:trace
 ```
+
+[Playwright traces](https://playwright.dev/docs/trace-viewer-intro) record
+failed tests for debugging later, or on a different machine.
+
+You can also debug tests [using VS code](https://playwright.dev/docs/debug), or
+by [using the built-in inspector debugger](https://playwright.dev/docs/debug).
 
 ### Run visual regression tests in a container
 
@@ -123,6 +151,13 @@ To update any screenshots that have changed:
 ```shell
 npm run test:visual:refresh
 ```
+
+The same set of screenshots (also called snapshots) are used for both Nunjucks
+and React components, to ensure they render identically. If they do not match,
+the two tests will overwrite each other's snapshot. Check the rendered HTML for
+any differences, particularly in relation to whitespace. You may need to use
+`{' '}` or even `{' some text'}` in the React component to ensure whitespace is
+preserved in the same way as the Nunjucks component.
 
 ### Delete all visual regression snapshots
 
