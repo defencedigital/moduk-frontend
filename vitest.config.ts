@@ -5,7 +5,10 @@ export default defineConfig({
   test: {
     environment: 'happy-dom',
     include: [`${__dirname}/src/**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}`],
-    setupFiles: `${__dirname}/vitest/setup.ts`,
+    setupFiles: [
+      `${__dirname}/vitest/disableReactDevToolsMessage.ts`,
+      `${__dirname}/vitest/setup.ts`,
+    ],
     clearMocks: true,
   },
   resolve: {
