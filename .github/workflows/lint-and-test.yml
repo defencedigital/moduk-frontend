@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up environment
         uses: ./.github/actions/prepare-environment
@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up environment
         uses: ./.github/actions/prepare-environment
@@ -44,7 +44,7 @@ jobs:
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - name: Git clone repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up environment
         uses: ./.github/actions/prepare-environment
@@ -75,7 +75,7 @@ jobs:
       container-image: mcr.microsoft.com/playwright:${{ steps.read-version.outputs.version }}-jammy
     steps:
       - name: Git clone repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - id: read-version
         name: Read Playwright version
@@ -96,7 +96,7 @@ jobs:
         total_shards: [4]
     steps:
       - name: Git clone repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up environment
         uses: ./.github/actions/prepare-environment
@@ -120,7 +120,7 @@ jobs:
       - test-e2e
     steps:
       - name: Git clone repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up environment
         uses: ./.github/actions/prepare-environment
@@ -145,7 +145,7 @@ jobs:
         total_shards: [2]
     steps:
       - name: Git clone repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up environment
         uses: ./.github/actions/prepare-environment
@@ -169,7 +169,7 @@ jobs:
       - test-visual-regression
     steps:
       - name: Git clone repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up environment
         uses: ./.github/actions/prepare-environment
@@ -185,7 +185,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up environment
         uses: ./.github/actions/prepare-environment
