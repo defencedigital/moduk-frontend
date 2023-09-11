@@ -8,7 +8,7 @@ interface RootProps {
 export const Root = ({ exampleName, component, children }: PropsWithChildren<RootProps>) => {
   const titlePrefix = exampleName && component ? `${exampleName} – ${component} – ` : ''
   return (
-    <html lang='en'>
+    <>
       <head>
         <title>{`${titlePrefix}MOD.UK Frontend React`}</title>
         <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover' />
@@ -21,6 +21,6 @@ export const Root = ({ exampleName, component, children }: PropsWithChildren<Roo
         </div>
         <script src='/react-example-client/index.js'></script>
       </MODUKBody>
-    </html>
+    </>
   )
 }

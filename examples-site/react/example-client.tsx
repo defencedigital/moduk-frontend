@@ -49,7 +49,7 @@ const getComponent = async (): Promise<ComponentType> => {
     const Component = await getComponent()
 
     hydrateRoot(
-      document,
+      document.documentElement,
       <StrictMode>
         <Root exampleName={exampleName} component={component}>
           <Component />
@@ -66,7 +66,7 @@ const getComponent = async (): Promise<ComponentType> => {
     )
   } catch (err) {
     hydrateRoot(
-      document,
+      document.documentElement,
       <StrictMode>
         <Root>
           <div>{err instanceof Error ? err.message : 'Unexpected Error'}</div>
