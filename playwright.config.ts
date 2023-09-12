@@ -6,7 +6,7 @@ import {
   type Locator,
   type Page,
   type PlaywrightTestConfig,
-  type Project,
+  type PlaywrightTestProject,
 } from '@playwright/test'
 
 import { escapeRegExp } from 'lodash'
@@ -83,11 +83,11 @@ expect.extend({
 
 const baseURL = 'http://localhost:8080'
 
-interface FrameworkProject extends Project {
+interface FrameworkProject extends PlaywrightTestProject {
   grepInvert: RegExp
 }
 
-const libraryProjects = (projects: FrameworkProject[]): Project[] => {
+const libraryProjects = (projects: FrameworkProject[]): PlaywrightTestProject[] => {
   const reactComponents = findReactExamples().map(([component]) => escapeRegExp(component)).join('|')
 
   return projects.flatMap(({ grepInvert, ...project }) => [
