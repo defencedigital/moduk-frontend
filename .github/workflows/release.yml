@@ -37,7 +37,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config push.autoSetupRemote true
 
-      - name: Prepare release
+      - id: prepare-release
+        name: Prepare release
         if: steps.check-release-required.outputs.continue
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -64,7 +65,8 @@ jobs:
           git merge --ff-only ${{ steps.git-branch.outputs.git-branch }}
           git push --follow-tags origin main
 
-      - name: Publish the release
+      - id: publish-release
+        name: Publish the release
         if: steps.check-release-required.outputs.continue
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -75,4 +77,8 @@ jobs:
 
       - name: Delete release branch
         if: always() && steps.check-release-required.outputs.continue && steps.git-branch.outputs.git-branch
-        run: git push origin :${{ steps.git-branch.outputs.git-branch }}
+        run: git push --delete origin ${{ steps.git-branch.outputs.git-branch }}
+
+      - name: Delete tag on failure
+        if: always() && steps.prepare-release.outcome == 'success' && steps.publish-release.outcome != 'success'
+        run: git push --delete origin refs/tags/`git describe --tags --exact-match`
