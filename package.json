@@ -42,7 +42,7 @@
     "build:client:umd": "webpack --config webpack.config.ts",
     "build:client:es": "babel src/client/index.ts --extensions .ts,.tsx --out-file dist/client/moduk-frontend.mjs",
     "prebuild:client:react": "shx rm -rf dist/react",
-    "build:client:react": "npm run build:client:react:es && npm urn build:client:react:cjs && npm run build:client:react:types",
+    "build:client:react": "npm run build:client:react:es && npm run build:client:react:cjs && npm run build:client:react:types",
     "build:client:react:es": "BABEL_ENV=es babel src/react/ --ignore 'src/react/**/__examples__' --ignore 'src/react/**/__tests__' --extensions .ts,.tsx --out-dir dist/react/esm --out-file-extension .js",
     "build:client:react:cjs": "webpack --config webpack-react-prod.config.ts",
     "build:client:react:types": "tsc --project tsconfig.react.json",
