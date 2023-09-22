@@ -1,4 +1,4 @@
-import { NotificationBanner } from '../NotificationBanner'
+import { NotificationBanner } from '@moduk/frontend/react'
 
 export const Example = () => (
   <NotificationBanner type='success'>
