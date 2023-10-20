@@ -1,5 +1,13 @@
 # MOD.UK Frontend
 
+> **20 October 2023:** The Defence Developer Services (D2S) will shortly
+> commence work on its re-use strategy and the discovery and delivery of a
+> re-use components service. As part of this, we will commence a Discovery
+> activity for the Design System Toolkit. During the Discovery Phase, the MOD.UK
+> Frontend and Design Library will be in maintenance mode with no further
+> enhancements being made during this time. Only high priority issues such as
+> security fixes or outages will be completed.
+
 MOD.UK Frontend contains the code for components you’ll need to build user
 interfaces for Defence products and services.
 
