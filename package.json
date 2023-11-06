@@ -113,7 +113,7 @@
     "@babel/register": "^7.22.15",
     "@commitlint/cli": "^18.2.0",
     "@commitlint/config-conventional": "^18.1.0",
-    "@playwright/test": "^1.38.1",
+    "@playwright/test": "^1.39.0",
     "@release-it/conventional-changelog": "^7.0.2",
     "@testing-library/dom": "^9.3.3",
     "@testing-library/jest-dom": "^6.1.4",
