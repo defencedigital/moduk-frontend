@@ -41,7 +41,7 @@ expect.extend({
       pass: false,
     }
   },
-  async toHaveDescription(this: ReturnType<Expect['getState']>, locator: Locator, expected: string) {
+  async toHaveDescription(this: ReturnType<Expect<'getState'>>, locator: Locator, expected: string) {
     const page = locator.page()
     const describedBy = await locator.getAttribute('aria-describedby')
     const describedByIds = `#${describedBy?.split(' ').join(', #')}`
