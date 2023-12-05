@@ -72,7 +72,7 @@
     "test:e2e": "npm run build && playwright test --grep-invert @visual-regression",
     "test:e2e:show-report": "playwright show-report e2e/output/html",
     "test:e2e:trace": "npm run test:e2e -- --trace retain-on-failure",
-    "test:types": "vitest typecheck --run",
+    "test:types": "vitest --typecheck.only --run",
     "test:visual": "scripts/run-playwright-container.sh bash -c 'npm install && npm run test:visual:native'",
     "test:visual:clean": "shx rm -rf 'e2e/tests/__screenshots__'",
     "test:visual:native": "npm run build && playwright test --grep @visual-regression",
@@ -157,7 +157,7 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.0.4",
-    "vitest": "^0.34.4",
+    "vitest": "^1.0.1",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   },
