@@ -178,7 +178,7 @@
     "@types/shelljs": "^0.8.15",
     "clsx": "^2.0.0",
     "lodash": "^4.17.21",
-    "react-keyed-flatten-children": "^2.2.1",
+    "react-keyed-flatten-children": "^3.0.0",
     "react-merge-refs": "^2.0.2"
   },
   "overrides": {
