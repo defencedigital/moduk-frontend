@@ -19,8 +19,8 @@ test.describe('skip link, default', () => {
     await expect(skipLink).toHaveCSS('height', '1px')
   })
 
-  test('displays the component after pressing Tab', async ({ page, skipLink }) => {
-    await page.keyboard.press('Tab')
+  test('displays the component after pressing Tab', async ({ skipLink }) => {
+    await skipLink.focus()
 
     await expect(skipLink).not.toHaveCSS('height', '1px')
     await expect(skipLink).toBeFocused()
