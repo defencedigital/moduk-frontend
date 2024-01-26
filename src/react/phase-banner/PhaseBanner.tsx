@@ -22,7 +22,7 @@ export interface PhaseBannerProps extends ComponentPropsWithoutRef<'div'> {
  * @experimental React components are in alpha and subject to change.
  *
  * @example
- * <PhaseBanner phaseTag={<PhaseTag>alpha</PhaseTag>}>
+ * <PhaseBanner phaseTag={<PhaseTag>Alpha</PhaseTag>}>
  *   This is a new service – your <a className='govuk-link' href='#'>feedback</a> will help us to improve it.
  * </PhaseBanner>
  */

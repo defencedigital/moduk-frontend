@@ -1,7 +1,7 @@
 @forward '../variables';
 @use '../variables';
 
-@use 'govuk-frontend/govuk/base';
+@use 'govuk-frontend/dist/govuk/base';
 
 .moduk-header__logo {
   .govuk-header__link {

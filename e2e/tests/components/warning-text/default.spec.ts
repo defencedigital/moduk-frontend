@@ -7,7 +7,7 @@ test.describe('warning text, default', () => {
 
   test('displays visually hidden icon text', async ({ page }) => {
     await expect(
-      page.locator('.govuk-warning-text__assistive'),
+      page.locator('.govuk-visually-hidden'),
     ).toHaveText('Warning')
   })
 
