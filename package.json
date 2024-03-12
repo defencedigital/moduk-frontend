@@ -147,7 +147,7 @@
     "postcss-fail-on-warn": "^0.2.1",
     "postcss-preset-env": "^9.3.0",
     "react-merge-refs": "^2.1.1",
-    "release-it": "^17.0.1",
+    "release-it": "^17.1.1",
     "sass": "^1.69.3",
     "sass-true": "^8.0.0",
     "shelljs": "^0.8.5",
