@@ -8,6 +8,6 @@ test.describe('phase banner, default', () => {
   test('displays the phase banner', async ({ page }) => {
     await expect(
       page.getByRole('paragraph'),
-    ).toContainText('ALPHA', { useInnerText: true })
+    ).toContainText('Alpha')
   })
 })

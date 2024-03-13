@@ -1,9 +1,13 @@
 import { render, waitFor } from '@testing-library/react'
-import { describe, expect, test } from 'vitest'
+import { beforeAll, describe, expect, test } from 'vitest'
 
 import { Accordion, AccordionItem } from '..'
 
 describe('Accordion', () => {
+  beforeAll(() => {
+    // 'govuk-frontend-supported' not included in <body> by default since Node.js environments do not natively support HTMLScriptElement
+    document.body.className += 'govuk-frontend-supported'
+  })
   test('does not remount when there are no changes', async () => {
     const { container, rerender, getByText } = render(
       <Accordion id='accordion-default'>

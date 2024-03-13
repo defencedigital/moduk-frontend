@@ -25,7 +25,7 @@ export const WarningText = forwardRef<HTMLDivElement, WarningTextProps>(
     <div ref={ref} className={clsx('govuk-warning-text', className)} {...rest}>
       <span className='govuk-warning-text__icon' aria-hidden='true'>!</span>
       <strong className='govuk-warning-text__text'>
-        <span className='govuk-warning-text__assistive'>{iconFallbackText}</span>
+        <span className='govuk-visually-hidden'>{iconFallbackText}</span>
         {children}
       </strong>
     </div>

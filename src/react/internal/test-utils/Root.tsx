@@ -12,7 +12,7 @@ export const Root = ({ exampleName, component, children }: PropsWithChildren<Roo
       <head>
         <title>{`${titlePrefix}MOD.UK Frontend React`}</title>
         <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover' />
-        <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
+        <meta content='IE=edge' />
         <link href='/css/index.css' rel='stylesheet' />
       </head>
       <MODUKBody>

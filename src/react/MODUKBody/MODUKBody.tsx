@@ -18,6 +18,18 @@ export const MODUKBody = ({ children, className, ...rest }: ComponentPropsWithou
   useEffect(() => {
     setClient(true)
   }, [])
-  // logical OR is in place to prevent empty class attribute
-  return <body className={clsx(isClient && 'js-enabled', className) || undefined} {...rest}>{children}</body>
+
+  const combinedClassName = clsx({
+    'js-enabled': isClient,
+    'govuk-frontend-supported': isClient && 'noModule' in HTMLScriptElement.prototype,
+  }, className)
+
+  return (
+    <body
+      className={combinedClassName}
+      {...rest}
+    >
+      {children}
+    </body>
+  )
 }

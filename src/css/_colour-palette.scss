@@ -3,7 +3,7 @@
 @use 'sass:map';
 @use 'sass:string';
 
-@use 'govuk-frontend/govuk/helpers/colour';
+@use 'govuk-frontend/dist/govuk/helpers/colour';
 
 $moduk-colours: (
   'dark-purple': #532a45,

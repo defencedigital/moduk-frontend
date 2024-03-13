@@ -8,7 +8,7 @@ describe('Phase Banner', () => {
 
 {{ modukPhaseBanner({
   tag: {
-    text: "alpha"
+    text: "Alpha"
   },
   classes: "custom-class",
   attributes: {
@@ -19,7 +19,7 @@ describe('Phase Banner', () => {
 `
     const element = render(template)
     expect(element.querySelector('.govuk-tag')).toHaveClass('moduk-tag--default')
-    expect(element.querySelector('.govuk-tag')).toHaveTextContent('alpha')
+    expect(element.querySelector('.govuk-tag')).toHaveTextContent('Alpha')
     expect(element).toHaveClass('custom-class')
     expect(element).toHaveAttribute('data-testid', 'phase-banner')
   })

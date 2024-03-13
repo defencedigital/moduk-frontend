@@ -113,7 +113,7 @@
     "@babel/register": "^7.23.7",
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
-    "@playwright/test": "^1.38.1",
+    "@playwright/test": "^1.42.1",
     "@release-it/conventional-changelog": "^8.0.1",
     "@testing-library/dom": "^9.3.4",
     "@testing-library/jest-dom": "^6.4.2",
@@ -189,7 +189,7 @@
     "optionator": "^0.9.3"
   },
   "peerDependencies": {
-    "govuk-frontend": "4.8.0",
+    "govuk-frontend": "5.0.0",
     "nunjucks": "^3.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

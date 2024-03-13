@@ -3,7 +3,7 @@
 @forward 'variables';
 @use 'variables';
 
-@forward 'govuk-frontend/govuk/all' with (
+@forward 'govuk-frontend/dist/govuk/all' with (
   $govuk-assets-path: variables.$moduk-assets-path,
   $govuk-images-path: variables.$moduk-images-path,
   $govuk-font-family: variables.$moduk-font-family,
@@ -11,4 +11,3 @@
 );
 
 @forward 'components/header';
-@forward 'components/tag';
