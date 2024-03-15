@@ -115,7 +115,7 @@ export const Footer = forwardRef<
   },
   ref,
 ) => (
-  <footer ref={ref} className={clsx('govuk-footer', className)} role='contentinfo' {...rootProps}>
+  <footer ref={ref} className={clsx('govuk-footer', className)} {...rootProps}>
     <div className={clsx('govuk-width-container', containerClassName)}>
       {navigation}
       <FooterMetaWrapper contentLicence={contentLicence} copyright={copyright}>
