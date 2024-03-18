@@ -19,10 +19,14 @@ export const MODUKBody = ({ children, className, ...rest }: ComponentPropsWithou
     setClient(true)
   }, [])
 
-  const combinedClassName = clsx({
-    'js-enabled': isClient,
-    'govuk-frontend-supported': isClient && 'noModule' in HTMLScriptElement.prototype,
-  }, className)
+  const combinedClassName = clsx(
+    {
+      'js-enabled': isClient,
+      'govuk-frontend-supported': isClient && 'noModule' in HTMLScriptElement.prototype,
+    },
+    'govuk-template__body',
+    className,
+  )
 
   return (
     <body
