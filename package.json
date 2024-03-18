@@ -104,7 +104,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "@axe-core/playwright": "^4.7.3",
+    "@axe-core/playwright": "^4.8.5",
     "@babel/cli": "^7.23.9",
     "@babel/core": "^7.24.0",
     "@babel/preset-env": "^7.24.0",
