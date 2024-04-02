@@ -14,7 +14,7 @@ test.describe('header, with service name', () => {
   })
 
   test.describe('@visual-regression', () => {
-    test.only('matches the saved screenshot when the service name is hovered', async ({ page, componentElement }) => {
+    test('matches the saved screenshot when the service name is hovered', async ({ page, componentElement }) => {
       await page.getByText('Service name').hover()
 
       await expect(componentElement).toHaveScreenshot('service-name-hover.png')

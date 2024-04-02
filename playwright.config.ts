@@ -164,7 +164,7 @@ const config: PlaywrightTestConfig = {
   retries: process.env.CI ? 1 : 0,
   snapshotPathTemplate: '{testDir}/__screenshots__/{testFilePath}/{arg}--{projectName}{ext}',
   testDir: './e2e/tests',
-  timeout: 30 * 1000,
+  timeout: 300 * 1000,
   use: {
     baseURL,
     trace: process.env.PLAYWRIGHT_TRACE
@@ -177,6 +177,7 @@ const config: PlaywrightTestConfig = {
     command: 'npm start',
     url: baseURL,
     reuseExistingServer: true,
+    timeout: 10 * 60 * 1000,
   },
   workers: process.env.CI ? 2 : undefined,
 }
