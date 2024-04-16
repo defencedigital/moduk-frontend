@@ -13,9 +13,9 @@ permalink: 'components/{{ example.component }}/{{ example.exampleName }}/index.h
   <meta content="IE=edge">
   <link href="/css/index.css" rel="stylesheet">
 </head>
-<body>
+<body class="govuk-template__body ">
   <script>
-    document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');
+    document.body.className += 'js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');
   </script>
   <div id="root">{% include example.template %}</div>
   <script src="/client/moduk-frontend.umd.js"></script>
