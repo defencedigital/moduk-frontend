@@ -23,12 +23,15 @@ export const SummaryListActions = ({ children, className }: SummaryListActionsPr
   const links = flattenedChildren.length === 1 ? flattenedChildren : (
     <ul className='govuk-summary-list__actions-list'>
       {flattenedChildren.map((child) => (
-        <li
-          key={child.key}
-          className='govuk-summary-list__actions-list-item'
-        >
-          {child}
-        </li>
+        <>
+          <li
+            key={child.key}
+            className='govuk-summary-list__actions-list-item'
+          >
+            {child}
+          </li>
+          {' '}
+        </>
       ))}
     </ul>
   )
