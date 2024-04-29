@@ -13,7 +13,8 @@ const initialiseComponent = async <ComponentName extends ComponentNameLiteral>(
   el: ComponentElement[ComponentName],
 ) => {
   const client = await import('govuk-frontend')
-  new client[componentName](el).init()
+  /* eslint no-new: "off" */
+  new client[componentName](el)
 }
 
 export function useMODUKComponent<
