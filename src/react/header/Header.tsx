@@ -159,7 +159,6 @@ export const Header = forwardRef<HTMLElement, HeaderProps>((props, forwardedRef)
     <header
       ref={mergeRefs([ref, forwardedRef])}
       className={clsx('govuk-header', className)}
-      role='banner'
       data-module='govuk-header'
       {...rootProps}
     >
