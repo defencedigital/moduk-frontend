@@ -60,7 +60,6 @@ export function AccordionItem({
       <div
         id={contentId}
         className='govuk-accordion__section-content'
-        aria-labelledby={headingId}
       >
         {typeof children === 'string' && <p className='govuk-body'>{children}</p>}
         {typeof children !== 'string' && children}

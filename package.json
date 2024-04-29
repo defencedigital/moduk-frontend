@@ -1,6 +1,6 @@
 {
   "name": "@moduk/frontend",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "The MOD.UK Frontend contains the code you need to start building a user interface for Ministry of Defence platforms and services.",
   "main": "dist/lib/index.js",
   "sass": "src/css/index.scss",
@@ -189,7 +189,7 @@
     "optionator": "^0.9.3"
   },
   "peerDependencies": {
-    "govuk-frontend": "^5.0.0",
+    "govuk-frontend": "^5.3.1",
     "nunjucks": "^3.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

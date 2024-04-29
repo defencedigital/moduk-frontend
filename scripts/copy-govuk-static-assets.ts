@@ -8,6 +8,13 @@ import { join } from 'node:path'
 const GOVUK_PATH = require.resolve('govuk-frontend')
 const TARGET_DIR = join(__dirname, '..', 'dist', 'assets', 'images')
 const FILES_TO_COPY = [
+  'favicon.ico',
+  'favicon.svg',
+  'govuk-icon-180.png',
+  'govuk-icon-192.png',
+  'govuk-icon-512.png',
+  'govuk-icon-mask.svg',
+  'govuk-opengraph-image.png',
   'govuk-crest.png',
   'govuk-crest-2x.png',
 ]
