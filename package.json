@@ -176,7 +176,7 @@
   },
   "dependencies": {
     "@types/shelljs": "^0.8.15",
-    "clsx": "^2.0.0",
+    "clsx": "^2.1.1",
     "lodash": "^4.17.21",
     "pac-resolver": "^7.0.1",
     "react-keyed-flatten-children": "^3.0.0",
