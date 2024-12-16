@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: moduk-frontend
+  annotations:
+    github.com/project-slug: defencedigital/moduk-frontend
+spec:
+  type: library
+  lifecycle: production
+  owner: group:default/d2s-reuse
+  system: moduk-frontend
