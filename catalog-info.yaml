@@ -2,6 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: moduk-frontend
+  title: MOD.UK Frontend
   annotations:
     github.com/project-slug: defencedigital/moduk-frontend
 spec:
@@ -9,3 +10,6 @@ spec:
   lifecycle: production
   owner: group:default/d2s-reuse
   system: moduk-frontend
+  links:
+    - url: https://design-system.service.mod.gov.uk/
+      title: Documentation
