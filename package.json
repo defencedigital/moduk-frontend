@@ -18,7 +18,8 @@
       "types": "./dist/lib/index.d.ts",
       "require": "./dist/lib/index.js",
       "sass": "./src/css/index.scss",
-      "style": "./dist/css/index.css"
+      "style": "./dist/css/index.css",
+      "default": "./dist/lib/index.js"
     },
     "./client": {
       "import": "./dist/client/moduk-frontend.mjs",
