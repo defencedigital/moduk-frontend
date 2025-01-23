@@ -18,4 +18,4 @@ jobs:
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE}} # Only required for Organizations, not personal accounts.
           GITLEAKS_CONFIG: ./gitleaks.toml
           GITLEAKS_VERSION: latest
-          GITLEAKS_NOTIFY_USER_LIST: "@defencedigital/d2s-security, @defencedigital/d2s-portal"
+          GITLEAKS_NOTIFY_USER_LIST: "@defencedigital/d2s-security, @defencedigital/d2s-platform"
