@@ -1,5 +1,7 @@
 # MOD.UK Frontend
 
+> [!NOTE]
+>
 > **20 October 2023:** The Defence Developer Services (D2S) will shortly
 > commence work on its re-use strategy and the discovery and delivery of a
 > re-use components service. As part of this, we will commence a Discovery

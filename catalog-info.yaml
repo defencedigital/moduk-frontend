@@ -1,15 +1,10 @@
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: Location
 metadata:
-  name: moduk-frontend
-  title: MOD.UK Frontend
-  annotations:
-    github.com/project-slug: defencedigital/moduk-frontend
+  name: moduk-design-system
+  description: MOD.UK Design System software metadata
 spec:
-  type: library
-  lifecycle: production
-  owner: group:default/d2s-reuse
-  system: moduk-frontend
-  links:
-    - url: https://design-system.service.mod.gov.uk/
-      title: Documentation
+  targets:
+    - ./backstage/design-library.yaml
+    - ./backstage/moduk-design-system.yaml
+    - ./backstage/moduk-frontend.yaml

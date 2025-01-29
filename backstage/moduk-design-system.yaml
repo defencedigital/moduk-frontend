@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: moduk-design-system
+  title: MOD.UK Design System
+  description: Save time by using accessible components with Defence branding.
+  links:
+    - url: https://design-system.service.mod.gov.uk/
+      title: 'MOD.UK Design System'
+    - url: https://defencedigital.atlassian.net/wiki/spaces/MDSRL/overview?homepageId=25952322
+      title: 'MOD.UK Frontend - Digital Foundry Wiki'
+spec:
+  owner: group:default/design-system
+  domain: developer-services
