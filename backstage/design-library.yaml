@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: moduk-figma-design-library
+  title: MOD.UK Figma Design Library
+  description:
+    You can use the MOD.UK Figma Design Library to design and prototype Defence
+    services.
+  links:
+    - url: https://www.figma.com/file/JrmVrSdKCHUZBQFEB3xsjJ/Figma-Design-Library?node-id=50-5303
+      title: 'Figma Design Library – Figma'
+spec:
+  type: website
+  lifecycle: production
+  owner: group:default/design-system
+  system: moduk-design-system
