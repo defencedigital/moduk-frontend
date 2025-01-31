@@ -11,17 +11,22 @@ runs:
   using: composite
   steps:
     - name: Download blob reports
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
-        name: ${{ inputs.input-artifact }}
+        merge-multiple: true
+        # v4 of upload-artifact does not allow uploading to the same artifact multiple times, so have to enumerate each artifact
+        # See https://github.com/actions/upload-artifact/issues/480
+        name: ${{ inputs.input-artifact }}-${{ strategy.job-index }}
         path: blob-reports
 
     - name: Merge reports
       shell: bash
       run: npm exec --no -- playwright merge-reports --reporter html blob-reports
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: ${{ inputs.output-artifact }}
+        # v4 of upload-artifact does not allow uploading to the same artifact multiple times, so have to enumerate each artifact
+        # See https://github.com/actions/upload-artifact/issues/480
+        name: ${{ inputs.output-artifact }}-${{ strategy.job-index }}
         path: playwright-report
