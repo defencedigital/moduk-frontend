@@ -106,8 +106,9 @@ dist
 /e2e/output/
 /blob-report/
 
-# Editor configs 
+# Editor configs
 .vscode/
 
 # MacOS
 .DS_Store
+.history/
