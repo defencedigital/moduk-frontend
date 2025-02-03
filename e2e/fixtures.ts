@@ -2,6 +2,10 @@ import { type Locator, test as base } from '@playwright/test'
 
 interface Fixtures {
   componentElement: Locator
+  getCharacterCountMessage: (text: string) => Locator
+  getScreenReaderMessage: () => Locator
+  content: Locator
+  skipLink: Locator
 }
 
 export * from '@playwright/test'

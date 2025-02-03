@@ -1,8 +1,8 @@
 import AxeBuilder from '@axe-core/playwright'
 import {
   devices,
-  type Expect,
   expect,
+  type ExpectMatcherState,
   type Locator,
   type Page,
   type PlaywrightTestConfig,
@@ -41,7 +41,7 @@ expect.extend({
       pass: false,
     }
   },
-  async toHaveDescription(this: ReturnType<Expect['getState']>, locator: Locator, expected: string) {
+  async toHaveDescription(this: ExpectMatcherState, locator: Locator, expected: string) {
     const page = locator.page()
     const describedBy = await locator.getAttribute('aria-describedby')
     const describedByIds = `#${describedBy?.split(' ').join(', #')}`
@@ -118,7 +118,7 @@ const config: PlaywrightTestConfig = {
     timeout: 5000,
     toHaveScreenshot: {
       scale: 'device',
-      threshold: 0.05,
+      threshold: 0.01,
     },
   },
   forbidOnly: !!process.env.CI,
@@ -148,10 +148,10 @@ const config: PlaywrightTestConfig = {
       },
     },
     {
-      name: 'tablet-safari',
+      name: 'tablet-chrome',
       grepInvert: /(@mobile|@desktop)(\s|$)/,
       use: {
-        ...devices['iPad (gen 6)'],
+        ...devices['Galaxy Tab S4'],
       },
     },
   ]),
@@ -161,7 +161,6 @@ const config: PlaywrightTestConfig = {
       ['line'],
       ['html', { outputFolder: './e2e/output/html/', open: 'never' }],
     ],
-  retries: process.env.CI ? 1 : 0,
   snapshotPathTemplate: '{testDir}/__screenshots__/{testFilePath}/{arg}--{projectName}{ext}',
   testDir: './e2e/tests',
   timeout: 30 * 1000,
@@ -178,6 +177,6 @@ const config: PlaywrightTestConfig = {
     url: baseURL,
     reuseExistingServer: true,
   },
-  workers: process.env.CI ? 2 : undefined,
+  workers: 4,
 }
 export default config
