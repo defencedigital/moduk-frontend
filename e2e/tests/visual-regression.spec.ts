@@ -8,7 +8,7 @@ test.describe('@visual-regression', () => {
         test.describe(exampleName, () => {
           test.beforeEach(async ({ page }) => {
             await page.goto(`./components/${component}/${exampleName}`)
-            await page.waitForTimeout(100)
+            await page.waitForTimeout(250)
           })
 
           test('matches the saved screenshot', async ({ componentElement }) => {
