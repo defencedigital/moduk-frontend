@@ -11,11 +11,10 @@ test.describe('@visual-regression', () => {
             // The `govuk-frontend-supported` class is added to the `<body>` when JavaScript is enabled.
             // This takes a second or two to initialise, and Playwright thinks the page has stabilised before the class is applied.
             // This wait allows the govuk-frontend-supported class to be applied and the page to stabilise before comparison.
-            const jsInitialisedScript = document.createElement('script')
-            jsInitialisedScript.setAttribute('children', document.body.className += ' js-initialised')
-            document.body.appendChild(jsInitialisedScript)
-            await page.waitForSelector('js-initialised')
-            document.body.removeChild(jsInitialisedScript)
+            page.addScriptTag({
+              content: document.body.className += ' js-initialised',
+            })
+            await page.waitForSelector('body.js-initialised')
           })
 
           test('matches the saved screenshot', async ({ componentElement }) => {
