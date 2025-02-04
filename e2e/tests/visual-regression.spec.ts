@@ -8,6 +8,9 @@ test.describe('@visual-regression', () => {
         test.describe(exampleName, () => {
           test.beforeEach(async ({ page }) => {
             await page.goto(`./components/${component}/${exampleName}`)
+            // The `govuk-frontend-supported` class is added to the `<body>` when JavaScript is enabled.
+            // This takes a second or two to initialise, and Playwright thinks the page has stabilised before the class is applied.
+            // This short timeout between the page loading and being compared to the 'golden screenshot' allows the govuk-frontend-supported class to be applied and the page to stabilise.
             await page.waitForTimeout(400)
           })
 
