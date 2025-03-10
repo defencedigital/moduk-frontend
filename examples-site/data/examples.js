@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-require-imports */
 const { findNunjucksExamples } = require('../../src/test-utils')
 
 const examples = findNunjucksExamples()
