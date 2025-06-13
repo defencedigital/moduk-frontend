@@ -3,7 +3,6 @@ import { describe, expectTypeOf, test } from 'vitest'
 import { LinkBase, type LinkComponent } from '../Link'
 
 class RouterLink extends Component<{ to: string }> {
-  /* eslint-disable-next-line class-methods-use-this */
   render() {
     return null
   }
