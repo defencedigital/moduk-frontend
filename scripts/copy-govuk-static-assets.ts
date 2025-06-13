@@ -15,8 +15,6 @@ const FILES_TO_COPY = [
   'govuk-icon-512.png',
   'govuk-icon-mask.svg',
   'govuk-opengraph-image.png',
-  'govuk-crest.png',
-  'govuk-crest-2x.png',
 ]
 
 mkdirSync(TARGET_DIR, { recursive: true })
