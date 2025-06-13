@@ -107,7 +107,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: e2e-blob-reports
+          # v4 of upload-artifact does not allow uploading to the same artifact multiple times, so have to enumerate each artifact
+          # See https://github.com/actions/upload-artifact/issues/480
+          name: e2e-blob-reports-${{ strategy.job-index }}
           path: blob-report
           retention-days: 1
 
@@ -156,7 +158,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: visual-regression-blob-reports
+          # v4 of upload-artifact does not allow uploading to the same artifact multiple times, so have to enumerate each artifact
+          # See https://github.com/actions/upload-artifact/issues/480
+          name: visual-regression-blob-reports-${{ strategy.job-index }}
           path: blob-report
           retention-days: 1
 
