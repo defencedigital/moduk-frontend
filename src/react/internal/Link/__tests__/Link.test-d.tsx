@@ -20,8 +20,8 @@ describe('Link', () => {
         ref?: Ref<HTMLAnchorElement>
       }
     >()
-
     expectTypeOf(LinkBase<typeof RouterLink>).parameter(0).toMatchTypeOf<
+      // @ts-expect-error There is a bug here where TS expects the type to be "Expected: undefined, Actual: string" (that string exactly)
       {
         component?: typeof RouterLink
         ref?: Ref<RouterLink>
@@ -44,6 +44,7 @@ describe('Link', () => {
       }
     >()
     expectTypeOf(LinkExtended<typeof RouterLink>).parameter(0).toMatchTypeOf<
+      // @ts-expect-error There is a bug here where TS expects the type to be "Expected: undefined, Actual: string" (that string exactly)
       {
         component?: typeof RouterLink
         ref?: Ref<RouterLink>
