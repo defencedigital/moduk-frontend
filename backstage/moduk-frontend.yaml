@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: moduk-frontend
+  title: MOD.UK Frontend
+  description:
+    MOD.UK Frontend contains the code for components you'll need to build user
+    interfaces for Defence products and services.
+  annotations:
+    github.com/project-slug: defencedigital/moduk-frontend
+    github.com/team-slug: defencedigital/design-system
+    npm/package: '@moduk/frontend'
+spec:
+  type: library
+  lifecycle: production
+  owner: group:default/design-system
+  system: moduk-design-system

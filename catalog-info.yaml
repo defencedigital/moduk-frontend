@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: moduk-design-system
+  description: MOD.UK Design System software metadata
+spec:
+  targets:
+    - ./backstage/design-library.yaml
+    - ./backstage/moduk-design-system.yaml
+    - ./backstage/moduk-frontend.yaml
