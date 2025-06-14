@@ -59,7 +59,6 @@ function addSvgExtension(nunjucksEnv: Environment) {
       return new nodes.CallExtension(this, 'run', args, null)
     }
 
-    /* eslint-disable-next-line class-methods-use-this */
     run(_context: unknown, fileName: string) {
       const svgPath = `${join(__dirname, '..', '/assets/svg', basename(fileName, '.svg'))}.svg`
       return new runtime.SafeString(readFileSync(svgPath, 'utf8'))
