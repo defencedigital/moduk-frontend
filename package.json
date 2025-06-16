@@ -147,7 +147,7 @@
     "postcss-cli": "^11.0.0",
     "postcss-fail-on-warn": "^0.2.1",
     "postcss-preset-env": "^9.3.0",
-    "react-merge-refs": "^2.1.1",
+    "react-merge-refs": "^3.0.2",
     "release-it": "^19.0.3",
     "sass": "^1.69.3",
     "sass-true": "^8.0.0",
@@ -182,7 +182,7 @@
     "lodash": "^4.17.21",
     "pac-resolver": "^7.0.1",
     "react-keyed-flatten-children": "^3.0.0",
-    "react-merge-refs": "^2.1.1",
+    "react-merge-refs": "^3.0.2",
     "typescript-eslint": "^8.34.0"
   },
   "overrides": {
