@@ -6,7 +6,7 @@ import { Accordion, AccordionItem } from '..'
 describe('Accordion', () => {
   beforeAll(() => {
     // 'govuk-frontend-supported' not included in <body> by default since Node.js environments do not natively support HTMLScriptElement
-    document.body.className += 'govuk-frontend-supported'
+    document.body.className += ' govuk-frontend-supported'
   })
   test('does not remount when there are no changes', async () => {
     const { container, rerender, getByText } = render(
