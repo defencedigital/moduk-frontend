@@ -96,16 +96,12 @@ describe('Accordion', () => {
         <AccordionItem heading='Writing well for specialists'>
           <p className='govuk-body'>This is the content for Writing well for specialists.</p>
         </AccordionItem>
-        <>
-          <AccordionItem heading='Writing well for specialists'>
-            <p className='govuk-body'>This is the content for Writing well for specialists.</p>
-          </AccordionItem>
-          <>
-            <AccordionItem heading='Writing well for the web'>
-              <p className='govuk-body'>This is the content for Writing well for the web.</p>
-            </AccordionItem>
-          </>
-        </>
+        <AccordionItem heading='Writing well for specialists'>
+          <p className='govuk-body'>This is the content for Writing well for specialists.</p>
+        </AccordionItem>
+        <AccordionItem heading='Writing well for the web'>
+          <p className='govuk-body'>This is the content for Writing well for the web.</p>
+        </AccordionItem>
       </Accordion>,
     )
 
@@ -119,16 +115,12 @@ describe('Accordion', () => {
         <AccordionItem heading='Writing well for specialists'>
           <p className='govuk-body'>This is the content for Writing well for specialists.</p>
         </AccordionItem>
-        <>
-          <AccordionItem heading='Writing well for specialists'>
-            <p className='govuk-body'>This is the content for Writing well for specialists.</p>
-          </AccordionItem>
-          <>
-            <AccordionItem heading='Updated heading'>
-              <p className='govuk-body'>This is the content for Writing well for the web.</p>
-            </AccordionItem>
-          </>
-        </>
+        <AccordionItem heading='Writing well for specialists'>
+          <p className='govuk-body'>This is the content for Writing well for specialists.</p>
+        </AccordionItem>
+        <AccordionItem heading='Updated heading'>
+          <p className='govuk-body'>This is the content for Writing well for the web.</p>
+        </AccordionItem>
       </Accordion>,
     )
 
