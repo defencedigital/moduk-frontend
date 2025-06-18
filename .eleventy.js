@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires, import/no-dynamic-require, global-require  */
+/* eslint-disable @typescript-eslint/no-require-imports  */
 const path = require('node:path')
 
 require('@babel/register')({

@@ -1,17 +1,14 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const commitlintConfig = require('./commitlint.config')
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const commitlintConfig = require('./commitlint.config.cjs')
 
 module.exports = {
   git: {
-    // eslint-disable-next-line no-template-curly-in-string
     commitMessage: 'release: v${version}',
     pushArgs: '--set-upstream',
     requireBranch: 'main',
-    // eslint-disable-next-line no-template-curly-in-string
     tagName: 'v${version}',
   },
   github: {
-    // eslint-disable-next-line no-template-curly-in-string
     releaseName: 'v${version}',
   },
   npm: {
@@ -19,7 +16,6 @@ module.exports = {
     publishPath: './dist/',
   },
   hooks: {
-    // eslint-disable-next-line no-template-curly-in-string
     'before:git:release': 'git switch -c release-bot/${version}',
   },
   plugins: {
