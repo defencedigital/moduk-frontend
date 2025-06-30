@@ -150,7 +150,7 @@
     "react-merge-refs": "^3.0.2",
     "release-it": "^19.0.3",
     "sass": "^1.69.3",
-    "sass-true": "^8.0.0",
+    "sass-true": "^9.0.0",
     "shelljs": "^0.10.0",
     "shx": "^0.4.0",
     "stylelint": "^16.21.0",
