@@ -183,7 +183,7 @@
     "pac-resolver": "^7.0.1",
     "react-keyed-flatten-children": "^3.0.0",
     "react-merge-refs": "^3.0.2",
-    "typescript-eslint": "^8.34.1"
+    "typescript-eslint": "^8.35.0"
   },
   "overrides": {
     "playwright-core": "$@playwright/test",
