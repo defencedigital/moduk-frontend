@@ -132,7 +132,7 @@
     "babel-loader": "^10.0.0",
     "babel-plugin-inline-react-svg": "^2.0.2",
     "babel-plugin-module-resolver": "^5.0.0",
-    "concurrently": "^9.1.2",
+    "concurrently": "^9.2.0",
     "dprint": "^0.50.1",
     "eslint": "^9.29.0",
     "eslint-import-resolver-typescript": "^4.4.3",
