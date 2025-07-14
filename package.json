@@ -159,7 +159,7 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4",
-    "webpack": "^5.90.3",
+    "webpack": "^5.100.1",
     "webpack-cli": "^6.0.1"
   },
   "lint-staged": {
