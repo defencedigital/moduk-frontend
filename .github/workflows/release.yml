@@ -51,7 +51,7 @@ jobs:
 
       - name: Wait for tests to succeed
         if: steps.check-release-required.outputs.continue
-        uses: lewagon/wait-on-check-action@0dceb95e7c4cad8cc7422aee3885998f5cab9c79
+        uses: lewagon/wait-on-check-action@3603e826ee561ea102b58accb5ea55a1a7482343
         with:
           ref: ${{ steps.git-branch.outputs.git-branch }}
           running-workflow-name: ${{ github.workflow }}
