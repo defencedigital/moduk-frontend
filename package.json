@@ -141,7 +141,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-unicorn": "^60.0.0",
     "glob": "^11.0.3",
-    "happy-dom": "^18.0.1",
+    "happy-dom": "^20.0.0",
     "husky": "^9.0.11",
     "lint-staged": "^16.1.2",
     "postcss-cli": "^11.0.0",
