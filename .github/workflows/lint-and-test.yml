@@ -104,7 +104,7 @@ jobs:
       - name: Run e2e tests
         run: npm run test:e2e -- --shard ${{ matrix.shard }}/${{ matrix.total_shards }}
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: always()
         with:
           # v4 of upload-artifact does not allow uploading to the same artifact multiple times, so have to enumerate each artifact
@@ -155,7 +155,7 @@ jobs:
       - name: Run visual regression tests
         run: npm run test:visual:native -- --shard ${{ matrix.shard }}/${{ matrix.total_shards }}
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: always()
         with:
           # v4 of upload-artifact does not allow uploading to the same artifact multiple times, so have to enumerate each artifact
