@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { expect, test } from 'vitest'
 import { MODUKBody } from '../MODUKBody'
 
-test('should add js-enabled class to the body', async () => {
+test('should add js-enabled and govuk-frontend-supported classes to the body', async () => {
   const ExampleComponentBodyClass = () => {
     const [flag, setFlag] = useState(false)
 
@@ -25,5 +25,5 @@ test('should add js-enabled class to the body', async () => {
       container: document.documentElement,
     },
   )
-  await waitFor(() => expect(document.body).toHaveClass('js-enabled', 'flag'))
+  await waitFor(() => expect(document.body).toHaveClass('js-enabled', 'govuk-frontend-supported', 'flag'))
 })
