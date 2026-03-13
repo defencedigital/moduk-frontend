@@ -23,7 +23,7 @@ runs:
       shell: bash
       run: npm exec --no -- playwright merge-reports --reporter html blob-reports
 
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       if: always()
       with:
         # v4 of upload-artifact does not allow uploading to the same artifact multiple times, so have to enumerate each artifact
